@@ -8,7 +8,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 	<meta name="description" content="Creative One Page Parallax Template"/>
 	<meta name="keywords" content="Creative, Onepage, Parallax, HTML5, Bootstrap, Popular, custom, personal, portfolio" /> 
-	<meta name="author" content="Nathan Barr & Marcus Berry"/> 
 	<title>Login</title> 
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 

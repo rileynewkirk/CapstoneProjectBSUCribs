@@ -1,0 +1,98 @@
+﻿body {
+}
+
+.forum-panel{
+     width: auto;
+}
+
+.forum-grid{
+    width:auto;
+    /*padding-left:90px;*/
+}
+
+.forum-sidenav{
+    padding-left:50px;
+}
+
+.grid-square {
+    width: auto;
+    padding: 0px;
+}
+
+.single ul {
+    margin-bottom: 0; 
+    
+}
+.single li a {
+    color: #666;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f3f0f0;
+    line-height: 25px;
+    display: block;
+    text-decoration: none; 
+}
+    
+.single li a:hover {
+    color: #60B078; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.inner {
+    height: 200px;
+    margin: auto;
+    width: 200px;
+    position: relative;
+    transition: all 0.5s ease 0s;
+    perspective: 300px;
+}
+
+.effect {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    transition: all .5s ease 0s;
+}
+
+.one {
+    background-color: lightblue;
+    z-index: 1111;
+    backface-visibility: visible;
+}
+
+.inner:hover .one {
+    transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    backface-visibility: hidden;
+}
+
+.two {
+    background-color: lightblue;
+    transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.inner:hover .two {
+    transform: none;
+    backface-visibility: visible;
+}
+
+h3 {
+    color: black;
+    font-weight: bold;
+    opacity: 1 !important;
+    padding-bottom:5px;
+}
+
+h4{
+    color: black;
+    font-weight: bold;
+    opacity: 1 !important;
+    padding-top:10px;
+    padding-bottom:5px;
+}

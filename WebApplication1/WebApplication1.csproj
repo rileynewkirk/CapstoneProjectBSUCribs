@@ -49,6 +49,21 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mysql.data">
+      <HintPath>..\..\..\..\Desktop\CapStone\mySqlConnection\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data.cf">
+      <HintPath>..\..\..\..\Desktop\CapStone\mySqlConnection\mysql.data.cf.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data.entity">
+      <HintPath>..\..\..\..\Desktop\CapStone\mySqlConnection\mysql.data.entity.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.visualstudio">
+      <HintPath>..\..\..\..\Desktop\CapStone\mySqlConnection\mysql.visualstudio.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.web">
+      <HintPath>..\..\..\..\Desktop\CapStone\mySqlConnection\mysql.web.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

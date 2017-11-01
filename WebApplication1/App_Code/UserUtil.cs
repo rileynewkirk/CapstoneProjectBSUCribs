@@ -87,21 +87,32 @@ namespace WebApplication1.App_Code
             dr.Read();
             if (dr.HasRows)
             {
-                if (dr["Password"].ToString().Equals(EncryptPassword.encryptString(password)))
+#pragma warning disable CS0436 // Type conflicts with imported type
+                if (dr["Password"].ToString().Equals(value: EncryptPassword.encryptString(password)))
+#pragma warning restore CS0436 // Type conflicts with imported type
                 {
                     dr.Close();
                     conn.Close();
                     return true;
-                    
+
+                }
+                else
+                {
+                    return false;
                 }
 
-            }
-            
-            
-            return false;
-            
 
-            
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+
+
+
         }
 
         public UserUtil getUser(string UserName)

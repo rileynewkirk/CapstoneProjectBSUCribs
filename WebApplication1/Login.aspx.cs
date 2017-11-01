@@ -22,22 +22,14 @@ namespace WebApplication1
         }
         protected void ButtonLogin_click(object sender, EventArgs e)
         {
-            UserUtil customer = new UserUtil
-            {
-                UserName = TextBoxUserName.Text,
-                password = TextBoxPassword.Text
-            };
+            UserUtil customer = new UserUtil();
+            customer.UserName = TextBoxUserName.Text;
+            customer.password = TextBoxPassword.Text;
             if (customer.checkPassword())
             {
                 Session["user"] = TextBoxUserName.Text;
                 Session["usertype"] = getUserType(TextBoxUserName.Text);
-                
-                LabelMessage.Enabled = true;
-                LabelMessage.Visible = true;
-                LabelMessage.Text = "Welcome back!";
-                LabelMessage.ForeColor = Color.Blue;
-                Response.AddHeader("refresh", "4; url=Calendar.aspx");
-                
+                Response.Redirect("Calendar.aspx");
             }
             else
             {
@@ -48,7 +40,7 @@ namespace WebApplication1
                 //Response.AddHeader("refresh", "4; url=ResetPassword.aspx");
             }
 
-    
+
         }
 
         private object getUserType(string text)

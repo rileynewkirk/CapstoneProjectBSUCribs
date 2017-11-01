@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Security.Cryptography;
 using System.Text;
-
+using System.Web;
 
 namespace WebApplication1.App_Code
 {
@@ -22,5 +21,6 @@ namespace WebApplication1.App_Code
             }
             return strBuilder.ToString();
         }
+
     }
 }

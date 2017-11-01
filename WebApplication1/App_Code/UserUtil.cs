@@ -25,22 +25,22 @@ namespace WebApplication1.App_Code
 
         public UserUtil(string username, string password, string email, string firstname, string lastname, int type, string phoneNumber, string img)
         {
-            UserName = username;
+            this.UserName = username;
             this.password = password;
             this.email = email;
             this.firstname = firstname;
             this.lastname = lastname;
-            UserType = type;
+            this.UserType = type;
             this.phoneNumber = phoneNumber;
-            profileImage = img;
+            this.profileImage = img;
         }
 
         public void insertdata()
         {
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn.Open();
-            string insertString = "insert into users (UserName, password, email, firstname, lastname, UserType, age, profileImage) " +
-                "values (@UserName, @password, @Email, @firstname, @lastname, @UserType, @Age, @profileImage) ";
+            string insertString = "insert into users (UserName, password, email, firstname, lastname, UserType, phoneNumber, profileImage) " +
+                "values (@UserName, @password, @Email, @firstname, @lastname, @UserType, @phoneNumber, @profileImage) ";
             MySqlCommand comd = new MySqlCommand(insertString, conn);
             comd.Parameters.AddWithValue("@UserName", UserName);
             comd.Parameters.AddWithValue("@password", EncryptPassword.encryptString(password));
@@ -64,7 +64,6 @@ namespace WebApplication1.App_Code
             MySqlCommand comd = new MySqlCommand(checkUser, conn);
             comd.Parameters.AddWithValue("@UserName", UserName);
             MySqlDataReader dr = comd.ExecuteReader();
-            Console.WriteLine("It works");
             if (dr.HasRows)
             {
                 dr.Close();
@@ -93,10 +92,16 @@ namespace WebApplication1.App_Code
                     dr.Close();
                     conn.Close();
                     return true;
+                    
                 }
-            }
 
+            }
+            
+            
             return false;
+            
+
+            
         }
 
         public UserUtil getUser(string UserName)
@@ -104,7 +109,7 @@ namespace WebApplication1.App_Code
             UserUtil customer = new UserUtil();
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn.Open();
-            string checkUser = "select UserName, Password, Email, Firstname, Lastname, UserType, PhoneNumber from Users where UserName=@userName";
+            string checkUser = "select UserName, Password, Email, Firstname, Lastname, UserType, PhoneNumber from Users where UserName=@UserName";
             MySqlCommand comd = new MySqlCommand(checkUser, conn);
             comd.Parameters.AddWithValue("@UserName", UserName);
             MySqlDataReader dr = comd.ExecuteReader();

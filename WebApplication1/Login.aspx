@@ -10,7 +10,6 @@
 	<meta name="keywords" content="Creative, Onepage, Parallax, HTML5, Bootstrap, Popular, custom, personal, portfolio" /> 
 	<title>Login</title> 
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
-
 	<link href="css/prettyPhoto.css" rel="stylesheet"/> 
 	<link href="css/font-awesome.min.css" rel="stylesheet"/> 
     <link href="css/animate.css" rel="stylesheet"/> 

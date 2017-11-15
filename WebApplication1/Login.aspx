@@ -27,7 +27,7 @@
 </head>
 
 <body>
-       
+      
         <div class="preloader">
 		<div class="preloder-wrap">
 			<div class="preloder-inner"> 
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 	</div><!--/.preloader-->
-
+    
         <header id="navigation"> 
 		<div class="navbar navbar-inverse navbar-fixed-top navopaq" role="banner"> 
 			<div class="container"> 

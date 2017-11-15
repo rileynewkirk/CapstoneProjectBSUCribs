@@ -18,7 +18,7 @@
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/background.css" rel="stylesheet" />
-    <link href="css/responsive.css" rel="stylesheet"/>
+    <link href="css/responsive.css" rel="stylesheet" />
     <!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
 	<script src="js/respond.min.js"></script> <![endif]-->
     <link rel="shortcut icon" href="images/ico/favicon.png" />
@@ -80,7 +80,7 @@
     <br />
     <div class="container" style="text-align: center">
         <form id="form1" runat="server" class="form-horizontal">
-            <h2>Registration</h2>
+            <h2>Register A User</h2>
             <br />
             <div class="form-group">
                 <asp:Label ID="LabelFName" runat="server" Text="First Name" CssClass="control-label  col-sm-4" for="tbFirstName"></asp:Label>
@@ -88,7 +88,7 @@
                     <asp:TextBox ID="tbFirstName" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbFirstName" ErrorMessage="First Name is required."></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" validationgroup="PersonalInfoGroup" ControlToValidate="tbFirstName" ErrorMessage="First Name is required."></asp:RequiredFieldValidator>
                     <br />
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     <asp:TextBox ID="tbLastName" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbLastName" ErrorMessage="Last Name is Required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbLastName" ErrorMessage="Last Name is Required"></asp:RequiredFieldValidator>
                     <br />
                 </div>
             </div>
@@ -113,7 +113,7 @@
                     <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tbUsername" ErrorMessage="User Name is Required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbUsername" ErrorMessage="User Name is Required"></asp:RequiredFieldValidator>
                     <br />
                 </div>
             </div>
@@ -126,8 +126,8 @@
                     <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="tbEmail" ErrorMessage="Email is required"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="tbEmail" ErrorMessage="You must enter a vaild email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbEmail" ErrorMessage="Email is required"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbEmail" ErrorMessage="You must enter a vaild email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     <br />
                 </div>
             </div>
@@ -135,13 +135,13 @@
 
 
             <div class="form-group">
-                <asp:Label ID="Label6" runat="server" Text="Password" CssClass="control-label col-sm-4" for="tbPassword"></asp:Label>
+                <asp:Label ID="Label6" runat="server" Text="Password"  CssClass="control-label col-sm-4" for="tbPassword"></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="tbPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is Required"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbPassword" ErrorMessage="Use at least 6 characters without special characters" ValidationExpression="[a-zA-Z0-9]{6,}"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is Required"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword" ErrorMessage="Use at least 6 characters without special characters" ValidationExpression="[a-zA-Z0-9]{6,}"></asp:RegularExpressionValidator>
                     <br />
                 </div>
             </div>
@@ -154,8 +154,8 @@
                     <asp:TextBox ID="tbPassword2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="tbPassword2" ErrorMessage="Confirm Password is Required"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="tbPassword" ControlToValidate="tbPassword2" ErrorMessage="The passwords must be the same"></asp:CompareValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword2" ErrorMessage="Confirm Password is Required"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" validationgroup="PersonalInfoGroup" ControlToCompare="tbPassword" ControlToValidate="tbPassword2" ErrorMessage="The passwords must be the same"></asp:CompareValidator>
                     <br />
                 </div>
             </div>
@@ -168,7 +168,7 @@
                     <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="tbPhoneNumber" ErrorMessage="A phone number is Required"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPhoneNumber" ErrorMessage="A phone number is Required"></asp:RequiredFieldValidator>
                     <br />
                 </div>
             </div>
@@ -176,7 +176,7 @@
 
             <div class="form-group">
                 <div id="submitButtons" class="col-sm-3 col-sm-offset-3">
-                    <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="Submit" OnClick="addUser" />
+                    <asp:Button class="btn btn-primary" ID="Button1" causesvalidation="true" validationgroup="PersonalInfoGroup" runat="server" Text="Submit" OnClick="addUser" />
                 </div>
                 <div class="col-sm-3">
                     <asp:Button class="btn btn-warning" ID="Button2" runat="server" Text="Clear" OnClick="clear" />
@@ -184,7 +184,59 @@
                 </div>
             </div>
             <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
+                     <br />
+             <div class="row">
+            <h4 class="col-sm-4 col-sm-offset-4">Remove a User</h4>
+                 </div>
+                     <br />
+            <div class="row">
+            <asp:Label ID="Label1" runat="server" Text="UserName" CssClass="control-label col-sm-4" for="tbRemove"></asp:Label>
+            <div class="col-sm-4">
+                <asp:TextBox ID="tbRemove" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            </div>
+            <br />
+             <div class="row">
+            <div id="removeButtons" class="col-sm-4 col-sm-offset-4">
+                <asp:Button class="btn btn-primary" ID="removeButton" runat="server" Text="Remove" OnClick="removeButton_Click" />
+            </div>
+                  </div>
+                     <br />
+            <h4>All Users</h4>
+                     <br />
+          
+                <asp:GridView ID="Gridview1" CssClass="col-sm-pull-2"  style="height: 600px; overflow-x: hidden; overflow-y: scroll" runat="server" AlternatingRowStyle-BackColor="#ECEBED" RowStyle-BorderWidth="5px" HeaderStyle-BorderStyle="NotSet" GridLines="Horizontal" RowStyle-BackColor="White" HeaderStyle-BackColor="White" HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ShowHeaderWhenEmpty="True" CellPadding="5" CellSpacing="5" AllowPaging="False"></asp:GridView>
+          
+             <div class="col-lg-12" style="background-color: white">
 
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-box clearfix">
+                    <div class="table-responsive table-hover" id="userTable">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th style="text-indent: 60px;"><span>Name</span></th>
+                          
+                                    <th class="text-center"><span>User Type</span></th>
+                                    <th><span>Email</span></th>
+                                    <th><span>Phone Number</span></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userList" runat="server">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
         </form>
     </div>
 

@@ -53,10 +53,9 @@
 				</div> 
 				<div class="collapse navbar-collapse"> 
 					<ul class="nav navbar-nav navbar-right"> 
-						<li class="scroll"><a href="Homepage.aspx">Home</a></li> 
+						<li class="scroll"><a href="Calendar.aspx">Calendar</a></li> 
 						<li class="scroll"><a href="Registration.aspx">Register</a></li> 
 						<li class="scroll active"><a href="Login.aspx">Login</a></li>  
-						<li class="scroll"><a href="contact.aspx">Contact</a></li> 
 					</ul> 
 				</div> 
 			</div> 
@@ -95,11 +94,6 @@
         </div>
 
         <hr />
-        Don't have an account? <a href="Registration.aspx">Sign Up!</a>
-        <br />
-        <a href="ResetPassword.aspx">Forgot Password?</a>
-        <br />
-
     </form>
 </div>
 

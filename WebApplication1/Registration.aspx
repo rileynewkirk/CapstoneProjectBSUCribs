@@ -165,14 +165,14 @@
             <div class="form-group">
                 <asp:Label ID="Label8" runat="server" Text="Phone Number" CssClass="control-label col-sm-4" for="tbPhoneNumber"></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPhoneNumber" ErrorMessage="A phone number is Required"></asp:RequiredFieldValidator>
                     <br />
                 </div>
             </div>
-            <!-- close Age-->
+            <!-- close phone number-->
 
             <div class="form-group">
                 <div id="submitButtons" class="col-sm-3 col-sm-offset-3">
@@ -185,28 +185,9 @@
             </div>
             <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
                      <br />
-             <div class="row">
-            <h4 class="col-sm-4 col-sm-offset-4">Remove a User</h4>
-                 </div>
-                     <br />
-            <div class="row">
-            <asp:Label ID="Label1" runat="server" Text="UserName" CssClass="control-label col-sm-4" for="tbRemove"></asp:Label>
-            <div class="col-sm-4">
-                <asp:TextBox ID="tbRemove" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-            </div>
-            <br />
-             <div class="row">
-            <div id="removeButtons" class="col-sm-4 col-sm-offset-4">
-                <asp:Button class="btn btn-primary" ID="removeButton" runat="server" Text="Remove" OnClick="removeButton_Click" />
-            </div>
-                  </div>
-                     <br />
             <h4>All Users</h4>
                      <br />
-          
-                <asp:GridView ID="Gridview1" CssClass="col-sm-pull-2"  style="height: 600px; overflow-x: hidden; overflow-y: scroll" runat="server" AlternatingRowStyle-BackColor="#ECEBED" RowStyle-BorderWidth="5px" HeaderStyle-BorderStyle="NotSet" GridLines="Horizontal" RowStyle-BackColor="White" HeaderStyle-BackColor="White" HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ShowHeaderWhenEmpty="True" CellPadding="5" CellSpacing="5" AllowPaging="False"></asp:GridView>
-          
+                   
              <div class="col-lg-12" style="background-color: white">
 
         <div class="row">
@@ -217,11 +198,12 @@
                             <thead>
                                 <tr>
                                     <th>&nbsp;</th>
+                                    <th class="text-center"><span>UserName</span></th>
                                     <th style="text-indent: 60px;"><span>Name</span></th>
                           
                                     <th class="text-center"><span>User Type</span></th>
-                                    <th><span>Email</span></th>
-                                    <th><span>Phone Number</span></th>
+                                    <th class="text-center"><span>Email</span></th>
+                                    <th class="text-center"><span>Phone Number</span></th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>

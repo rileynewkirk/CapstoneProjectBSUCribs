@@ -13,19 +13,11 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            getAllUsers();
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            MySqlCommand cmd = new MySqlCommand("SELECT * from users", conn);
-            conn.Open();
-            DataTable dataTable = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            da.Fill(dataTable);
-
-
-            Gridview1.DataSource = dataTable;
-            Gridview1.DataBind();
+            if(!IsPostBack)
+            {
+                getAllUsers();
+            }
            
-
         }
         protected void clear(object sender, EventArgs e)
         {
@@ -70,25 +62,6 @@ namespace WebApplication1
             }
 
         }
-
-        protected void removeButton_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-
-            String Username = tbRemove.Text;
-
-            string deleteString = "delete from users where Username = @Username";
-            MySqlCommand comd = new MySqlCommand(deleteString, conn);
-
-            comd.Parameters.AddWithValue("@UserName", Username);
-
-            comd.ExecuteNonQuery();
-            conn.Close();
-
-            Response.Write("<script language=javascript>window.location='Registration.aspx';</script>");
-        }
-
 
                     
     
@@ -138,14 +111,15 @@ namespace WebApplication1
 
             string start = "<tr id=\"" + users[i].getUsername() + "\">";
             string img = "<td style=\"text-align: left\"><img src=\"" + users[i].getProfileImage() + "\" class=\"img-responsive profile-thumbnail\" alt=\"\" /></td>";
-            string name = "<td><a href=\"EditUserAdmin.aspx" + users[i].getUsername() + "\" class=\"profile-text\">" + users[i].getFirstname() + " " + users[i].getLastname() + "</a></td>";
+            string username = "<td> " + users[i].getUsername() + "</td>";
+            string name = "<td><a href=\"EditUser.aspx" + users[i].getUsername() + "\" class=\"profile-text\">" + users[i].getFirstname() + " " + users[i].getLastname() + "</a></td>";
             string label = getLabel(users[i].getUsertype());
             string email = "<td> " + users[i].getEmail() + "</td>";
             string phonenumber = "<td>" + users[i].getphoneNumber() + "</td>";
-            string btn = "<td style=\"width:20%;\"><a href=\"EditUserAdmin.aspx?username=" + users[i].getUsername() + "\" class=\"btn btn-default\">Edit User</a></td>";
+            string btn = "<td style=\"width:20%;\"><a href=\"EditUser.aspx?username=" + users[i].getUsername() + "\" class=\"btn btn-default\">Edit User</a></td>";
             string end = "</tr>";
 
-            string user = start + img + name + label + email + phonenumber + btn + end;
+            string user = start + img + username + name + label + email + phonenumber + btn + end;
         
             userList.InnerHtml = userList.InnerHtml + user;
         }

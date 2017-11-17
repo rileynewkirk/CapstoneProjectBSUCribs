@@ -1,11 +1,9 @@
-﻿using WebApplication1.App_Code;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 
 namespace WebApplication1
 {
@@ -13,6 +11,7 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
            
         }
 
@@ -50,6 +49,8 @@ namespace WebApplication1
             ListBox1.Items.Add(showingForSelectedDay.Showing_ID + " " + showingForSelectedDay.ShowingDate);//doesnt work yet
 
             
+=======
+>>>>>>> 1dafc520a153c11c69ae1ec6d98f78f26b13dc57
 
         }
     }

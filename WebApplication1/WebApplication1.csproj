@@ -51,19 +51,19 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="mysql.data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\mysql-connector-net-6.0.7-noinstall\mysql.data.dll</HintPath>
+      <HintPath>D:\Downloads\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="mysql.data.entity, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\mysql-connector-net-6.0.7-noinstall\mysql.data.entity.dll</HintPath>
+      <HintPath>D:\Downloads\mysql.data.entity.dll</HintPath>
     </Reference>
     <Reference Include="mysql.visualstudio, Version=6.0.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\mysql-connector-net-6.0.7-noinstall\mysql.visualstudio.dll</HintPath>
+      <HintPath>D:\Downloads\mysql.visualstudio.dll</HintPath>
     </Reference>
     <Reference Include="mysql.web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\mysql-connector-net-6.0.7-noinstall\mysql.web.dll</HintPath>
+      <HintPath>D:\Downloads\mysql.web.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -163,7 +163,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Compile Include="App_Code\EncryptPassword.cs" />
-    <Compile Include="App_Code\Showing.cs" />
     <Compile Include="App_Code\UserUtil.cs" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\AspNet.ScriptManager.bootstrap.dll" />

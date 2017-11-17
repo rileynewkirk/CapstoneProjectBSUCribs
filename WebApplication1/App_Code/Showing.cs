@@ -54,7 +54,7 @@ namespace WebApplication1.App_Code
 
         }
 
-        public Showing findShowing(string showingDate)
+        public Showing findShowingByDate(string showingDate)
         {
             Showing showing = new Showing();
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
@@ -66,13 +66,13 @@ namespace WebApplication1.App_Code
             dr.Read();
             if (dr.HasRows)
             {
-                showing.Showing_ID = dr[0].ToString();
+                showing.Showing_ID = dr[0].ToString();//need to figure out casting issues.
                 showing.LeasingAgent = dr[1].ToString();
                 showing.ShowingDate = dr[2].ToString();
                 showing.Client = dr[3].ToString();
                 showing.Address = dr[4].ToString();
                 showing.DateCreated = dr[5].ToString();
-               
+ 
             }
             dr.Close();
             conn.Close();
@@ -98,6 +98,11 @@ namespace WebApplication1.App_Code
             dr.Close();
             conn.Close();
             return false;
+        }
+
+        public void incrimentShoiwng()
+        {
+
         }
 
 

@@ -11,7 +11,6 @@ namespace WebApplication1
 {
     public partial class Calendar : System.Web.UI.Page
     {
-        int count = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -21,7 +20,7 @@ namespace WebApplication1
         {
             Showing newShowing = new Showing();
 
-            newShowing.Showing_ID = "DIFFERENT DATE ";//needs dynamically created
+            //newShowing.Showing_ID = "DIFFERENT DATE ";// dynamically incrimented in database
             newShowing.LeasingAgent = "current agents name";//should come from user logged in
             newShowing.ShowingDate = Calendar1.SelectedDate.ToShortDateString();//set by selected calendar date
             newShowing.Client = clientTxtBx.Text; // typed in by user
@@ -31,6 +30,7 @@ namespace WebApplication1
             newShowing.addShowings();
 
             Label1.Text = Calendar1.SelectedDate.ToShortDateString();
+            ListBox1.Items.Add(newShowing.Showing_ID + newShowing.LeasingAgent + newShowing.ShowingDate + newShowing.Client + newShowing.Address + newShowing.DateCreated);
 
             if (newShowing.checkShowingExist())
             {
@@ -46,7 +46,7 @@ namespace WebApplication1
             }
 
             Showing showingForSelectedDay = new Showing();
-            showingForSelectedDay.findShowing(Calendar1.SelectedDate.ToShortDateString());
+            showingForSelectedDay.findShowingByDate(Calendar1.SelectedDate.ToShortDateString());
             ListBox1.Items.Add(showingForSelectedDay.Showing_ID + " " + showingForSelectedDay.ShowingDate);//doesnt work yet
 
             

@@ -4073,8 +4073,8 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 
 .navbar-fixed-top, .navbar-fixed-bottom {
     position: fixed;
-    right: 0;
-    left: 0;
+    right: -8px;
+    left: 8px;
     z-index: 1030;
 }
 
@@ -4085,7 +4085,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .navbar-fixed-top {
-    top: 0;
+    top: 102px;
     border-width: 0 0 1px;
 }
 

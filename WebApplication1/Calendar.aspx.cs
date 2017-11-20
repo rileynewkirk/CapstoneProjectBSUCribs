@@ -48,7 +48,7 @@ namespace WebApplication1
             }
 
             Showing showingForSelectedDay = new Showing();
-            showingForSelectedDay.findShowingByDate(Calendar1.SelectedDate.ToShortDateString());
+            showingForSelectedDay.findShowingByDate(Calendar1.SelectedDate.ToString("yyyyMMddhhmm"));
             ListBox1.Items.Add(showingForSelectedDay.Showing_ID + " " + showingForSelectedDay.ShowingDate);//doesnt work yet
           
         }

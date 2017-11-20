@@ -105,7 +105,6 @@ namespace WebApplication1.App_Code
 
         }
 
-
         public string getID()
         {
             return this.Showing_ID;
@@ -135,6 +134,5 @@ namespace WebApplication1.App_Code
         {
             return this.DateCreated;
         }
-
     }
 }

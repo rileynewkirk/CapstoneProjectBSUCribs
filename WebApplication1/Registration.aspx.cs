@@ -134,7 +134,7 @@ namespace WebApplication1
             label = "<td class=\"text-center\"><span class=\"label label-primary\">Writer</span></td>";
         }
         else if (v == 3)
-        {
+        {+
             label = "<td class=\"text-center\"><span class=\"label label-danger\">Admin</span></td>";
         }
         else

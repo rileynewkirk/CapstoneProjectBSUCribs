@@ -163,6 +163,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Compile Include="App_Code\EncryptPassword.cs" />
+    <Compile Include="App_Code\Showing.cs" />
     <Compile Include="App_Code\UserUtil.cs" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\AspNet.ScriptManager.bootstrap.dll" />

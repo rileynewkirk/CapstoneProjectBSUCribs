@@ -60,10 +60,10 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a href="Homepage.aspx">Home</a></li>
+                        <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll"><a href="Login.aspx">Login</a></li>
                         <li class="scroll active"><a href="Registration.aspx">Register</a></li>
-                        <li class="scroll"><a href="contact.aspx">Contact</a></li>
+                        <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
                 </div>
             </div>

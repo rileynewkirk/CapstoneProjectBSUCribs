@@ -76,18 +76,36 @@
     <br />
     <br />
 
-    <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px"></asp:Calendar>
+     <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
+    <form id="form1" runat="server">
+        <div class="row">
+        <div class="col-sm-offset-2">
+            
+        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px" FirstDayOfWeek="Sunday" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399">
+            <DayHeaderStyle HorizontalAlign="Center" />
+            <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
+            <OtherMonthDayStyle ForeColor="Silver" />
+            <SelectedDayStyle BackColor="#99CCFF" />
+            <SelectorStyle BackColor="#99CCFF" />
+            <TitleStyle Font-Bold="True" HorizontalAlign="Center" />
+            <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
+        </asp:Calendar>
+</div>
+
+        </div>
          <br /><br />
-        <h4>Showings</h4>
+        <h4 class="col-sm-offset-5">Showings</h4>
         <br />
                    
         <div class="col-sm-12" style="background-color: white">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-sm-8 col-sm-offset-2">
                 <div class="main-box clearfix">
                     <div class="table-responsive table-hover" id="showingTable">
                         <table class="table user-list">
@@ -111,26 +129,30 @@
             </div>
         </div>
             </div>
+        <br />
+        <br />
+
+        <asp:Label CssClass="col-sm-offset-4" ID="Label1" runat="server" Text="Label" Font-Size="Large"></asp:Label>
+
         <br /><br />
 
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-
-        <br /><br />
-
-        <asp:ListBox ID="ListBox1" runat="server" Width="533px">
+        <asp:ListBox CssClass="col-sm-offset-4" ID="ListBox1" runat="server" Width="533px">
             <asp:ListItem></asp:ListItem>
         </asp:ListBox>
 
          <br /><br />
 
-         <asp:Button ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="Button1_Click" />
+         <asp:Button CssClass="col-sm-offset-4" ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="Button1_Click" />
 
         <br />
-        <asp:TextBox ID="clientTxtBx" runat="server" Text =" client"></asp:TextBox>
+            <br />
+        <asp:TextBox CssClass="col-sm-offset-4" ID="clientTxtBx" runat="server" Text =" client"></asp:TextBox>
         <br />
-        <asp:TextBox ID="dateTxtBx" runat="server" Text ="date"></asp:TextBox>
+            <br />
+        <asp:TextBox CssClass="col-sm-offset-4" ID="dateTxtBx" runat="server" Text ="date"></asp:TextBox>
         <br />
-        <asp:TextBox ID="propertyTxtBx" runat="server" Text ="property"></asp:TextBox>
+            <br />
+        <asp:TextBox CssClass="col-sm-offset-4" ID="propertyTxtBx" runat="server" Text ="property"></asp:TextBox>
         <br />
     </form>
 

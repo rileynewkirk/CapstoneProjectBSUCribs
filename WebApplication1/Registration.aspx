@@ -7,9 +7,6 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Health App for breast cancer survivors" />
-    <meta name="keywords" content="Breast, Cancer, Awareness, Health, Black, Women, African, American, beyondbca" /> 
-    <meta name="author" content="Nathan Barr & Marcus Berry" />
     <title>Registration</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 

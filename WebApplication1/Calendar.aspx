@@ -61,7 +61,7 @@
 
          <br /><br />
 
-         <asp:Button ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="Button1_Click" />
+         <asp:Button ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
 
         <br />
         <asp:TextBox ID="clientTxtBx" runat="server" Text =" client"></asp:TextBox>

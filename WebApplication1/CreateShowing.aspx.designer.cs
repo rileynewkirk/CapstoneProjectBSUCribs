@@ -58,6 +58,24 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox DatePicker;
         
         /// <summary>
+        /// LabelClient control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelClient;
+        
+        /// <summary>
+        /// clientTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox clientTB;
+        
+        /// <summary>
         /// LabelTime control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.DropDownList AddressDropDownList;
         
         /// <summary>
+        /// addButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addButton;
+        
+        /// <summary>
         /// LabelHouses control.
         /// </summary>
         /// <remarks>
@@ -110,5 +137,14 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox ListOfHouses;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

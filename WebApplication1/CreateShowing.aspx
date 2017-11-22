@@ -95,35 +95,58 @@
                 <asp:Label ID="LabelDate" runat="server" Text="Date" CssClass="control-label col-sm-4" ></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="DatePicker" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                     <br />
                 </div>
             </div>
             <!-- close Date-->
+
+             <div class="form-group">
+                <asp:Label ID="LabelClient" runat="server" Text="Client Name" CssClass="control-label col-sm-4" ></asp:Label>
+                <div class="col-sm-4">
+                    <asp:TextBox ID="clientTB" runat="server" CssClass="form-control"></asp:TextBox>
+                     <br />
+                </div>
+            </div>
+            <!-- close Client-->
 
 
             <div class="form-group">
                 <asp:Label ID="LabelTime" runat="server" Text="Time" CssClass="control-label col-sm-4" ></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="TimePicker" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                     <br />
                 </div>
             </div>
             <!-- close Time-->
 
 
             <div class="form-group">
-                <asp:Label ID="LabelAddress" runat="server" Text="Address" CssClass="control-label col-sm-4" ></asp:Label>
-                <div class="col-sm-4">
-                    <asp:DropDownList ID="AddressDropDownList" runat="server"></asp:DropDownList>
-                </div>
+                <div class="AddressSelector">
+                    <asp:Label ID="LabelAddress" runat="server" Text="Address" CssClass="control-label col-sm-4" ></asp:Label>
+                    <div class="col-sm-4">
+                     <asp:DropDownList ID="AddressDropDownList" runat="server"></asp:DropDownList>
+                         </div>
+                     <div class="col-sm-1">
+                     <asp:Button class="btn btn-warning" ID="addButton" runat="server" Text="Add" OnClick="AddToList" />
+                          <br />
+                        </div>
+                 </div>
             </div>
             <!-- close Select Address-->
 
              <div class="form-group">
-                <asp:Label ID="LabelHouses" runat="server" Text="Address" CssClass="control-label col-sm-4"></asp:Label>
-                <div class="col-sm-4">
-                     <asp:ListBox ID="ListOfHouses" runat="server"></asp:ListBox>
+                <asp:Label ID="LabelHouses" runat="server" Text="List of Address" CssClass="control-label col-sm-4"></asp:Label>
+                <div class="col-sm-7">
+                     <asp:ListBox ID="ListOfHouses" runat="server" ></asp:ListBox>
+                     <br />
                 </div>
             </div>
             <!-- close Housing List -->
+
+           <div>
+              <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="createShowing" OnClick="createShowings" />
+
+           </div>
 
 
         </form>

@@ -69,12 +69,6 @@
     </header>
     <!--/#navigation-->
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
      <br />
     <br />

@@ -76,12 +76,6 @@
         <br />
         <br />
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
      <br />
     <br />
@@ -135,7 +129,7 @@
                 </div>
             </div>
         </div>
-            </div>
+        </div>
         <br />
         <br />
 
@@ -149,7 +143,7 @@
 
          <br /><br />
 
-         <asp:Button CssClass="col-sm-offset-4" ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="Button1_Click" />
+         <asp:Button ID="Button" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
 
         <br />
             <br />

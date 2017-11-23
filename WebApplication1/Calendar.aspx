@@ -122,7 +122,7 @@
                 </div>
             </div>
         </div>
-            </div>
+        </div>
         <br />
         <br />
 
@@ -136,11 +136,7 @@
 
          <br /><br />
 
-<<<<<<< HEAD
-         <asp:Button ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
-=======
-         <asp:Button CssClass="col-sm-offset-4" ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="Button1_Click" />
->>>>>>> 1ac6d7e4850801d41dd4fd34a34d5a733fb09be7
+         <asp:Button ID="Button" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
 
         <br />
             <br />

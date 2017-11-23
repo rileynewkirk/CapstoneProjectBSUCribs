@@ -54,7 +54,7 @@ namespace WebApplication1
             foreach(string house in houses)
             {
                 Showing newShowing = new Showing();
-                newShowing.LeasingAgent = "current agents name";//should come from user logged in
+                newShowing.LeasingAgent = Session["user"].ToString();
                 newShowing.ShowingDate = DatePicker.Text;
                 newShowing.Client = clientTB.Text; 
                 newShowing.Address = house; 

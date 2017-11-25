@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="WebApplication1.Calendar" %>
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendar</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-
     <link href="css/prettyPhoto.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/animate.css" rel="stylesheet" />
@@ -23,58 +21,58 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png" />
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" />
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" />
 
 </head>
 
 <body>
 
-    <div class="preloader">
-        <div class="preloder-wrap">
-            <div class="preloder-inner">
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-                <div class="ball"></div>
-            </div>
-        </div>
-    </div>
-    <!--/.preloader-->
 
-    <header id="navigation">
-        <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">
-                        <h1>
-                            <img src="images/logo.png" alt="logo" /></h1>
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll active"><a href="Calendar.aspx">Calendar</a></li>
-                        <li class="scroll"><a href="Login.aspx">Login</a></li>
-                        <li class="scroll"><a href="Registration.aspx">Register</a></li>
-                        <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
-                    </ul>
+        <div class="preloader">
+            <div class="preloder-wrap">
+                <div class="preloder-inner">
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
+                    <div class="ball"></div>
                 </div>
             </div>
         </div>
-        <!--/navbar-->
-    </header>
-    <!--/#navigation-->
+        <!--/.preloader-->
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+        <header id="navigation">
+            <div class="navbar navbar-inverse navbar-fixed-top navopaq" style="height: auto" role="banner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <h1>
+                                <img src="images/logo.png" alt="logo" /></h1>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right" runat="server" id="navbar">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--/navbar-->
+        </header>
+        <!--/#navigation-->
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
 
      <br />
     <br />
@@ -128,7 +126,7 @@
                 </div>
             </div>
         </div>
-            </div>
+        </div>
         <br />
         <br />
 
@@ -142,11 +140,15 @@
 
          <br /><br />
 
+<<<<<<< HEAD
 
          <asp:Button ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
 
          <asp:Button CssClass="col-sm-offset-4" ID="Button2" runat="server" Height="74px" Text="Button" Width="68px" OnClick="testFunction" />
 
+=======
+         <asp:Button ID="Button" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
+>>>>>>> e2c6ae0de96a9607a417762e1a0a6c9b592030df
 
         <br />
             <br />

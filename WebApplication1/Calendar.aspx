@@ -17,7 +17,7 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px"></asp:Calendar>
+        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
 
          <br /><br />
         <h4>Showings</h4>

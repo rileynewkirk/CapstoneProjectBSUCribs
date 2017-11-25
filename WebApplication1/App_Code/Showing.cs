@@ -11,17 +11,17 @@ namespace WebApplication1.App_Code
     {
         public string Showing_ID { get; set; }
         public string LeasingAgent { get; set; }
-        public string ShowingDate { get; set; }
+        public DateTime ShowingDate { get; set; }
         public string Client { get; set; }
         public string Address { get; set; }
-        public string DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public Showing()
         {
         
         }
 
-        public Showing(string Showing_ID, string LeasingAgent,string ShowingDate,string Client, string Address, string DateCreated)
+        public Showing(string Showing_ID, string LeasingAgent,DateTime ShowingDate,string Client, string Address, DateTime DateCreated)
         {
             this.Showing_ID = Showing_ID;
             this.LeasingAgent = LeasingAgent;
@@ -68,10 +68,10 @@ namespace WebApplication1.App_Code
             {
                 showing.Showing_ID = dr[0].ToString();//need to figure out casting issues.
                 showing.LeasingAgent = dr[1].ToString();
-                showing.ShowingDate = dr[2].ToString();
+                showing.ShowingDate = Convert.ToDateTime(dr[2]);
                 showing.Client = dr[3].ToString();
                 showing.Address = dr[4].ToString();
-                showing.DateCreated = dr[5].ToString();
+                showing.DateCreated = Convert.ToDateTime(dr[5]);
  
             }
             dr.Close();
@@ -115,7 +115,7 @@ namespace WebApplication1.App_Code
             return this.LeasingAgent;
         }
 
-        public string getShowingDate()
+        public DateTime getShowingDate()
         {
             return this.ShowingDate;
         }
@@ -130,7 +130,7 @@ namespace WebApplication1.App_Code
             return this.Client;
         }
 
-        public string getDateCreated()
+        public DateTime getDateCreated()
         {
             return this.DateCreated;
         }

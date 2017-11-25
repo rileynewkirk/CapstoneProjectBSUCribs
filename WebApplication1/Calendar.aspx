@@ -6,9 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Breast, Cancer, Survivor, login, African, American, SMART, Health, Health App" />
-    <meta name="author" content="Nathan Barr & Marcus Berry" />
-    <title>Weight Tracker</title>
+    <title>Calendar</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/prettyPhoto.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -30,7 +28,6 @@
 
 <body>
 
-    <form id="form2" runat="server" class="form-horizontal">
 
         <div class="preloader">
             <div class="preloder-wrap">

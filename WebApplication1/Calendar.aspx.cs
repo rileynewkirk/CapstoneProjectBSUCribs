@@ -21,34 +21,45 @@ namespace WebApplication1
             Response.Redirect("CreateShowing.aspx");
         }
 
-        private void getShowingsFromDate(DateTime date)
+        private void getShowingsFromDate()
         {
             List<Showing> showings = new List<Showing>();
-            string qry = "SELECT * FROM  WHERE Showing_DateTime=" + Calendar1.SelectedDate;
+            string qry = "SELECT * FROM  WHERE Showing_DateTime=" + "'2017-11-04'";
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
             while(rdr.Read())
             {
-                string showingID = rdr["Showing_ID"].ToString();
+                //string showingID = rdr["Showing_ID"].ToString();
                 string leasingAgent = rdr["Agent_ID"].ToString();
                 string showingDate = rdr["Showing_DateTime"].ToString();
                 string client = rdr["Client_Name"].ToString();
                 string address = rdr["Address"].ToString();
                 string dateCreated = rdr["Created_DateTime"].ToString();
-
-                Showing showing = new Showing(showingID, leasingAgent, showingDate, client, address, dateCreated);
-                showings.Add(showing);
+                System.Diagnostics.Debug.WriteLine("00000 " + leasingAgent + " " + address + " 0000000000");
+                //Showing showing = new Showing(showingID, leasingAgent, showingDate, client, address, dateCreated);
+                //showings.Add(showing);
             }
             rdr.Close();
             conn.Close();
-            postIntoList(showings);
+           // postIntoList(showings);
         }
 
         private void findShowingByID()
         {
-
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            conn.Open();
+            string checkShowing = "select Agent_Name from  calendar WHERE showing_DateTime= '2017-11-17'";
+            MySqlCommand comd = new MySqlCommand(checkShowing, conn);
+            MySqlDataReader dr = comd.ExecuteReader();
+            while (dr.Read())
+            {
+                string name = dr["Agent_Name"].ToString();
+                System.Diagnostics.Debug.WriteLine("00000000000000000  "+name+"  00000000000");
+            }
+            dr.Close();
+            conn.Close();
         }
 
         private void postIntoList(List<Showing> showings)
@@ -70,6 +81,11 @@ namespace WebApplication1
 
                 showingList.InnerHtml = showingList.InnerHtml + showing;
             }
+        }
+
+        protected void testFunction(object sender, EventArgs e)
+        {
+            findShowingByID();
         }
     }
 }

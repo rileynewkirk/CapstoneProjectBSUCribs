@@ -62,6 +62,7 @@ namespace WebApplication1
                 dr.Close();
                 conn.Close();
                 AddressDropDownList.Items.Insert(0, new ListItem("--Select Address--", "0"));
+                AddressDropDownList.Items.Insert(1, new ListItem("Send To All Address"));
             }
 
 

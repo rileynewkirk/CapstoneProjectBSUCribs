@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MassText.aspx.cs" Inherits="WebApplication1.MassText" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewProperties.aspx.cs" Inherits="WebApplication1.ViewProperties" %>
 
 <!DOCTYPE html>
 
@@ -73,78 +73,22 @@
     <br />
     <br />
     <br />
-    <div class="container">
-        <div class="container" style="text-align: center">
 
-            <h1>Mass Text</h1>
+    <form id="form1" runat="server">
+        <div>
+                 
+        <asp:GridView ID="GridView1" CssClass="col-sm-pull-2" runat="server" AlternatingRowStyle-BackColor="#ECEBED" RowStyle-BorderWidth="5px" HeaderStyle-BorderStyle="NotSet" GridLines="Horizontal" RowStyle-BackColor="White" HeaderStyle-BackColor="Silver" HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ShowHeaderWhenEmpty="True" CellPadding="5" CellSpacing="5" AllowPaging="False" ShowHeader="True"></asp:GridView>
+
+
+
+        </div>
             <br />
+    <br />
+    <br />
+    <br />
 
-
-            <form id="contactForm" runat="server" class="form-horizontal">
-
-            <div class="row">
-            <div class="col-lg-12">
-                <div class="main-box clearfix">
-                    <div class="table-responsive table-hover" id="userTable">
-                        <table class="table user-list">
-                            <thead>
-                                <tr>
-                                    <th class="text-center"><span>Address</span></th>                          
-                                    <th class="text-center"><span>Message</span></th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                            </thead>
-                            <tbody id="messageList" runat="server">
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-                <br />
-                <br />
-                 <div class="form-group">
-                    <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label col-sm-4" for="tbNumber"></asp:Label>
-                    <div class="col-sm-4">
-                        <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" runat="server"></asp:DropDownList>
-
-
-                    </div>
-                </div>
-                <!-- close Name-->
-
-                <div class="form-group">
-                    <asp:Label ID="Label6" runat="server" Text="Message" CssClass="control-label col-sm-4" for="tbMessage"></asp:Label>
-                    <div class="col-sm-4">
-                        <asp:TextBox ID="tbMessage" TextMode="MultiLine" runat="server" CssClass="form-control" Rows="10" Columns="10"></asp:TextBox>
-                    </div>
-                    <div class="col-sm-4">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="tbMessage" ErrorMessage="Message is Required"></asp:RequiredFieldValidator>
-                        <br />
-                    </div>
-                </div>
-                <!-- close Message-->
-
-
-                <div class="form-group">
-                    <div id="submitButtons" class="col-sm-4 col-sm-offset-4">
-                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click"/>
-                        </div>
-                </div>
-                <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
-                <br />
-
-                <asp:Label ID="Label1" CssClass="well well-sm col-sm-pull-2" runat="server"><a href="ViewProperties.aspx">View All Properties</a></asp:Label>
-
-
-
-            </form>
-        </div>
-    </div>
-
-
-    <script type="text/javascript" src="js/jquery.js"></script> 
+    </form>
+        <script type="text/javascript" src="js/jquery.js"></script> 
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/smoothscroll.js"></script> 
 	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>

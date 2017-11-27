@@ -85,7 +85,7 @@
         <div class="row">
         <div class="col-sm-offset-2">
             
-        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px" FirstDayOfWeek="Sunday" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399">
+        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px" FirstDayOfWeek="Sunday" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" OnSelectionChanged="Calendar1_SelectionChanged">
             <DayHeaderStyle HorizontalAlign="Center" />
             <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
             <OtherMonthDayStyle ForeColor="Silver" />
@@ -109,13 +109,20 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
+<!--
                                     <th>&nbsp;</th>
-                                    <th class="text-center"><span>Leasing Agent</span></th>
-                                    <th style="text-indent: 60px;"><span>Showing Date</span></th>
-                          
+-->
+
+                                    <th class="text-center"><span>Leasing Agent</span></th>                                    
                                     <th class="text-center"><span>Client</span></th>
                                     <th class="text-center"><span>Address</span></th>
-                                    <th class="text-center"><span>Date Created</span></th>                                    
+                                    <th class="text-center"><span>Showing Date</span></th>
+                                    <th class="text-center"><span></span></th>
+                                    <th class="text-center"><span></span></th>
+                                    <!-- 
+                                    <th class="text-center"><span>Date Created</span></th>
+                                    <th style="text-indent: 60px;"><span>Showing Date</span></th>
+                                    -->                        
                                 </tr>
                             </thead>
                             <tbody id="showingList" runat="server">

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
+//using System.Linq;
 using System.Web;
 
 namespace WebApplication1.App_Code
@@ -21,7 +21,15 @@ namespace WebApplication1.App_Code
         
         }
 
-        public Showing(string Showing_ID, string LeasingAgent,string ShowingDate,string Client, string Address, string DateCreated)
+        public Showing(string LeasingAgent, string Client, string Address, string ShowingDate)
+        {
+            this.LeasingAgent = LeasingAgent;
+            this.Client = Client;
+            this.Address = Address;
+            this.ShowingDate = ShowingDate;
+        }
+
+        public Showing(string Showing_ID, string LeasingAgent, string ShowingDate,string Client, string Address, string DateCreated)
         {
             this.Showing_ID = Showing_ID;
             this.LeasingAgent = LeasingAgent;
@@ -68,11 +76,12 @@ namespace WebApplication1.App_Code
             {
                 showing.Showing_ID = dr[0].ToString();//need to figure out casting issues.
                 showing.LeasingAgent = dr[1].ToString();
+                //showing.ShowingDate = Convert.ToDateTime(dr[2]);
                 showing.ShowingDate = dr[2].ToString();
                 showing.Client = dr[3].ToString();
                 showing.Address = dr[4].ToString();
-                showing.DateCreated = dr[5].ToString();
- 
+                //showing.DateCreated = Convert.ToDateTime(dr[5]);
+                showing.ShowingDate = dr[5].ToString();
             }
             dr.Close();
             conn.Close();

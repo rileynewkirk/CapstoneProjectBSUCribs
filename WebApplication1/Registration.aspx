@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration</title>
+    <title>Users</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="css/prettyPhoto.css" rel="stylesheet" />
@@ -59,7 +59,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll"><a href="Login.aspx">Login</a></li>
-                        <li class="scroll active"><a href="Registration.aspx">Register</a></li>
+                        <li class="scroll active"><a href="Registration.aspx">Users</a></li>
                         <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
                 </div>

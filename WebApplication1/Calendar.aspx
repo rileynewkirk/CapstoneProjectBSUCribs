@@ -58,6 +58,11 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right" runat="server" id="navbar">
+                        <li class="scroll active"><a href="Calendar.aspx">Calendar</a></li>
+                        <li class="scroll"><a href="Login.aspx">Login</a></li>
+                        <li class="scroll"><a href="Registration.aspx">Register</a></li>
+                        <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -73,13 +78,6 @@
         <br />
         <br />
 
-
-     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
     <form id="form1" runat="server">
         <div class="row">

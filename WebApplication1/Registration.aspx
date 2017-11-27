@@ -7,9 +7,6 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Health App for breast cancer survivors" />
-    <meta name="keywords" content="Breast, Cancer, Awareness, Health, Black, Women, African, American, beyondbca" />
-    <meta name="author" content="Nathan Barr & Marcus Berry" />
     <title>Registration</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
@@ -60,10 +57,10 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a href="Homepage.aspx">Home</a></li>
+                        <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll"><a href="Login.aspx">Login</a></li>
                         <li class="scroll active"><a href="Registration.aspx">Register</a></li>
-                        <li class="scroll"><a href="contact.aspx">Contact</a></li>
+                        <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="WebApplication1.Calendar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DeleteShowing.aspx.cs" Inherits="WebApplication1.WebForm2" %>
 
 <!DOCTYPE html>
 
@@ -27,6 +27,9 @@
 </head>
 
 <body>
+
+
+        <form id="form1" runat="server">
 
 
         <div class="preloader">
@@ -70,102 +73,28 @@
             <!--/navbar-->
         </header>
         <!--/#navigation-->
+     <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+    <div class="container" style="text-align: left">
+        <h2>Are you sure you want to delete this showing?</h2>
 
+         <div class="form-group" style="text-align:left">
+                <div id="btns" class="col-sm-4 col-sm-offset-4">
+                    <asp:Button class="btn btn-primary" ID="btnSubmit"  runat="server" Text="Delete" BackColor="Black" OnClick="btnDelete_Click" />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Button class="btn btn-default" ID="btnCancel" runat="server" Text="Cancel" BackColor="White" OnClick="btnCancel_Click" />                    
+                    <br />
 
-    <form id="form1" runat="server">
-        <div class="row">
-        <div class="col-sm-offset-2">
-            
-        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px" FirstDayOfWeek="Sunday" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" OnSelectionChanged="Calendar1_SelectionChanged">
-            <DayHeaderStyle HorizontalAlign="Center" />
-            <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
-            <OtherMonthDayStyle ForeColor="Silver" />
-            <SelectedDayStyle BackColor="#99CCFF" />
-            <SelectorStyle BackColor="#99CCFF" />
-            <TitleStyle Font-Bold="True" HorizontalAlign="Center" />
-            <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
-        </asp:Calendar>
-</div>
-
-        </div>
-         <br /><br />
-        <h4 class="text-left">Todays showings</h4>
-        <br />
-                   
-        <div class="col-sm-12" style="background-color: white">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="main-box clearfix">
-                    <div class="table-responsive table-hover" id="showingTable">
-                        
-                        
-                        <table class="table showing-list">
-                            <thead>
-                                <tr>
-<!--
-                                    <th>&nbsp;</th>
--->
-                                    <th class="te"
-                                    <th class="text-left"><span>Leasing Agent</span></th>                                    
-                                    <th class="text-left"><span>Client</span></th>
-                                    <th class="text-left"><span>Address</span></th>
-                                    <th class="text-left" aria-sort="descending"><span>Showing Date</span></th>
-                                    <th class="text-left"><span></span></th>
-                                    <th class="text-left"><span></span></th>
-                                    <!-- 
-                                    <th class="text-center"><span>Date Created</span></th>
-                                    <th style="text-indent: 60px;"><span>Showing Date</span></th>
-                                    -->                        
-                                </tr>
-                            </thead>
-                            <tbody id="showingList" runat="server">
-                                
-                            </tbody>
-                        </table>
-                    
-                    
-                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-        <br />
-        <br />
+    </div>
+            
 
 
-        <!--
-        <asp:Label CssClass="col-sm-offset-4" ID="Label1" runat="server" Text="Label" Font-Size="Large"></asp:Label>
-
-        <br /><br />
-
-        <asp:ListBox CssClass="col-sm-offset-4" ID="ListBox1" runat="server" Width="533px">
-            <asp:ListItem></asp:ListItem>
-        </asp:ListBox>
-
-         <br /><br />
-
-         <asp:Button ID="Button" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
-
-        <br />
-            <br />
-        <asp:TextBox CssClass="col-sm-offset-4" ID="clientTxtBx" runat="server" Text =" client"></asp:TextBox>
-        <br />
-            <br />
-        <asp:TextBox CssClass="col-sm-offset-4" ID="dateTxtBx" runat="server" Text ="date"></asp:TextBox>
-        <br />
-            <br />
-        <asp:TextBox CssClass="col-sm-offset-4" ID="propertyTxtBx" runat="server" Text ="property"></asp:TextBox>
-        <br />
-    </form>
-
-    -->
 
 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -176,9 +105,5 @@
     <script type="text/javascript" src="js/jquery.parallax.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
-</body>
-</html>
 
-
-
-
+</form>

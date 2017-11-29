@@ -175,6 +175,13 @@
     <Compile Include="CreateShowing.aspx.designer.cs">
       <DependentUpon>CreateShowing.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeleteShowing.aspx.cs">
+      <DependentUpon>DeleteShowing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteShowing.aspx.designer.cs">
+      <DependentUpon>DeleteShowing.aspx</DependentUpon>
+    </Compile>
     <Content Include="About.aspx" />
     <Compile Include="App_Code\EncryptPassword.cs" />
     <Compile Include="App_Code\Showing.cs" />
@@ -294,6 +301,7 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="obj\Release\WebApplication1.csproj.CoreCompileInputs.cache" />
     <Content Include="CreateShowing.aspx" />
+    <Content Include="DeleteShowing.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\html5shiv.js" />

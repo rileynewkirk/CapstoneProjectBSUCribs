@@ -134,7 +134,7 @@
 
             <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-4">
-            <asp:Button ID="btnRemove" CssClass="btn btn-danger" runat="server" Text="Remove User" OnClick="btnRemove_Click" />
+            <asp:Button ID="btnRemove" CssClass="btn btn-danger" runat="server" Text="Remove User" OnClientClick="return confirm('Are you sure you want to submit ?')"  OnClick="btnRemove_Click" />
                     </div>
                 </div>
         </form>

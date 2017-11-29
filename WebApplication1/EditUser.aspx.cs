@@ -78,8 +78,6 @@ namespace WebApplication1
 
         protected void btnRemove_Click(object sender, EventArgs e)
         {
-            Response.Write("<script language=javascript> var agree; agree=confirm('Are you sure you want to delete this user?'); if (agree != true){window.location='Registration.aspx';};</script>");
-
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn.Open();
 

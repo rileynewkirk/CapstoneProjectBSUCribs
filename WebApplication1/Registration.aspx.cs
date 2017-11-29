@@ -59,9 +59,9 @@ namespace WebApplication1
             if (!user.checkUserExist())
             {
                 user.insertdata();
-                lblResponse.Text = "You have registered successfully! You will be redirect to the Login page momentarily";
+                lblResponse.Text = "You have registered a user successfully!";
                 lblResponse.ForeColor = Color.Green;
-                Response.AddHeader("refresh", "3;url=Login.aspx");
+                Response.AddHeader("refresh", "3;url=Registration.aspx");
 
             }
             else

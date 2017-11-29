@@ -147,6 +147,11 @@
               <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="createShowing" OnClick="createShowings" />
 
            </div>
+            <br /><br />
+            <div>
+              <asp:Button class="btn btn-warning" ID="cancelBtn" runat="server" Text="Cancel" OnClick="cancelBtn_Click"  />
+
+            </div>
 
 
         </form>

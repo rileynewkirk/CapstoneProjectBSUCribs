@@ -64,5 +64,10 @@ namespace WebApplication1
                 ListOfHouses.Items.Add(newShowing.Showing_ID + newShowing.LeasingAgent + newShowing.ShowingDate + newShowing.Client + newShowing.Address + newShowing.DateCreated);
             }
         }
+
+        protected void cancelBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Calendar.aspx");
+        }
     }
 }

@@ -21,14 +21,16 @@ namespace WebApplication1.App_Code
         
         }
 
-        public Showing(string LeasingAgent, string Client, string Address, string ShowingDate)
+        /*
+        public Showing(string showing_ID,string LeasingAgent, string Client, string Address, string ShowingDate)
         {
+            this.Showing_ID = Showing_ID;
             this.LeasingAgent = LeasingAgent;
             this.Client = Client;
             this.Address = Address;
             this.ShowingDate = ShowingDate;
         }
-
+        */
         public Showing(string Showing_ID, string LeasingAgent, string ShowingDate,string Client, string Address, string DateCreated)
         {
             this.Showing_ID = Showing_ID;
@@ -61,7 +63,7 @@ namespace WebApplication1.App_Code
             conn.Close();
 
         }
-
+        /*
         public Showing findShowingByDate(string showingDate)
         {
             Showing showing = new Showing();
@@ -87,7 +89,7 @@ namespace WebApplication1.App_Code
             conn.Close();
             return showing;
         }
-
+        */
         public bool checkShowingExist()
         {
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);

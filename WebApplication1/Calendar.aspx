@@ -78,10 +78,10 @@
         <br />
         <br />
 
-
+    <div class="container" style="text-align: center">
     <form id="form1" runat="server">
         <div class="row">
-        <div class="col-sm-offset-2">
+        <div class="col-sm-offset-0">
             
         <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px" FirstDayOfWeek="Sunday" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" OnSelectionChanged="Calendar1_SelectionChanged">
             <DayHeaderStyle HorizontalAlign="Center" />
@@ -96,12 +96,12 @@
 
         </div>
          <br /><br />
-        <h4 class="col-sm-offset-5">Showings</h4>
-        <br />
-                   
+        <h4 >Showings</h4>
+        <asp:Label  ID="displayDateLabel" runat="server"  Font-Size="Large"></asp:Label>
+         
+        
         <div class="col-sm-12" style="background-color: white">
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
                 <div class="main-box clearfix">
                     <div class="table-responsive table-hover" id="showingTable">
                         <table class="table user-list">
@@ -129,43 +129,19 @@
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
         </div>
-        <br />
-        <br />
-
-        <asp:Label CssClass="col-sm-offset-4" ID="Label1" runat="server" Text="Label" Font-Size="Large"></asp:Label>
 
         <br /><br />
-
-        <asp:ListBox CssClass="col-sm-offset-4" ID="ListBox1" runat="server" Width="533px">
-            <asp:ListItem></asp:ListItem>
-        </asp:ListBox>
-
          <br /><br />
 
-<<<<<<< HEAD
-
-         <asp:Button ID="Button1" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
-
-         <asp:Button CssClass="col-sm-offset-4" ID="Button2" runat="server" Height="74px" Text="Button" Width="68px" OnClick="testFunction" />
-
-=======
-         <asp:Button ID="Button" runat="server" Height="74px" Text="Button" Width="68px" OnClick="goToCreateShowing" />
->>>>>>> e2c6ae0de96a9607a417762e1a0a6c9b592030df
-
+        <div>
+         <asp:Button class="btn btn-primary" ID="CreateShowingBtn" runat="server" Text="Create Showing"  OnClick="goToCreateShowing"/>
+        </div>
         <br />
-            <br />
-        <asp:TextBox CssClass="col-sm-offset-4" ID="clientTxtBx" runat="server" Text =" client"></asp:TextBox>
-        <br />
-            <br />
-        <asp:TextBox CssClass="col-sm-offset-4" ID="dateTxtBx" runat="server" Text ="date"></asp:TextBox>
-        <br />
-            <br />
-        <asp:TextBox CssClass="col-sm-offset-4" ID="propertyTxtBx" runat="server" Text ="property"></asp:TextBox>
-        <br />
+       
     </form>
+    </div>
 
         <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>

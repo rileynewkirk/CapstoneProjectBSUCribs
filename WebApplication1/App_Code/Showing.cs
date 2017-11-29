@@ -30,7 +30,20 @@ namespace WebApplication1.App_Code
             this.Address = Address;
             this.ShowingDate = ShowingDate;
         }
+<<<<<<< HEAD
         */
+=======
+
+        public Showing(string showing_ID, string LeasingAgent, string Client, string Address, string ShowingDate)
+        {
+            this.Showing_ID = showing_ID;
+            this.LeasingAgent = LeasingAgent;
+            this.Client = Client;
+            this.Address = Address;
+            this.ShowingDate = ShowingDate;
+        }
+
+>>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
         public Showing(string Showing_ID, string LeasingAgent, string ShowingDate,string Client, string Address, string DateCreated)
         {
             this.Showing_ID = Showing_ID;

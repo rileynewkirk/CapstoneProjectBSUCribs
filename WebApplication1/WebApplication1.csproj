@@ -278,6 +278,7 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\userSidenav.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EditHousingList.aspx" />
     <Content Include="EditMessage.aspx" />
     <Content Include="EditShowing.aspx" />
     <Content Include="EditUser.aspx" />
@@ -380,6 +381,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditHousingList.aspx.cs">
+      <DependentUpon>EditHousingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditHousingList.aspx.designer.cs">
+      <DependentUpon>EditHousingList.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditMessage.aspx.cs">
       <DependentUpon>EditMessage.aspx</DependentUpon>

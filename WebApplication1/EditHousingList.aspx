@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mass Text</title>
+    <title>Edit Housing And Tenant Info</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/prettyPhoto.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -74,7 +74,9 @@
     <br />
     <br />
     <form id="form1" runat="server">
-        <div>
+        <div class="row">
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:Button Text="Upload" OnClick = "Upload" runat="server" />
         </div>
              </form>
 

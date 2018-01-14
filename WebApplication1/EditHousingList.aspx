@@ -74,9 +74,38 @@
     <br />
     <br />
     <form id="form1" runat="server">
+          <div class="row">
+        <div class="form-group">
+                    <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label col-sm-1 col-sm-offset-1"></asp:Label>
+                    <div class="col-sm-3">
+                        <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnTextChanged="AddressDropDownList_TextChanged" ></asp:DropDownList>
+                    </div>
+                </div>
+        </div>
+        
+        
+        <br />
+        
+
         <div class="row">
-                <asp:FileUpload ID="FileUpload1" runat="server" />
+            <div id="tenants" runat="server">
+
+            </div>
+        </div>
+
+        <br />
+         <div class="row">
+             <div id="buts" class="col-sm-offset-1" runat="server">
+
+             </div>
+             </div>
+        <div class="row">
+            <div class="col-sm-offset-1">
+                <h5>This will replace all previous entries</h5>
+                <asp:FileUpload ID="FileUpload1" runat="server"/>
+                <br />
                 <asp:Button Text="Upload" OnClick = "Upload" runat="server" />
+            </div>
         </div>
              </form>
 

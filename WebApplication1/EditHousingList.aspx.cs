@@ -16,6 +16,27 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //add addresses to drop down list
+            if (!this.IsPostBack)
+            {
+                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                conn.Open();
+                string checkShowing = "select distinct PropertyName from table4";
+                MySqlCommand comd = new MySqlCommand(checkShowing, conn);
+                MySqlDataReader dr = comd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    AddressDropDownList.DataSource = dr;
+                    AddressDropDownList.DataTextField = "PropertyName";
+                    AddressDropDownList.DataValueField = "PropertyName";
+                    AddressDropDownList.DataBind();
+                }
+                dr.Close();
+                conn.Close();
+                AddressDropDownList.Items.Insert(0, new ListItem("--Select Address--", "0"));
+
+            }
 
         }
         protected void Upload(object sender, EventArgs e)
@@ -37,7 +58,7 @@ namespace WebApplication1
             {
                 conn.Open();
                 MySqlBulkLoader bcp1 = new MySqlBulkLoader(conn);
-                bcp1.TableName = "properties";
+                bcp1.TableName = "table4";
                 bcp1.FieldTerminator = ",";
 
                 bcp1.LineTerminator = "\r\n";
@@ -56,5 +77,41 @@ namespace WebApplication1
                 }
             }
         }
+
+        protected void AddressDropDownList_TextChanged(object sender, EventArgs e)
+        {
+            string address = AddressDropDownList.Text;
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            conn.Open();
+            string checkShowing = "select FirstName, LastName, Mobile from table4 where PropertyName = '"+address+"';";
+            MySqlCommand comd = new MySqlCommand(checkShowing, conn);
+            MySqlDataReader dr = comd.ExecuteReader();
+            int i = 0;
+            while (dr.Read())
+            {
+                i++;
+                tenants.InnerHtml += "<p class='col-sm-offset-1'>" + dr["FirstName"].ToString() + dr["LastName"].ToString() + dr["mobile"].ToString() + " </p><br/>";
+                Button btn = new Button();
+                btn.Text = "Click";
+                btn.ID = "btn_click" + i;
+                btn.Click += new EventHandler(btnevent_Click);
+                btn.OnClientClick = "Hello('" + "a" + "')";
+
+                form1.Controls.Add(btn);
+
+            }
+            dr.Close();
+            conn.Close();
         }
+        protected void btnevent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //place your code here
+                Response.Write("Hello World");
+            }
+            catch (Exception)
+            { }
+        }
+    }
 }

@@ -74,48 +74,54 @@
     <br />
     <br />
     <form id="form1" runat="server">
-          <div class="row">
-        <div class="form-group">
-                    <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label col-sm-1 col-sm-offset-1"></asp:Label>
-                    <div class="col-sm-3">
-                        <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnTextChanged="AddressDropDownList_TextChanged" ></asp:DropDownList>
-                    </div>
-                </div>
-        </div>
-        
-        
-        <br />
-        
-
         <div class="row">
-            <div id="tenants" runat="server">
-
+            <div class="form-group">
+                <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label col-sm-1 col-sm-offset-1"></asp:Label>
+                <div class="col-sm-3">
+                    <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnTextChanged="AddressDropDownList_TextChanged"></asp:DropDownList>
+                </div>
             </div>
         </div>
 
         <br />
-         <div class="row">
-             <div id="buts" class="col-sm-offset-1" runat="server">
 
-             </div>
-             </div>
+        <div class="row">
+            <div class="main-box clearfix col-sm-offset-1 col-sm-7">
+                <div class="table-responsive table-hover" id="userTable">
+                    <asp:Table ID="Table1" class="table user-list" runat="server">
+                        <asp:TableHeaderRow>
+                            <asp:TableHeaderCell Text="First Name:"></asp:TableHeaderCell>
+                            <asp:TableHeaderCell Text="Last Name:"></asp:TableHeaderCell>
+                            <asp:TableHeaderCell Text="Mobile:"></asp:TableHeaderCell>
+                            <asp:TableHeaderCell Text=""></asp:TableHeaderCell>
+                        </asp:TableHeaderRow>
+                    </asp:Table>
+                    
+                </div>
+            </div>
+        </div>
+        <asp:Button ID="Button1" class="col-sm-offset-1"  runat="server" Text="Update" OnClientClick = "return confirm('Are you sure you want to submit ?')" />
+        <br />
+          <br />
+
         <div class="row">
             <div class="col-sm-offset-1">
-                <h5>This will replace all previous entries</h5>
-                <asp:FileUpload ID="FileUpload1" runat="server"/>
+                <h5 style="color: #FF3300; font-weight: bolder">This will replace all previous entries</h5>
+                <asp:FileUpload ID="FileUpload1" runat="server" />
                 <br />
-                <asp:Button Text="Upload" OnClick = "Upload" runat="server" />
+                <asp:Button Text="Upload" OnClick="Upload" runat="server" OnClientClick = "return confirm('Are you sure you want to upload ?')"/>
             </div>
         </div>
-             </form>
+    </form>
 
-    <script type="text/javascript" src="js/jquery.js"></script> 
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/smoothscroll.js"></script> 
-	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-	<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-	<script type="text/javascript" src="js/main.js"></script> 
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/jquery.parallax.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>

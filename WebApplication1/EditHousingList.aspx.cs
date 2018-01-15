@@ -87,21 +87,42 @@ namespace WebApplication1
             MySqlCommand comd = new MySqlCommand(checkShowing, conn);
             MySqlDataReader dr = comd.ExecuteReader();
             int i = 0;
+           
+
             while (dr.Read())
             {
                 i++;
-                tenants.InnerHtml += "<p class='col-sm-offset-1'>" + dr["FirstName"].ToString() + dr["LastName"].ToString() + dr["mobile"].ToString() + " </p><br/>";
+                TableRow tr = new TableRow();
+                Table1.Rows.Add(tr);
+                TableCell tableCell = new TableCell();
+                TextBox tbname = new TextBox();
+                tbname.Attributes.Add("placeholder", dr["FirstName"].ToString());
+                tr.Controls.Add(tableCell);
+                tableCell.Controls.Add(tbname);
+                TableCell tableLast = new TableCell();
+                TextBox tblname = new TextBox();
+                tblname.Attributes.Add("placeholder", dr["LastName"].ToString());
+                tr.Controls.Add(tableLast);
+                tableLast.Controls.Add(tblname);
+                TableCell tablemobile = new TableCell();
+                TextBox tbmobile = new TextBox();
+                tbmobile.Attributes.Add("placeholder", dr["Mobile"].ToString());
+                tr.Controls.Add(tablemobile);
+                tablemobile.Controls.Add(tbmobile);
+                TableCell tabledel = new TableCell();
                 Button btn = new Button();
-                btn.Text = "Click";
+                btn.Text = "Delete";
                 btn.ID = "btn_click" + i;
+                btn.OnClientClick = "return confirm('Are you sure you want to submit ?')";
                 btn.Click += new EventHandler(btnevent_Click);
-                btn.OnClientClick = "Hello('" + "a" + "')";
-
-                form1.Controls.Add(btn);
+                tr.Controls.Add(tabledel);
+                tabledel.Controls.Add(btn);
 
             }
             dr.Close();
             conn.Close();
+
+            
         }
         protected void btnevent_Click(object sender, EventArgs e)
         {

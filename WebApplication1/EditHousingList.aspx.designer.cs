@@ -40,22 +40,22 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.DropDownList AddressDropDownList;
         
         /// <summary>
-        /// tenants control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tenants;
+        protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// buts control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl buts;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// FileUpload1 control.

@@ -76,13 +76,31 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox tbNumofRes;
         
         /// <summary>
-        /// newListing control.
+        /// tbNewAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newListing;
+        protected global::System.Web.UI.WebControls.TextBox tbNewAddress;
+        
+        /// <summary>
+        /// Table2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table2;
+        
+        /// <summary>
+        /// btnNewListing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNewListing;
         
         /// <summary>
         /// FileUpload1 control.

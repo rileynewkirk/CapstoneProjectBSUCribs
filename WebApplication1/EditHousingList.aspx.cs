@@ -100,16 +100,19 @@ namespace WebApplication1
                 TableCell tableCell = new TableCell();
                 TextBox tbname = new TextBox();
                 tbname.Attributes.Add("placeholder", dr["FirstName"].ToString());
+                tbname.ID = "tbname" + i;
                 tr.Controls.Add(tableCell);
                 tableCell.Controls.Add(tbname);
                 TableCell tableLast = new TableCell();
                 TextBox tblname = new TextBox();
                 tblname.Attributes.Add("placeholder", dr["LastName"].ToString());
+                tblname.ID = "tblname" + i;
                 tr.Controls.Add(tableLast);
                 tableLast.Controls.Add(tblname);
                 TableCell tablemobile = new TableCell();
                 TextBox tbmobile = new TextBox();
                 tbmobile.Attributes.Add("placeholder", dr["Mobile"].ToString());
+                tbmobile.ID = "tbmobile" + i;
                 tr.Controls.Add(tablemobile);
                 tablemobile.Controls.Add(tbmobile);
                 TableCell tabledel = new TableCell();
@@ -141,19 +144,34 @@ namespace WebApplication1
         protected void tbNumofRes_TextChanged(object sender, EventArgs e)
         {
             int numOfRes = Int32.Parse(tbNumofRes.Text);
+            tbNewAddress.Visible = true;
+            if (numOfRes <= 0)
+            {
+                tbNewAddress.Visible = false;
+            }
             for(int i =0; i<numOfRes; i++)
             {
+                TableRow tr = new TableRow();
+                Table2.Rows.Add(tr);
+                TableCell tableCell = new TableCell();
                 TextBox tbname = new TextBox();
                 tbname.Attributes.Add("placeholder", "First Name:");
-                newListing.Controls.Add(tbname);
+                tbname.ID = "tbNewName" + i;
+                tr.Controls.Add(tableCell);
+                tableCell.Controls.Add(tbname);
+                TableCell tableLast = new TableCell();
                 TextBox tblname = new TextBox();
                 tblname.Attributes.Add("placeholder", "Last Name:");
-                newListing.Controls.Add(tblname); 
+                tblname.ID = "tbNewLname" + i;
+                tr.Controls.Add(tableLast);
+                tableLast.Controls.Add(tblname);
+                TableCell tablemobile = new TableCell();
                 TextBox tbmobile = new TextBox();
                 tbmobile.Attributes.Add("placeholder", "Mobile:");
-                newListing.Controls.Add(tbmobile);
+                tbmobile.ID = "tbNewMobile" + i;
+                tr.Controls.Add(tablemobile);
+                tablemobile.Controls.Add(tbmobile);
 
-     
 
 
             }

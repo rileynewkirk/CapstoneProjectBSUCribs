@@ -117,13 +117,25 @@
         <div class="row">
             <asp:TextBox class="col-sm-offset-1 col-sm-2" ID="tbNumofRes" runat="server" TextMode="Number" Placeholder="Enter number of residents here:" AutoPostBack="true" OnTextChanged="tbNumofRes_TextChanged"></asp:TextBox>
         </div>
+        <br />
+
         <div class="row">
-            <div class="col-sm-offset-1" runat="server" id="newListing">
+            <asp:TextBox class="col-sm-offset-1 col-sm-2" ID="tbNewAddress" runat="server" Visible="false" Placeholder="Enter the new address here:"></asp:TextBox>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="main-box clearfix col-sm-offset-1 col-sm-7">
+                <div class="table-responsive table-hover" id="addlist">
+                    <asp:Table ID="Table2" class="table user-list" runat="server">
+                    </asp:Table>
+
+                </div>
             </div>
         </div>
+         <br />
+        <asp:Button ID="btnNewListing" runat="server" class="col-sm-offset-1 col-sm-2" Text="Add New Listing" OnClientClick="return confirm('Are you sure you want to add?')" BackColor="#CFE3C4"/>
 
-
-        <br />
         <hr />
         <br />
         <div class="row">
@@ -134,7 +146,8 @@
                 <asp:Button Text="Upload" OnClick="Upload" runat="server" OnClientClick="return confirm('Are you sure you want to upload? This action will delete all of the previous listings!')" />
             </div>
         </div>
-
+        <br />
+        <br />
 
 
     </form>

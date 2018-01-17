@@ -44,7 +44,7 @@ namespace WebApplication1
             MySqlConnection conn1 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn1.Open();
 
-            string deleteString = "DELETE FROM `properties`";
+            string deleteString = "DELETE FROM `table4`";
             MySqlCommand comd = new MySqlCommand(deleteString, conn1);
 
             comd.ExecuteNonQuery();
@@ -53,6 +53,9 @@ namespace WebApplication1
             string csvPath = Server.MapPath("~/csvTemp/") + Path.GetFileName(FileUpload1.PostedFile.FileName);
             FileUpload1.SaveAs(csvPath);
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            string text = File.ReadAllText(csvPath);
+            text = text.Replace("\"", "");
+            File.WriteAllText(csvPath, text);
 
             using (conn)
             {
@@ -113,7 +116,7 @@ namespace WebApplication1
                 Button btn = new Button();
                 btn.Text = "Delete";
                 btn.ID = "btn_click" + i;
-                btn.OnClientClick = "return confirm('Are you sure you want to submit ?')";
+                btn.OnClientClick = "return confirm('Are you sure you want to delete this person?')";
                 btn.Click += new EventHandler(btnevent_Click);
                 tr.Controls.Add(tabledel);
                 tabledel.Controls.Add(btn);
@@ -133,6 +136,27 @@ namespace WebApplication1
             }
             catch (Exception)
             { }
+        }
+
+        protected void tbNumofRes_TextChanged(object sender, EventArgs e)
+        {
+            int numOfRes = Int32.Parse(tbNumofRes.Text);
+            for(int i =0; i<numOfRes; i++)
+            {
+                TextBox tbname = new TextBox();
+                tbname.Attributes.Add("placeholder", "First Name:");
+                newListing.Controls.Add(tbname);
+                TextBox tblname = new TextBox();
+                tblname.Attributes.Add("placeholder", "Last Name:");
+                newListing.Controls.Add(tblname); 
+                TextBox tbmobile = new TextBox();
+                tbmobile.Attributes.Add("placeholder", "Mobile:");
+                newListing.Controls.Add(tbmobile);
+
+     
+
+
+            }
         }
     }
 }

@@ -96,22 +96,47 @@
                             <asp:TableHeaderCell Text=""></asp:TableHeaderCell>
                         </asp:TableHeaderRow>
                     </asp:Table>
-                    
+
                 </div>
             </div>
         </div>
-        <asp:Button ID="Button1" class="col-sm-offset-1"  runat="server" Text="Update" OnClientClick = "return confirm('Are you sure you want to submit ?')" />
+        <div class="row">
+            <asp:Button ID="Button1" class="col-sm-offset-1 col-sm-2" runat="server" Text="Update" OnClientClick="return confirm('Are you sure you want to update ?')" BackColor="#CFE3C4" />
+        </div>
         <br />
-          <br />
+        <div class="row">
+            <asp:Button ID="Button2" CssClass="col-sm-offset-1 col-sm-2" runat="server" Text="Remove This Listing" OnClientClick="return confirm('Are you sure you want to delete this house from the list ?')" BackColor="#FFD7D7" />
+        </div>
+        <br />
+        <hr />
+        <br />
 
+        <div class="row">
+            <h5 class="col-sm-offset-1">Create new listing:</h5>
+        </div>
+        <div class="row">
+            <asp:TextBox class="col-sm-offset-1 col-sm-2" ID="tbNumofRes" runat="server" TextMode="Number" Placeholder="Enter number of residents here:" AutoPostBack="true" OnTextChanged="tbNumofRes_TextChanged"></asp:TextBox>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-1" runat="server" id="newListing">
+            </div>
+        </div>
+
+
+        <br />
+        <hr />
+        <br />
         <div class="row">
             <div class="col-sm-offset-1">
                 <h5 style="color: #FF3300; font-weight: bolder">This will replace all previous entries</h5>
                 <asp:FileUpload ID="FileUpload1" runat="server" />
                 <br />
-                <asp:Button Text="Upload" OnClick="Upload" runat="server" OnClientClick = "return confirm('Are you sure you want to upload ?')"/>
+                <asp:Button Text="Upload" OnClick="Upload" runat="server" OnClientClick="return confirm('Are you sure you want to upload? This action will delete all of the previous listings!')" />
             </div>
         </div>
+
+
+
     </form>
 
 

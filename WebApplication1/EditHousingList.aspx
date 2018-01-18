@@ -101,11 +101,11 @@
             </div>
         </div>
         <div class="row">
-            <asp:Button ID="Button1" class="col-sm-offset-1 col-sm-2" runat="server" Text="Update" OnClientClick="return confirm('Are you sure you want to update ?')" BackColor="#CFE3C4" />
+            <asp:Button ID="UpdateListing" class="col-sm-offset-1 col-sm-2" runat="server" Text="Update" OnClientClick="return confirm('Are you sure you want to update ?')" BackColor="#CFE3C4" Onclick="UpdateListing_Click"/>
         </div>
         <br />
         <div class="row">
-            <asp:Button ID="Button2" CssClass="col-sm-offset-1 col-sm-2" runat="server" Text="Remove This Listing" OnClientClick="return confirm('Are you sure you want to delete this house from the list ?')" BackColor="#FFD7D7" />
+            <asp:Button ID="DeleteListing" CssClass="col-sm-offset-1 col-sm-2" runat="server" Text="Remove This Listing" OnClientClick="return confirm('Are you sure you want to delete this house from the list ?')" BackColor="#FFD7D7" OnClick="DeleteListing_Click" />
         </div>
         <br />
         <hr />
@@ -134,8 +134,8 @@
             </div>
         </div>
          <br />
-        <asp:Button ID="btnNewListing" runat="server" class="col-sm-offset-1 col-sm-2" Text="Add New Listing" OnClientClick="return confirm('Are you sure you want to add?')" BackColor="#CFE3C4"/>
-
+        <asp:Button ID="btnNewListing" runat="server" class="col-sm-offset-1 col-sm-2" Text="Add New Listing" OnClientClick="return confirm('Are you sure you want to add?')" BackColor="#CFE3C4" OnClick="btnNewListing_Click"/>
+        <br />
         <hr />
         <br />
         <div class="row">
@@ -149,7 +149,7 @@
         <br />
         <br />
 
-
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 
 

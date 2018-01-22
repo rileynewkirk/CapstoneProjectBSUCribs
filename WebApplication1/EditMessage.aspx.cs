@@ -46,10 +46,10 @@ namespace WebApplication1
                     "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse" + i + "\">" + 
                     rdr["FirstName"].ToString() + " " + rdr["LastName"].ToString()+ " - " + rdr["Mobile"].ToString() + "</a>"+
                     "</h4>" + "</div>" + "<div id=\"collapse" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">";
+                       //add id to panel body and write gridview and all that to that id
 
 
-
-                form1.Controls.Add(literalControl);
+                     form1.Controls.Add(literalControl);
 
 
 
@@ -86,6 +86,7 @@ namespace WebApplication1
             }
 
             literalControl.Text += "</div>";
+
             //close Data Reader
             rdr.Close();
 

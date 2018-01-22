@@ -74,7 +74,7 @@
     <br />
     <br />
     <div class="container">
-        <div class="container" style="text-align: center">
+        <div class="container" style="">
 
             <h1>Mass Text</h1>
             <br />
@@ -134,10 +134,16 @@
                 </div>
                 <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
                 <br />
+                <div class="row" style="margin-left: auto; margin-right: auto; text-align: center;">
+                <asp:Label ID="Label1" CssClass="well well-sm" runat="server"><a href="ViewProperties.aspx">View All Properties</a></asp:Label>
+                </div>
+                <br />
+                                <br />
 
-                <asp:Label ID="Label1" CssClass="well well-sm col-sm-pull-2" runat="server"><a href="ViewProperties.aspx">View All Properties</a></asp:Label>
+                <div class="row" style="margin-left: auto; margin-right: auto; text-align: center;">
 
-
+                <asp:Label ID="Label2" CssClass="well well-sm"  runat="server"><a href="EditHousingList.aspx">Edit Properties</a></asp:Label>
+                </div>
 
             </form>
         </div>

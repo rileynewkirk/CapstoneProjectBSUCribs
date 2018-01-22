@@ -73,21 +73,25 @@
     <br />
     <br />
     <br />
-            <asp:Label ID="Labelnum" runat="server"  class="col-sm-offset-5" Text="Label" Font-Size="Larger" Font-Bold="True"></asp:Label>
+    <div style="margin-left: auto; margin-right: auto; text-align: center;">
+        <asp:Label ID="Labelnum" runat="server" Text="Label" Font-Size="Larger" Font-Bold="True"></asp:Label>
+    </div>
     <br />
     <br />
-    <form id="form1" runat="server">
-  
-    </form>
-    
+    <form id="form1" class="col-sm-offset-1 col-sm-10" runat="server">
 
-    <script type="text/javascript" src="js/jquery.js"></script> 
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/smoothscroll.js"></script> 
-	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-	<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-	<script type="text/javascript" src="js/main.js"></script> 
+
+
+    </form>
+
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/jquery.parallax.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>

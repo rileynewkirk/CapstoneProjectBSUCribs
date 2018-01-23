@@ -81,8 +81,8 @@ namespace WebApplication1
             MySqlCommand comd = new MySqlCommand(checkShowing, conn);
             comd.Parameters.AddWithValue("Address", address);
             MySqlDataReader dr = comd.ExecuteReader();
-            dr.Read();
-            if (dr.HasRows)
+            
+            while(dr.Read())
             {
                 
                 const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";

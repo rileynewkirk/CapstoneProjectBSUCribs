@@ -89,8 +89,8 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
-                                    <th class="text-center"><span>Address</span></th>                          
-                                    <th class="text-center"><span>Message</span></th>
+                                    <th><span>Address</span></th>                          
+                                    <th><span>Message</span></th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -129,7 +129,7 @@
 
                 <div class="form-group">
                     <div id="submitButtons" class="col-sm-4 col-sm-offset-4">
-                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click"/>
+                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick = "return confirm('Are you sure you want to send this?')" OnClick="btnSend_Click"/>
                         </div>
                 </div>
                 <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>

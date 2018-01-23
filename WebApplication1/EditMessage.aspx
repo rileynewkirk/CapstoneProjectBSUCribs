@@ -78,13 +78,30 @@
     </div>
     <br />
     <br />
-    <form id="form1" class="col-sm-offset-1 col-sm-10" runat="server">
+    <form id="form1"  runat="server">
+        <div runat ="server" class="col-sm-offset-1 col-sm-10" id="test"></div>
 
+        <br />
+        <br />
 
-
+          <div class=" row">
+                    <asp:Label ID="Label6" runat="server" Text="Message" CssClass="control-label col-sm-1 col-sm-offset-3" for="tbMessage"></asp:Label>
+                    <div class="col-sm-4">
+                        <asp:TextBox ID="tbMessage" Placeholder="Send to all numbers listed above:" TextMode="MultiLine" runat="server" CssClass="form-control" Rows="10" Columns="10"></asp:TextBox>
+                    </div>
+              <br />
+                </div>
+                <!-- close Message-->
+        <br />
+                <div class="row">    
+                    <div id="submitButtons" class="col-sm-4 col-sm-offset-4">
+                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick = "return confirm('Are you sure you want to send this?')" Onclick="btnSend_Click"/>
+                        </div>
+                </div>
+       
     </form>
-
-
+        
+                  
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/smoothscroll.js"></script>

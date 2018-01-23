@@ -22,6 +22,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png" />
 
+
+    <style>
+        
+        table, th, td{ border:none; padding:5px;
+        }tr:hover {background-color: #f5f5f5;}
+         table{position:center;}
+    </style>
 </head>
 
 <body>
@@ -79,12 +86,12 @@
     <br />
     <br />
     <form id="form1"  runat="server">
-        <div runat ="server" class="col-sm-offset-1 col-sm-10" id="test"></div>
+        <div runat ="server" class="col-sm-offset-2 col-sm-8" id="test"></div>
 
         <br />
         <br />
 
-          <div class=" row">
+          <div class="row" style="padding-top:5px;">
                     <asp:Label ID="Label6" runat="server" Text="Message" CssClass="control-label col-sm-1 col-sm-offset-3" for="tbMessage"></asp:Label>
                     <div class="col-sm-4">
                         <asp:TextBox ID="tbMessage" Placeholder="Send to all numbers listed above:" TextMode="MultiLine" runat="server" CssClass="form-control" Rows="10" Columns="10"></asp:TextBox>
@@ -98,7 +105,15 @@
                         <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick = "return confirm('Are you sure you want to send this?')" Onclick="btnSend_Click"/>
                         </div>
                 </div>
-       
+        <br />
+        <br />
+
+                       <div class="row">    
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <asp:Button class="btn btn-block btn-danger" ID="Buttondel" runat="server" Text="Delete Whole Thread" OnClientClick = "return confirm('Are you sure you want to delete this?')" Onclick="Buttondel_Click"/>
+                        </div>
+                </div>
+        <br />
     </form>
         
                   

@@ -76,7 +76,7 @@
     <div class="container">
         <div class="container" style="">
 
-            <h1>Mass Text</h1>
+            <h1 style="text-align:center; padding-right:15px;">Mass Text</h1>
             <br />
 
 

@@ -66,7 +66,7 @@ namespace WebApplication1
             }
 
 
-
+            tbMessage.Attributes.Add("maxlength", "1500");
 
         }
 
@@ -100,6 +100,18 @@ namespace WebApplication1
             dr.Close();
             conn.Close();
 
+
+            MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            connd.Open();
+
+            string deleteString = "delete from messages where address = @address";
+            MySqlCommand comdd = new MySqlCommand(deleteString, connd);
+
+            comdd.Parameters.AddWithValue("@address", address);
+
+            comdd.ExecuteNonQuery();
+            connd.Close();
+
             MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conni.Open();
             string insertString = "insert into messages (Address, MessageBody) " +
@@ -118,17 +130,3 @@ namespace WebApplication1
 
     }
 }
-
-
-
-
-//const string accountsid = "acfea5d37bf26506dc28eec82b31753b4b";
-//const string authtoken = "064e3b6440e1172673fdc210a3f3b1cd";
-//TwilioClient.Init(accountsid, authtoken);
-
-//var to = new PhoneNumber(phoneNumber);
-//var message = MessageResource.Create(
-//    to,
-//    from: new PhoneNumber("(317)-961-7486"),
-//    body: sbody);
-//Console.Write(message.Sid);

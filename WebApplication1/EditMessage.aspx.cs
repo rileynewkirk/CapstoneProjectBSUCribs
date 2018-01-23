@@ -46,7 +46,8 @@ namespace WebApplication1
                     "<div class=\"panel-heading\">" + "<h4 class=\"panel-title\">" +
                     "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse" + i + "\">" + 
                     rdr["FirstName"].ToString() + " " + rdr["LastName"].ToString()+ " - " + rdr["Mobile"].ToString() + "</a>"+
-                    "</h4>" + "</div>" + "<div id=\"collapse" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">";
+                    "</h4>" + "</div>" + "<div id=\"collapse" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">" +
+                    "<div style=\"max-width:670px; max-height:400px; overflow: auto\">";
                 test.Controls.Add(literalControlHeader);
                 //add id to panel body and write gridview and all that to that id
 
@@ -80,18 +81,19 @@ namespace WebApplication1
                 GridView1.DataBind();
 
                 LiteralControl literalControlrespond = new LiteralControl();
-                literalControlrespond.Text += "<br/>";
+                literalControlrespond.Text += "</div><br/><div style=\"\">";
                 test.Controls.Add(literalControlrespond);
 
                 TextBox tb = new TextBox();
                 tb.Rows = 5;
                 tb.Columns = 60;
+                tb.Attributes.Add("maxlength", "1500");
                 tb.TextMode = TextBoxMode.MultiLine;
                 tb.ID = rdr["Mobile"].ToString();
                 test.Controls.Add(tb);
 
                 LiteralControl literalControlbtn = new LiteralControl();
-                literalControlbtn.Text += "<br/>";
+                literalControlbtn.Text += "</div><br/><div style=\"\">";
                 test.Controls.Add(literalControlbtn);
 
                 Button btnsend = new Button();
@@ -103,7 +105,7 @@ namespace WebApplication1
 
 
                 LiteralControl literalControlBody = new LiteralControl();
-                literalControlBody.Text += "</div></div></div>";
+                literalControlBody.Text += "</div></div></div></div>";
                 test.Controls.Add(literalControlBody);
 
             }
@@ -117,7 +119,7 @@ namespace WebApplication1
 
             //close Connection
             conn.Close();
-
+            tbMessage.Attributes.Add("maxlength", "1500");
 
 
         }
@@ -134,10 +136,13 @@ namespace WebApplication1
             const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
             TwilioClient.Init(accountSid, authToken);
             var to = new PhoneNumber(id);
-            var message = MessageResource.Create(
-                to,
-                from: new PhoneNumber("17653454144"),
-                body: sms);
+
+                var message = MessageResource.Create(
+                    to,
+                    from: new PhoneNumber("17653454144"),
+                    body: sms);
+
+
             Response.Redirect(Request.RawUrl);
         }
 
@@ -170,6 +175,20 @@ namespace WebApplication1
             dr.Close();
             conn.Close();
 
+
+            MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            connd.Open();
+
+            string deleteString = "delete from messages where address = @address";
+            MySqlCommand comdd = new MySqlCommand(deleteString, connd);
+
+            comdd.Parameters.AddWithValue("@address", address);
+
+            comdd.ExecuteNonQuery();
+            connd.Close();
+
+
+
             MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conni.Open();
             string insertString = "insert into messages (Address, MessageBody) " +
@@ -180,6 +199,25 @@ namespace WebApplication1
             comdi.ExecuteNonQuery();
             conni.Close();
             Response.Redirect(Request.RawUrl);
+
+        }
+
+        protected void Buttondel_Click(object sender, EventArgs e)
+        {
+            string address = Request.QueryString["Address"];
+
+            MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            connd.Open();
+
+            string deleteString = "delete from messages where address = @address";
+            MySqlCommand comdd = new MySqlCommand(deleteString, connd);
+
+            comdd.Parameters.AddWithValue("@address", address);
+
+            comdd.ExecuteNonQuery();
+            connd.Close();
+            Response.Redirect("MassText.aspx");
+
 
         }
     }

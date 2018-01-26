@@ -109,7 +109,7 @@
         <br />
 
                        <div class="row">    
-                    <div class="col-sm-4 col-sm-offset-4">
+                    <div class="col-sm-4 col-sm-offset-4" style="padding-top:5px">
                         <asp:Button class="btn btn-block btn-danger" ID="Buttondel" runat="server" Text="Delete Whole Thread" OnClientClick = "return confirm('Are you sure you want to delete this?')" Onclick="Buttondel_Click"/>
                         </div>
                 </div>

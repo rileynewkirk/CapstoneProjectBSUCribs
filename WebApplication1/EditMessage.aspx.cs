@@ -47,7 +47,7 @@ namespace WebApplication1
                     "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse" + i + "\">" + 
                     rdr["FirstName"].ToString() + " " + rdr["LastName"].ToString()+ " - " + rdr["Mobile"].ToString() + "</a>"+
                     "</h4>" + "</div>" + "<div id=\"collapse" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">" +
-                    "<div style=\"max-width:670px; max-height:400px; overflow: auto\">";
+                    "<div style=\"max-width:100%; max-height:400px; overflow: auto; text-align:center\">";
                 test.Controls.Add(literalControlHeader);
                 //add id to panel body and write gridview and all that to that id
 
@@ -81,7 +81,7 @@ namespace WebApplication1
                 GridView1.DataBind();
 
                 LiteralControl literalControlrespond = new LiteralControl();
-                literalControlrespond.Text += "</div><br/><div style=\"\">";
+                literalControlrespond.Text += "</div><br/><div style=\"text-align: center;\">";
                 test.Controls.Add(literalControlrespond);
 
                 TextBox tb = new TextBox();
@@ -93,13 +93,14 @@ namespace WebApplication1
                 test.Controls.Add(tb);
 
                 LiteralControl literalControlbtn = new LiteralControl();
-                literalControlbtn.Text += "</div><br/><div style=\"\">";
+                literalControlbtn.Text += "</div><br/><div style=\"text-align: center;\">";
                 test.Controls.Add(literalControlbtn);
 
                 Button btnsend = new Button();
                 btnsend.Text = "Send";
                 btnsend.Click += new EventHandler(btnevent_Click);
                 btnsend.CommandArgument = rdr["Mobile"].ToString();
+                btnsend.CssClass = "btn btn-success";
                 test.Controls.Add(btnsend);
 
 

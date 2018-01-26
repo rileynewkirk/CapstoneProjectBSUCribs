@@ -62,7 +62,7 @@ namespace WebApplication1
                 dr.Close();
                 conn.Close();
                 AddressDropDownList.Items.Insert(0, new ListItem("--Select Address--", "0"));
-                AddressDropDownList.Items.Insert(1, new ListItem("Send To All Address"));
+                AddressDropDownList.Items.Insert(1, new ListItem("Send To All Addresses"));
             }
 
 
@@ -75,30 +75,62 @@ namespace WebApplication1
 
             string sbody = tbMessage.Text;
             string address = AddressDropDownList.SelectedValue;
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-            string checkShowing = "select * from table4 where PropertyName = @Address";
-            MySqlCommand comd = new MySqlCommand(checkShowing, conn);
-            comd.Parameters.AddWithValue("Address", address);
-            MySqlDataReader dr = comd.ExecuteReader();
-            
-            while(dr.Read())
+            if (address != "Send To All Addresses")
             {
-                
-                const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
-                const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
-                TwilioClient.Init(accountSid, authToken);
-                var to = new PhoneNumber(dr["Mobile"].ToString());
-                var message = MessageResource.Create(
-                    to,
-                    from: new PhoneNumber("17653454144"),
-                    body: sbody);
+                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                conn.Open();
+                string checkShowing = "select * from table4 where PropertyName = @Address";
+                MySqlCommand comd = new MySqlCommand(checkShowing, conn);
+                comd.Parameters.AddWithValue("Address", address);
+                MySqlDataReader dr = comd.ExecuteReader();
 
-    
+                while (dr.Read())
+                {
+
+                    const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
+                    const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
+                    TwilioClient.Init(accountSid, authToken);
+                    var to = new PhoneNumber(dr["Mobile"].ToString());
+                    var message = MessageResource.Create(
+                        to,
+                        from: new PhoneNumber("17653454144"),
+                        body: sbody);
+
+
+
+                }
+                dr.Close();
+                conn.Close();
+            }
+            else
+            {
+                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                conn.Open();
+                string checkShowing = "select * from table4";
+                MySqlCommand comd = new MySqlCommand(checkShowing, conn);
+                comd.Parameters.AddWithValue("Address", address);
+                MySqlDataReader dr = comd.ExecuteReader();
+
+                while (dr.Read())
+                {
+
+                    const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
+                    const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
+                    TwilioClient.Init(accountSid, authToken);
+                    var to = new PhoneNumber(dr["Mobile"].ToString());
+                    var message = MessageResource.Create(
+                        to,
+                        from: new PhoneNumber("17653454144"),
+                        body: sbody);
+
+
+
+                }
+                dr.Close();
+                conn.Close();
 
             }
-            dr.Close();
-            conn.Close();
+
 
 
             MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
@@ -121,7 +153,7 @@ namespace WebApplication1
             comdi.Parameters.AddWithValue("@MessageBody", sbody);
             comdi.ExecuteNonQuery();
             conni.Close();
-           
+
 
             lblResponse.Text = "Your message has been sent!";
             Response.Redirect("MassText.aspx");

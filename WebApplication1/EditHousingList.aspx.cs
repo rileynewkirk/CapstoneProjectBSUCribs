@@ -85,52 +85,53 @@ namespace WebApplication1
 
         protected void AddressDropDownList_TextChanged(object sender, EventArgs e)
         {
-            string address = AddressDropDownList.Text;
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-            string checkShowing = "select FirstName, LastName, Mobile from table4 where PropertyName = '"+address+"';";
-            MySqlCommand comd = new MySqlCommand(checkShowing, conn);
-            MySqlDataReader dr = comd.ExecuteReader();
-            int i = 0;
-            table1ct = 0;
 
-            while (dr.Read())
-            {
-                i++;
-                table1ct++;
-                TableRow tr = new TableRow();
-                Table1.Rows.Add(tr);
-                TableCell tableCell = new TableCell();
-                TextBox tbname = new TextBox();
-                tbname.Attributes.Add("placeholder", dr["FirstName"].ToString());
-                tbname.ID = "tbname" + i;
-                tr.Controls.Add(tableCell);
-                tableCell.Controls.Add(tbname);
-                TableCell tableLast = new TableCell();
-                TextBox tblname = new TextBox();
-                tblname.Attributes.Add("placeholder", dr["LastName"].ToString());
-                tblname.ID = "tblname" + i;
-                tr.Controls.Add(tableLast);
-                tableLast.Controls.Add(tblname);
-                TableCell tablemobile = new TableCell();
-                TextBox tbmobile = new TextBox();
-                tbmobile.Attributes.Add("placeholder", dr["Mobile"].ToString());
-                tbmobile.ID = "tbmobile" + i;
-                tr.Controls.Add(tablemobile);
-                tablemobile.Controls.Add(tbmobile);
-                TableCell tabledel = new TableCell();
-                Button btn = new Button();
-                btn.Text = "Delete";
-                btn.ID = "" + i;
-                btn.OnClientClick = "return confirm('Are you sure you want to delete this person?')";
-                btn.Click += new EventHandler(btnevent_Click);
-                tr.Controls.Add(tabledel);
-                tabledel.Controls.Add(btn);
+                string address = AddressDropDownList.Text;
+                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                conn.Open();
+                string checkShowing = "select FirstName, LastName, Mobile from table4 where PropertyName = '" + address + "';";
+                MySqlCommand comd = new MySqlCommand(checkShowing, conn);
+                MySqlDataReader dr = comd.ExecuteReader();
+                int i = 0;
+                table1ct = 0;
 
-            }
-            dr.Close();
-            conn.Close();
+                while (dr.Read())
+                {
+                    i++;
+                    table1ct++;
+                    TableRow tr = new TableRow();
+                    Table1.Rows.Add(tr);
+                    TableCell tableCell = new TableCell();
+                    TextBox tbname = new TextBox();
+                    tbname.Attributes.Add("placeholder", dr["FirstName"].ToString());
+                    tbname.ID = "tbname" + i;
+                    tr.Controls.Add(tableCell);
+                    tableCell.Controls.Add(tbname);
+                    TableCell tableLast = new TableCell();
+                    TextBox tblname = new TextBox();
+                    tblname.Attributes.Add("placeholder", dr["LastName"].ToString());
+                    tblname.ID = "tblname" + i;
+                    tr.Controls.Add(tableLast);
+                    tableLast.Controls.Add(tblname);
+                    TableCell tablemobile = new TableCell();
+                    TextBox tbmobile = new TextBox();
+                    tbmobile.Attributes.Add("placeholder", dr["Mobile"].ToString());
+                    tbmobile.ID = "tbmobile" + i;
+                    tr.Controls.Add(tablemobile);
+                    tablemobile.Controls.Add(tbmobile);
+                    TableCell tabledel = new TableCell();
+                    Button btn = new Button();
+                    btn.Text = "Delete";
+                    btn.ID = "" + i;
+                    btn.OnClientClick = "return confirm('Are you sure you want to delete this person?')";
+                    btn.Click += new EventHandler(btnevent_Click);
+                    tr.Controls.Add(tabledel);
+                    tabledel.Controls.Add(btn);
 
+                }
+                dr.Close();
+                conn.Close();
+            
             
         }
         protected void btnevent_Click(object sender, EventArgs e)

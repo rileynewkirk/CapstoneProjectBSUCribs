@@ -63,8 +63,7 @@
                 <asp:Label ID="lblSubject" runat="server" Text="User Type" CssClass="control-label col-sm-4" for="ddlTypes"></asp:Label>
                 <div class="col-sm-4">
                     <asp:DropDownList ID="ddlTypes" runat="server" CssClass="form-control">
-                        <asp:ListItem Value="Basic">Basic</asp:ListItem>
-                        <asp:ListItem Value="Writer">Writer</asp:ListItem>
+                        <asp:ListItem Value="Agent">Agent</asp:ListItem>
                         <asp:ListItem Value="Admin">Admin</asp:ListItem>
                     </asp:DropDownList>
                 </div>
@@ -72,18 +71,8 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlTypes" ErrorMessage="Subject is Required"></asp:RequiredFieldValidator>
                     <br />
                 </div>
-
             </div>
             <!-- close Types-->
-
-            <div class="form-group">
-                <div id="btns" class="col-sm-4 col-sm-offset-4">
-                    <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Change User Type" BackColor="Green" OnClick="updateInfo" />
-                    <br />
-
-                </div>
-            </div>
-
 
             <div class="form-group">
                 <asp:Label ID="Label8" runat="server" Text="Phone Number" CssClass="control-label col-sm-4" for="tbPhoneNumber"></asp:Label>
@@ -91,12 +80,6 @@
                     <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
                 </div>
                 <br />
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <asp:Button ID="btnUpdatePhone" CssClass="btn btn-primary" BackColor="Green" runat="server" Text="Update Phone Number" onclick="btnUpdatePhone_Click"/>
-                </div>
             </div>
 
             <div class="form-group">
@@ -110,12 +93,6 @@
                 </div>
             </div>
 
-             <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <asp:Button ID="btnUpdatePassword" CssClass="btn btn-primary" BackColor="Green" runat="server" Text="Update Password" OnClick="btnUpdatePassword_Click" />
-                </div>
-            </div>
-
             <div class="form-group">
                 <asp:Label ID="Label4" runat="server" Text="Email" CssClass="control-label col-sm-4" for="tbEmail"></asp:Label>
                 <div class="col-sm-4">
@@ -126,7 +103,7 @@
 
              <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-4">
-                    <asp:Button ID="btnUpdateEmail" CssClass="btn btn-primary" BackColor="Green" runat="server" Text="Update Email" OnClick="btnUpdateEmail_Click" />
+                    <asp:Button ID="Email" CssClass="btn btn-primary" BackColor="Green" runat="server" Text="Update" OnClick="updateInfo" />
                 </div>
             </div>
             <br />

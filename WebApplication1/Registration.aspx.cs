@@ -18,7 +18,7 @@ namespace WebApplication1
             {
                 Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
             }
-            else if(Convert.ToInt32(Session["usertype"]) != 3)
+            else if(Convert.ToInt32(Session["usertype"]) != 2)
             {
                 Response.Write("<script language=javascript> var agree; agree=confirm('You are not allowed access to this page'); window.location='Login.aspx';</script>");
             }
@@ -142,15 +142,11 @@ namespace WebApplication1
 
         if (v == 2)
         {
-            label = "<td class=\"text-center\"><span class=\"label label-primary\">Writer</span></td>";
-        }
-        else if (v == 3)
-        {
-            label = "<td class=\"text-center\"><span class=\"label label-danger\">Admin</span></td>";
+            label = "<td class=\"text-center\"><span class=\"label label-primary\">Admin</span></td>";
         }
         else
         {
-            label = "<td class=\"text-center\"><span class=\"label label-default\">Basic</span></td>";
+            label = "<td class=\"text-center\"><span class=\"label label-default\">Agent</span></td>";
         }
 
         return label;

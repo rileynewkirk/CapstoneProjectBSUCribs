@@ -21,7 +21,22 @@ namespace WebApplication1.App_Code
         
         }
 
+<<<<<<< HEAD
       
+=======
+        /*
+        public Showing(string showing_ID,string LeasingAgent, string Client, string Address, string ShowingDate)
+        {
+            this.Showing_ID = Showing_ID;
+            this.LeasingAgent = LeasingAgent;
+            this.Client = Client;
+            this.Address = Address;
+            this.ShowingDate = ShowingDate;
+        }
+<<<<<<< HEAD
+        */
+
+>>>>>>> a902aa8775db4158cc7cb1b482b6c588111a4d95
 
         public Showing(string showing_ID, string LeasingAgent, string Client, string Address, string ShowingDate)
         {

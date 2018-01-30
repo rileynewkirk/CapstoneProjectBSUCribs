@@ -48,7 +48,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand">
                         <h1>
                             <img src="images/logo.png" alt="logo" /></h1>
                     </a>
@@ -73,9 +73,9 @@
     <br />
     <br />
     <div class="container">
-        <div class="container" style="text-align: center">
+        <div class="container" style="">
 
-            <h1>Mass Text</h1>
+            <h1 style="text-align:center; padding-right:15px;">Mass Text</h1>
             <br />
 
 
@@ -88,8 +88,8 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
-                                    <th class="text-center"><span>Address</span></th>                          
-                                    <th class="text-center"><span>Message</span></th>
+                                    <th><span>Address</span></th>                          
+                                    <th><span>Message</span></th>
                                     <th>&nbsp;</th>
                                 </tr>
                             </thead>
@@ -128,15 +128,21 @@
 
                 <div class="form-group">
                     <div id="submitButtons" class="col-sm-4 col-sm-offset-4">
-                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click"/>
+                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick = "return confirm('Are you sure you want to send this?')" OnClick="btnSend_Click"/>
                         </div>
                 </div>
                 <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
                 <br />
+                <div class="row" style="margin-left: auto; margin-right: auto; text-align: center;">
+                <asp:Label ID="Label1" CssClass="well well-sm" runat="server"><a href="ViewProperties.aspx">View All Properties</a></asp:Label>
+                </div>
+                <br />
+                                <br />
 
-                <asp:Label ID="Label1" CssClass="well well-sm col-sm-pull-2" runat="server"><a href="ViewProperties.aspx">View All Properties</a></asp:Label>
+                <div class="row" style="margin-left: auto; margin-right: auto; text-align: center;">
 
-
+                <asp:Label ID="Label2" CssClass="well well-sm"  runat="server"><a href="EditHousingList.aspx">Edit Properties</a></asp:Label>
+                </div>
 
             </form>
         </div>

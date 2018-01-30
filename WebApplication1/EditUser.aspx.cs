@@ -22,7 +22,7 @@ namespace WebApplication1
 
         private void getUserInfo(string name)
         {
-            string qry = "Select firstname, lastname, profileImage from Users WHERE UserName=\"" + name + "\"";
+            string qry = "Select * from Users WHERE UserName=\"" + name + "\"";
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn.Open();
 
@@ -34,6 +34,21 @@ namespace WebApplication1
                 string firstname = rdr["firstname"].ToString();
                 string lastname = rdr["lastname"].ToString();
                 string img = rdr["profileImage"].ToString();
+                string phone = rdr["PhoneNumber"].ToString();
+                string email = rdr["Email"].ToString();
+                string password = rdr["Password"].ToString();
+                int usertype = Convert.ToInt32(rdr["UserType"]);
+
+                if(usertype == 2)
+                {
+                    ddlTypes.SelectedIndex = 1;
+                }
+
+
+                tbPhoneNumber.Attributes.Add("placeholder", phone);
+                tbEmail.Attributes.Add("placeholder", email);
+                tbPassword.Attributes.Add("name", password);
+                tbPassword.Attributes.Add("placeholder", "Enter a new password if needed:");
 
                 nameTitle.InnerHtml = firstname + " " + lastname;
                 profilePic.Attributes.Add("src", img);
@@ -48,21 +63,50 @@ namespace WebApplication1
             string type = ddlTypes.SelectedValue;
             int newType = 1;
 
-            if (type == "Basic")
+            string password;
+            string email;
+            string phonenumber;
+
+            if (type == "Agent")
             {
                 newType = 1;
             }
-            else if (type == "Writer")
+            else if (type == "Admin")
             {
                 newType = 2;
             }
-            else if (type == "Admin")
+
+            if(tbPhoneNumber.Text == "")
             {
-                newType = 3;
+                phonenumber = tbPhoneNumber.Attributes["placeholder"];
+            }
+            else
+            {
+                phonenumber = tbPhoneNumber.Text;
+            }
+            if (tbEmail.Text == "")
+            {
+                email = tbEmail.Attributes["placeholder"];
+            }
+            else
+            {
+                email = tbEmail.Text;
+            }
+            if (tbPassword.Text == "")
+            {
+                password = tbPassword.Attributes["name"];
+            }
+            else
+            {
+                password = EncryptPassword.encryptString(tbPassword.Text);
             }
 
+
+
+
             string name = Request.QueryString["username"];
-            string qry = "UPDATE users SET UserType=\"" + newType + "\" WHERE UserName=\"" + name + "\"";
+            string qry = "UPDATE users SET UserType=\"" + newType + "\", Password = '"+ password + "', Email ='"+email+
+                "', PhoneNumber = '"+ phonenumber + "' WHERE UserName=\"" + name + "\"";
 
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn.Open();
@@ -94,61 +138,5 @@ namespace WebApplication1
             Response.Write("<script language=javascript>window.location='Registration.aspx';</script>");
         }
 
-        protected void btnUpdateEmail_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-
-            String Username = Request.QueryString["username"];
-            String email = tbEmail.Text;
-
-            string updateString = "update users set email = @email where Username = @Username";
-            MySqlCommand comd = new MySqlCommand(updateString, conn);
-
-            comd.Parameters.AddWithValue("@UserName", Username);
-            comd.Parameters.AddWithValue("@email", email);
-            comd.ExecuteNonQuery();
-            conn.Close();
-
-            Response.Write("<script language=javascript>window.location='Registration.aspx';</script>");
-        }
-
-        protected void btnUpdatePassword_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-
-            String Username = Request.QueryString["username"];
-            String password = tbPassword.Text;
-
-            string updateString = "update users set password = @password where Username = @Username";
-            MySqlCommand comd = new MySqlCommand(updateString, conn);
-
-            comd.Parameters.AddWithValue("@UserName", Username);
-            comd.Parameters.AddWithValue("@password", EncryptPassword.encryptString(password));
-            comd.ExecuteNonQuery();
-            conn.Close();
-
-            Response.Write("<script language=javascript>window.location='Registration.aspx';</script>");
-        }
-
-        protected void btnUpdatePhone_Click(object sender, EventArgs e)
-        {
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-
-            String Username = Request.QueryString["username"];
-            String phone = tbPhoneNumber.Text;
-
-            string updateString = "update users set PhoneNumber = @PhoneNumber where Username = @Username";
-            MySqlCommand comd = new MySqlCommand(updateString, conn);
-
-            comd.Parameters.AddWithValue("@UserName", Username);
-            comd.Parameters.AddWithValue("@PhoneNumber", phone);
-            comd.ExecuteNonQuery();
-            conn.Close();
-
-            Response.Write("<script language=javascript>window.location='Registration.aspx';</script>");
-        }
     }
 }

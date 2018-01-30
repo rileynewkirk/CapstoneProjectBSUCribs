@@ -21,18 +21,7 @@ namespace WebApplication1.App_Code
         
         }
 
-        /*
-        public Showing(string showing_ID,string LeasingAgent, string Client, string Address, string ShowingDate)
-        {
-            this.Showing_ID = Showing_ID;
-            this.LeasingAgent = LeasingAgent;
-            this.Client = Client;
-            this.Address = Address;
-            this.ShowingDate = ShowingDate;
-        }
-<<<<<<< HEAD
-        */
-=======
+      
 
         public Showing(string showing_ID, string LeasingAgent, string Client, string Address, string ShowingDate)
         {
@@ -43,7 +32,7 @@ namespace WebApplication1.App_Code
             this.ShowingDate = ShowingDate;
         }
 
->>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
+
         public Showing(string Showing_ID, string LeasingAgent, string ShowingDate,string Client, string Address, string DateCreated)
         {
             this.Showing_ID = Showing_ID;
@@ -76,33 +65,7 @@ namespace WebApplication1.App_Code
             conn.Close();
 
         }
-        /*
-        public Showing findShowingByDate(string showingDate)
-        {
-            Showing showing = new Showing();
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-            string checkShowing = "select Showing_ID, Agent_ID, Showing_DateTime, Client_Name, Address, Created_DateTime from  calendar where Showing_DateTime=@ShowingDate";
-            MySqlCommand comd = new MySqlCommand(checkShowing, conn);
-            comd.Parameters.AddWithValue("@ShowingDate", showingDate);
-            MySqlDataReader dr = comd.ExecuteReader();
-            dr.Read();
-            if (dr.HasRows)
-            {
-                showing.Showing_ID = dr[0].ToString();//need to figure out casting issues.
-                showing.LeasingAgent = dr[1].ToString();
-                //showing.ShowingDate = Convert.ToDateTime(dr[2]);
-                showing.ShowingDate = dr[2].ToString();
-                showing.Client = dr[3].ToString();
-                showing.Address = dr[4].ToString();
-                //showing.DateCreated = Convert.ToDateTime(dr[5]);
-                showing.ShowingDate = dr[5].ToString();
-            }
-            dr.Close();
-            conn.Close();
-            return showing;
-        }
-        */
+     
         public bool checkShowingExist()
         {
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);

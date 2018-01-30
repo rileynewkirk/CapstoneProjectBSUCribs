@@ -24,12 +24,9 @@ namespace WebApplication1
         private void getShowingsFromDate(DateTime date)
         {
             List<Showing> showings = new List<Showing>();
-<<<<<<< HEAD
 
-            string qry = "SELECT Showing_ID, Agent_ID,Client_Name,Address FROM calendar WHERE Showing_DateTime  = '" + date.ToString("yyyy-MM-dd") + "'";
-=======
-            string qry = "SELECT Showing_ID, Address, Client_Name, Agent_ID FROM calendar WHERE Showing_DateTime  = '" + date.ToString("yyyy-MM-dd") +"'";
->>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
+            string qry = "SELECT Showing_ID, Address, Client_Name, Agent_ID FROM calendar WHERE Showing_DateTime  like '%" + date.ToString("yyyy-MM-dd") +"%'";
+
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             conn.Open();
@@ -41,19 +38,12 @@ namespace WebApplication1
                     var leasingAgent = rdr["Agent_ID"].ToString();
                     var client = rdr["Client_Name"].ToString();
                     var address = rdr["Address"].ToString();
-<<<<<<< HEAD
-                    var showingDate = date.ToString("yyyy-MM-dd");
-                    var dateCreated = date.ToString("yyyy-MM-dd"); //date from calendar, chagned for testing 
-                    //var dateCreated = rdr["Created_DateTime"].ToString();
 
-                    Showing showing = new Showing(showingID,leasingAgent,client,address,showingDate, dateCreated);
-=======
                     var showingDate = date.ToString(); //.ToString("yyyy-MM-dd");
             
-                    //Response.Write(address+" " + client+" "+leasingAgent+"\n");
 
                     Showing showing = new Showing(showingID, leasingAgent, client, address, showingDate);
->>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
+
                     showings.Add(showing);
                    
                 }
@@ -70,37 +60,22 @@ namespace WebApplication1
             for (int i = 0; i <= showings.Count - 1; i++)
             {
                 string start = "<tr id=\"" + showings[i].getID() + "\">";
-                //string img = "<td style=\"text-align: left\"><img src=\"" + showings[i].getProfileImage() + "\" class=\"img-responsive profile-thumbnail\" alt=\"\" /></td>";
                 string leasingAgent = "<td> " + showings[i].getLeasingAgent() + "</td>";
-                string showingID = "<td> " + showings[i].getID() + "</td>";
-                //string showingDate = "<td> " + showings[i].getShowingDate() + "</td>"; //"<td><a href=\"EditUser.aspx" + showings[i].getShowingDate() + "\" class=\"profile-text\">" + users[i].getFirstname() + " " + users[i].getLastname() + "</a></td>";
-                //string label = getLabel(showings[i].getUsertype());
+               // string showingID = "<td> " + showings[i].getID() + "</td>";
                 string client = "<td> " + showings[i].getClient() + "</td>";
                 string address = "<td>" + showings[i].getAddress() + "</td>";
                 string showingDate = "<td>" + showings[i].getShowingDate() + "</td>";
-                //string dateCreated = "<td> " + showings[i].getDateCreated() + "</td>";
-<<<<<<< HEAD
-                //string btnEdit = "<td style=\"width:10%;\"><a href=\"EditShowing.aspx?showingID=" + showings[i].getID() + "\" class=\"btn btn-default\">Edit</a></td>";
-                string btnEdit = "<td style=\"width:10%;\"><a href=\"EditShowing.aspx?showingID=" + showings[i].getID() + "&showingDate="+Calendar1.SelectedDate.ToString("yyyy-MM-dd")+"\" class=\"btn btn-default\">Edit</a></td>";
-                string btnDelete = "<td style=\"width:10%;\"><a href=\"EditShowing.aspx?showingID=" + showings[i].getID() + "\" class=\"btn btn-default\">Delete</a></td>";
-=======
                 string btnEdit = "<td style=\"width:5%;\"><a href=\"EditShowing.aspx?showingID=" + showings[i].getID() + "\" class=\"btn btn-default\">Edit</a></td>";
                 string btnDelete = "<td style=\"width:5%;\"><a href=\"DeleteShowing.aspx?showingID=" + showings[i].getID() + "\" class=\"btn btn-danger\">Delete</a></td>";
-                //string btnDelete = "<asp:Button ID = \"btnRemove\" CssClass = \"btn btn-danger\" Text = \"Delete\" OnClientClick = \"return confirm('Are you sure you want to delete?')\"  OnClick = \"deleteRow_OnClick()\" /></ div >";               
-                //string btnDelete = "<td style=\"width:5%;\"><input type=\"button\" value=\"Delete\" class=\"btn btn-default\" onclick=\"deleteRow_OnClick(showingDate, address)\"></td>";
-                //string btnDelete = "<td>< asp:LinkButton ID = \"lnkDelete\" Text = \"Delete\" runat = \"server\" OnClientClick = \"return confirm('Do you want to delete this Customer?');\" OnClick = \"DeleteCustomer\" /></ td > ";
-                //string btnDelete = "<td style=\"width:5%;\"><input type=\"button\" value=\"Delete\" class=\"btn btn-default\" onclick=\"deleteRow_OnClick(" + showings[i].getID() +")\"></td>";
->>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
                 string end = "</tr>";
-                //variables have the wrong values 
-                string showing = start + showingID + leasingAgent + client + address + showingDate + btnEdit + btnDelete + end;
+
+                string showing = start  + leasingAgent + client + address + showingDate + btnEdit + btnDelete + end;
 
                 showingList.InnerHtml = showingList.InnerHtml + showing;
             }
         }
 
-<<<<<<< HEAD
-=======
+
         protected void deleteRow_OnClick(object sender, EventArgs e)
         {
             string showing_ID = Request.QueryString["showingID"];
@@ -119,7 +94,6 @@ namespace WebApplication1
         }
         
 
->>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {

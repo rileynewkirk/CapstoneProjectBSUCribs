@@ -59,10 +59,8 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a href="Homepage.aspx">Home</a></li>
-                        <li class="scroll"><a href="Login.aspx">Login</a></li>
-                        <li class="scroll active"><a href="Registration.aspx">Register</a></li>
-                        <li class="scroll"><a href="contact.aspx">Contact</a></li>
+                        <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
+                        <li class="scroll"><a href="Registration.aspx">Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -83,16 +81,16 @@
             <br />
 
             <div class="form-group">
-                <asp:Label ID="LabelLeasingAgent" runat="server" Text="Leasing Agent" CssClass="control-label  col-sm-4"></asp:Label>
+                <asp:Label ID="LabelLeasingAgent" runat="server" Text="Leasing Agent" CssClass="control-label  col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
                 <div class="col-sm-4">
-                    <asp:Label ID="LabelLeasingAgentName" runat="server" Text="Leasing Agent Name" CssClass="control-label  col-sm-4" ></asp:Label>
+                    <asp:Label ID="userNameLabel" runat="server" Text="Leasing Agent Name" CssClass="control-label  col-sm-4" ></asp:Label>
                 </div>
                     <br />
             </div>
             <!-- close AgentName-->
 
             <div class="form-group">
-                <asp:Label ID="LabelDate" runat="server" Text="Date" CssClass="control-label col-sm-4" ></asp:Label>
+                <asp:Label ID="LabelDate" runat="server" Text="Date" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="DatePicker" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                      <br />
@@ -101,7 +99,7 @@
             <!-- close Date-->
 
              <div class="form-group">
-                <asp:Label ID="LabelClient" runat="server" Text="Client Name" CssClass="control-label col-sm-4" ></asp:Label>
+                <asp:Label ID="LabelClient" runat="server" Text="Client Name" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="clientTB" runat="server" CssClass="form-control"></asp:TextBox>
                      <br />
@@ -111,7 +109,7 @@
 
 
             <div class="form-group">
-                <asp:Label ID="LabelTime" runat="server" Text="Time" CssClass="control-label col-sm-4" ></asp:Label>
+                <asp:Label ID="LabelTime" runat="server" Text="Time" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="TimePicker" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
                      <br />
@@ -122,9 +120,9 @@
 
             <div class="form-group">
                 <div class="AddressSelector">
-                    <asp:Label ID="LabelAddress" runat="server" Text="Address" CssClass="control-label col-sm-4" ></asp:Label>
+                    <asp:Label ID="LabelAddress" runat="server" Text="Address" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
                     <div class="col-sm-4">
-                     <asp:DropDownList ID="AddressDropDownList" runat="server"></asp:DropDownList>
+                     <asp:DropDownList ID="AddressDropDownList" runat="server" cssClass="form-control"></asp:DropDownList>
                          </div>
                      <div class="col-sm-1">
                      <asp:Button class="btn btn-warning" ID="addButton" runat="server" Text="Add" OnClick="AddToList" />
@@ -135,9 +133,9 @@
             <!-- close Select Address-->
 
              <div class="form-group">
-                <asp:Label ID="LabelHouses" runat="server" Text="List of Address" CssClass="control-label col-sm-4"></asp:Label>
-                <div class="col-sm-7">
-                     <asp:ListBox ID="ListOfHouses" runat="server" ></asp:ListBox>
+                <asp:Label ID="LabelHouses" runat="server" Text="List of Address" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
+                <div class="col-sm-4">
+                     <asp:ListBox ID="ListOfHouses" runat="server" cssClass="form-control" ></asp:ListBox>
                      <br />
                 </div>
             </div>
@@ -147,7 +145,7 @@
               <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="createShowing" OnClick="createShowings" />
 
            </div>
-            <br /><br />
+            <br />
             <div>
               <asp:Button class="btn btn-warning" ID="cancelBtn" runat="server" Text="Cancel" OnClick="cancelBtn_Click"  />
 

@@ -69,7 +69,7 @@ namespace WebApplication1
 
 
         }
-
+        /*
         protected void btnSend_Click(object sender, EventArgs e)
         {
 
@@ -84,7 +84,7 @@ namespace WebApplication1
             dr.Read();
             if (dr.HasRows)
             {
-                /*
+                
                 const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
                 const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
                 TwilioClient.Init(accountSid, authToken);
@@ -94,7 +94,7 @@ namespace WebApplication1
                     from: new PhoneNumber("17653454144"),
                     body: sbody);
 
-    */
+    
 
             }
             dr.Close();
@@ -115,7 +115,7 @@ namespace WebApplication1
             Response.Redirect("MassText.aspx");
         }
 
-
+    */
     }
 }
 

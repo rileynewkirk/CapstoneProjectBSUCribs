@@ -67,10 +67,7 @@ namespace WebApplication1
             if (item == null)
             {
                 ListOfHouses.Items.Add(address);
-            }
-            
-
-            
+            }  
         }
 
         protected void addButton_Click(object sender, EventArgs e)
@@ -81,9 +78,16 @@ namespace WebApplication1
             {
                 ListOfHouses.Items.Add(selectedHouse);
             }
+            
         }
 
         protected void cancelBtn_Click(object sender, EventArgs e)
+        {
+            //update showing
+            Response.Redirect("Calendar.aspx");
+        }
+
+        protected void editShowingBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("Calendar.aspx");
         }

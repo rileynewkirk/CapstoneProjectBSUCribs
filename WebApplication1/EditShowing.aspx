@@ -59,10 +59,8 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a href="Homepage.aspx">Home</a></li>
-                        <li class="scroll"><a href="Login.aspx">Login</a></li>
-                        <li class="scroll active"><a href="Registration.aspx">Register</a></li>
-                        <li class="scroll"><a href="contact.aspx">Contact</a></li>
+                        <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
+                        <li class="scroll"><a href="Registration.aspx">Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -86,20 +84,28 @@
 
 
             <div class="form-group">
-                <asp:Label ID="LabelDate" runat="server" Text="Date" CssClass="control-label col-sm-4" ></asp:Label>
+                <asp:Label ID="LabelDate" runat="server" Text="Date" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium" ></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="DatePicker" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                      <br />
+                </div>
+                <div class="col-sm-4">
+                    <asp:RequiredFieldValidator ID="DateValidator" runat="server" validationgroup="showingInformationGroup" ControlToValidate="DatePicker" ErrorMessage="Date is required."></asp:RequiredFieldValidator>
+                    <br />
                 </div>
             </div>
             <!-- close Date-->
 
 
             <div class="form-group">
-                <asp:Label ID="LabelTime" runat="server" Text="Time" CssClass="control-label col-sm-4" ></asp:Label>
+                <asp:Label ID="LabelTime" runat="server" Text="Time" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium" ></asp:Label>
                 <div class="col-sm-4">
                     <asp:TextBox ID="TimePicker" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
                      <br />
+                </div>
+                <div class="col-sm-4">
+                    <asp:RequiredFieldValidator ID="TimeValidator1" runat="server" validationgroup="ShowingInformationGroup" ControlToValidate="TimePicker" ErrorMessage="Time is required."></asp:RequiredFieldValidator>
+                    <br />
                 </div>
             </div>
             <!-- close Time-->
@@ -107,9 +113,9 @@
 
             <div class="form-group">
                 <div class="AddressSelector">
-                    <asp:Label ID="LabelAddress" runat="server" Text="Address" CssClass="control-label col-sm-4" ></asp:Label>
+                    <asp:Label ID="LabelAddress" runat="server" Text="Address" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium" ></asp:Label>
                     <div class="col-sm-4">
-                     <asp:DropDownList ID="AddressDropDownList" runat="server"></asp:DropDownList>
+                     <asp:DropDownList ID="AddressDropDownList" runat="server" cssClass="form-control"></asp:DropDownList>
                          </div>
                      <div class="col-sm-1">
                      <asp:Button class="btn btn-warning" ID="addButton" runat="server" Text="Add" OnClick="addButton_Click"  />
@@ -120,19 +126,24 @@
             <!-- close Select Address-->
 
              <div class="form-group">
-                <asp:Label ID="LabelHouses" runat="server" Text="List of Address" CssClass="control-label col-sm-4"></asp:Label>
-                <div class="col-sm-7">
-                     <asp:ListBox ID="ListOfHouses" runat="server" ></asp:ListBox>
+                <asp:Label ID="LabelHouses" runat="server" Text="List of Address" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
+                <div class="col-sm-4">
+                     <asp:ListBox ID="ListOfHouses" runat="server" cssClass="form-control"></asp:ListBox>
                      <br />
                 </div>
+                    <asp:RequiredFieldValidator ID="AddressValidator" runat="server" validationgroup="ShowingInformationGroup" ControlToValidate="ListOfHouses" ErrorMessage="Must select at least 1 house"></asp:RequiredFieldValidator>
             </div>
             <!-- close Housing List -->
-
-           <div> 
-              <asp:Button class="btn btn-primary" ID="editShowingBtn" runat="server" Text="Edit Showing"  />
+            
+           <div class="form-group">
+           <div > 
+              <asp:Button class="btn btn-primary" ID="editShowingBtn" runat="server" Text="Edit Showing" backColor ="MediumSeaGreen" OnClick="editShowingBtn_Click" />
            </div>
-            <br />
-              <asp:Button class="btn btn-warning" ID="cancelBtn" runat="server" Text="Cancel" OnClick="cancelBtn_Click"  />
+               <br />
+            <div >
+                <asp:Button class="btn btn-warning" ID="cancelBtn" runat="server" Text="Cancel" OnClick="cancelBtn_Click"  />
+            </div>
+            </div>  
 
 
         </form>

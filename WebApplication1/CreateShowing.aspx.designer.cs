@@ -31,13 +31,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label LabelLeasingAgent;
         
         /// <summary>
-        /// LabelLeasingAgentName control.
+        /// userNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelLeasingAgentName;
+        protected global::System.Web.UI.WebControls.Label userNameLabel;
         
         /// <summary>
         /// LabelDate control.

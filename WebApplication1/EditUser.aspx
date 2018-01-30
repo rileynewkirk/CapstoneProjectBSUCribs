@@ -35,7 +35,6 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a href="Login.aspx">Login</a></li>
                         <li class="scroll"><a href="Registration.aspx">Registration</a></li>
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
                     </ul>

@@ -16,7 +16,9 @@ namespace WebApplication1
     {
         static List<string> houses = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
-        {   
+        {
+            //var userName = Session["user"].ToString();
+            //userNameLabel.Text = userName;
             //add addresses to drop down list
             if (!this.IsPostBack)
             {
@@ -53,16 +55,21 @@ namespace WebApplication1
         {
             foreach(string house in houses)
             {
+                DateTime dateTime = Convert.ToDateTime(DatePicker.Text + " " + TimePicker.Text);
+                //string dateTimeString = Convert.ToString(dateTime);
+
                 Showing newShowing = new Showing();
                 newShowing.LeasingAgent = Session["user"].ToString();
-                newShowing.ShowingDate = DatePicker.Text;
+                newShowing.ShowingDate = dateTime.ToString("yyyy-MM-dd hh:mm");
                 newShowing.Client = clientTB.Text; 
                 newShowing.Address = house; 
-                newShowing.DateCreated = DateTime.Now.ToString("yyMMdd");
+                newShowing.DateCreated = DateTime.Now.ToString("yy-MM-dd");
 
                 newShowing.addShowings();
                 ListOfHouses.Items.Add(newShowing.Showing_ID + newShowing.LeasingAgent + newShowing.ShowingDate + newShowing.Client + newShowing.Address + newShowing.DateCreated);
             }
+
+            Response.Redirect("Calendar.aspx");
         }
 
         protected void cancelBtn_Click(object sender, EventArgs e)

@@ -69,7 +69,7 @@ namespace WebApplication1
             tbMessage.Attributes.Add("maxlength", "1500");
 
         }
-        /*
+
         protected void btnSend_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -78,26 +78,12 @@ namespace WebApplication1
             string address = AddressDropDownList.SelectedValue;
             if (address != "Send To All Addresses")
             {
-<<<<<<< HEAD
-                
-                const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
-                const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
-                TwilioClient.Init(accountSid, authToken);
-                var to = new PhoneNumber(dr["Mobile"].ToString());
-                var message = MessageResource.Create(
-                    to,
-                    from: new PhoneNumber("17653454144"),
-                    body: sbody);
-
-    
-=======
                 MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
                 conn.Open();
                 string checkShowing = "select * from table4 where PropertyName = @Address";
                 MySqlCommand comd = new MySqlCommand(checkShowing, conn);
                 comd.Parameters.AddWithValue("Address", address);
                 MySqlDataReader dr = comd.ExecuteReader();
->>>>>>> a902aa8775db4158cc7cb1b482b6c588111a4d95
 
                 while (dr.Read())
                 {
@@ -174,6 +160,6 @@ namespace WebApplication1
             Response.Redirect("MassText.aspx");
         }
 
-    */
+
     }
 }

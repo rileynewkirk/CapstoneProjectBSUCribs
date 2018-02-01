@@ -63,6 +63,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
+                        <li class="scroll"><a href="Login.aspx">Login</a></li>
                         <li class="scroll"><a href="Registration.aspx">Register</a></li>
                         <li class="scroll active"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
@@ -84,16 +85,8 @@
     </div>
     <br />
     <br />
-<<<<<<< HEAD
-    <form id="form1" runat="server">
-            
-    
-    </form>
-    
-=======
     <form id="form1"  runat="server">
         <div runat ="server" class="col-sm-offset-2 col-sm-8" id="test"></div>
->>>>>>> a902aa8775db4158cc7cb1b482b6c588111a4d95
 
         <br />
         <br />
@@ -109,7 +102,7 @@
         <br />
                 <div class="row">    
                     <div id="submitButtons" class="col-sm-4 col-sm-offset-4">
-                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick = "return confirm('Are you sure you want to send this?')" Onclick="btnSend_Click"/>
+                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick = "return confirm('Are you sure you want to send this?');" Onclick="btnSend_Click"/>
                         </div>
                 </div>
         <br />

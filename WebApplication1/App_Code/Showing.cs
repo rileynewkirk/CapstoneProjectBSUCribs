@@ -18,25 +18,10 @@ namespace WebApplication1.App_Code
 
         public Showing()
         {
-        
+
         }
 
-<<<<<<< HEAD
-      
-=======
-        /*
-        public Showing(string showing_ID,string LeasingAgent, string Client, string Address, string ShowingDate)
-        {
-            this.Showing_ID = Showing_ID;
-            this.LeasingAgent = LeasingAgent;
-            this.Client = Client;
-            this.Address = Address;
-            this.ShowingDate = ShowingDate;
-        }
-<<<<<<< HEAD
-        */
 
->>>>>>> a902aa8775db4158cc7cb1b482b6c588111a4d95
 
         public Showing(string showing_ID, string LeasingAgent, string Client, string Address, string ShowingDate)
         {
@@ -48,7 +33,7 @@ namespace WebApplication1.App_Code
         }
 
 
-        public Showing(string Showing_ID, string LeasingAgent, string ShowingDate,string Client, string Address, string DateCreated)
+        public Showing(string Showing_ID, string LeasingAgent, string ShowingDate, string Client, string Address, string DateCreated)
         {
             this.Showing_ID = Showing_ID;
             this.LeasingAgent = LeasingAgent;
@@ -70,7 +55,7 @@ namespace WebApplication1.App_Code
             MySqlCommand comd = new MySqlCommand(insertString, conn);
 
             comd.Parameters.AddWithValue("@ID", Showing_ID);
-            comd.Parameters.AddWithValue("@LeasingAgent",LeasingAgent);
+            comd.Parameters.AddWithValue("@LeasingAgent", LeasingAgent);
             comd.Parameters.AddWithValue("@ShowingDate", ShowingDate);
             comd.Parameters.AddWithValue("@Client", Client);
             comd.Parameters.AddWithValue("@Address", Address);
@@ -80,7 +65,7 @@ namespace WebApplication1.App_Code
             conn.Close();
 
         }
-     
+
         public bool checkShowingExist()
         {
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);

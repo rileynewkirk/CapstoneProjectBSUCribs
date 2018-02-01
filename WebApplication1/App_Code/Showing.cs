@@ -21,6 +21,9 @@ namespace WebApplication1.App_Code
         
         }
 
+<<<<<<< HEAD
+      
+=======
         /*
         public Showing(string showing_ID,string LeasingAgent, string Client, string Address, string ShowingDate)
         {
@@ -33,6 +36,7 @@ namespace WebApplication1.App_Code
 <<<<<<< HEAD
         */
 
+>>>>>>> a902aa8775db4158cc7cb1b482b6c588111a4d95
 
         public Showing(string showing_ID, string LeasingAgent, string Client, string Address, string ShowingDate)
         {
@@ -76,33 +80,7 @@ namespace WebApplication1.App_Code
             conn.Close();
 
         }
-        /*
-        public Showing findShowingByDate(string showingDate)
-        {
-            Showing showing = new Showing();
-            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn.Open();
-            string checkShowing = "select Showing_ID, Agent_ID, Showing_DateTime, Client_Name, Address, Created_DateTime from  calendar where Showing_DateTime=@ShowingDate";
-            MySqlCommand comd = new MySqlCommand(checkShowing, conn);
-            comd.Parameters.AddWithValue("@ShowingDate", showingDate);
-            MySqlDataReader dr = comd.ExecuteReader();
-            dr.Read();
-            if (dr.HasRows)
-            {
-                showing.Showing_ID = dr[0].ToString();//need to figure out casting issues.
-                showing.LeasingAgent = dr[1].ToString();
-                //showing.ShowingDate = Convert.ToDateTime(dr[2]);
-                showing.ShowingDate = dr[2].ToString();
-                showing.Client = dr[3].ToString();
-                showing.Address = dr[4].ToString();
-                //showing.DateCreated = Convert.ToDateTime(dr[5]);
-                showing.ShowingDate = dr[5].ToString();
-            }
-            dr.Close();
-            conn.Close();
-            return showing;
-        }
-        */
+     
         public bool checkShowingExist()
         {
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);

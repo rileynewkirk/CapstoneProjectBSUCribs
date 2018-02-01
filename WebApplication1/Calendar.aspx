@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body style="background-color: whitesmoke;" >
 
 
         <div class="preloader">
@@ -59,7 +59,6 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right" runat="server" id="navbar">
                         <li class="scroll active"><a href="Calendar.aspx">Calendar</a></li>
-                        <li class="scroll"><a href="Login.aspx">Login</a></li>
                         <li class="scroll"><a href="Registration.aspx">Register</a></li>
                         <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
 
@@ -83,52 +82,40 @@
         <div class="row">
         <div class="col-sm-offset-0">
             
-        <asp:Calendar ID="Calendar1" runat="server" Width="1026px" Height="306px" FirstDayOfWeek="Sunday" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" OnSelectionChanged="Calendar1_SelectionChanged">
-            <DayHeaderStyle HorizontalAlign="Center" />
-            <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
-            <OtherMonthDayStyle ForeColor="Silver" />
+        <asp:Calendar ID="Calendar1" runat="server" Width="1400px" Height="500px" FirstDayOfWeek="Sunday" BackColor="white" BorderColor="mediumseagreen" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="mediumseagreen" OnSelectionChanged="Calendar1_SelectionChanged">
+            <DayHeaderStyle HorizontalAlign="Center"  />
+            <NextPrevStyle Font-Size="12pt" ForeColor="#CCCCFF" />
+            <OtherMonthDayStyle ForeColor="silver" />
             <SelectedDayStyle BackColor="#99CCFF" />
             <SelectorStyle BackColor="#99CCFF" />
-            <TitleStyle Font-Bold="True" HorizontalAlign="Center" />
+            <TitleStyle Font-Bold="True" HorizontalAlign="Center" BackColor="mediumSeaGreen" ForeColor="white" />
             <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
         </asp:Calendar>
-</div>
+    </div>
 
         </div>
          <br /><br />
-<<<<<<< HEAD
-        <h4 >Showings</h4>
+        <h4 class="text-left"> Showings</h4>
         <asp:Label  ID="displayDateLabel" runat="server"  Font-Size="Large"></asp:Label>
-         
-        
-=======
-        <h4 class="text-left">Todays showings</h4>
+
         <br />
                    
->>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
         <div class="col-sm-12" style="background-color: white">
         <div class="row">
                 <div class="main-box clearfix">
                     <div class="table-responsive table-hover" id="showingTable">
                         
-                        
                         <table class="table showing-list">
                             <thead>
                                 <tr>
-<!--
-                                    <th>&nbsp;</th>
--->
-                                    <th class="te"
-                                    <th class="text-left"><span>Leasing Agent</span></th>                                    
-                                    <th class="text-left"><span>Client</span></th>
-                                    <th class="text-left"><span>Address</span></th>
-                                    <th class="text-left" aria-sort="descending"><span>Showing Date</span></th>
-                                    <th class="text-left"><span></span></th>
-                                    <th class="text-left"><span></span></th>
-                                    <!-- 
-                                    <th class="text-center"><span>Date Created</span></th>
-                                    <th style="text-indent: 60px;"><span>Showing Date</span></th>
-                                    -->                        
+
+                                    <th class="text-center"><span>Leasing Agent</span></th>                                    
+                                    <th class="text-center"><span>Client</span></th>
+                                    <th class="text-center"><span>Address</span></th>
+                                    <th class="text-center" aria-sort="descending"><span>Showing Date</span></th>
+                                    <th class="text-center"><span></span></th>
+                                    <th class="text-center"><span></span></th>
+                                   
                                 </tr>
                             </thead>
                             <tbody id="showingList" runat="server">
@@ -141,15 +128,12 @@
                 </div>
         </div>
         </div>
-<<<<<<< HEAD
-=======
+
         <br />
         <br />
 
 
-        <!--
-        <asp:Label CssClass="col-sm-offset-4" ID="Label1" runat="server" Text="Label" Font-Size="Large"></asp:Label>
->>>>>>> 8e3acc7ef8de002eb13589bc71dcc1543996094d
+       
 
         <br /><br />
          <br /><br />
@@ -162,7 +146,6 @@
     </form>
     </div>
 
-    -->
 
 
     <script type="text/javascript" src="js/jquery.js"></script>

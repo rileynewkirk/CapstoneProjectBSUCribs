@@ -72,7 +72,8 @@ namespace WebApplication1
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
-
+            Button btn = (Button)sender;
+            btn.Enabled = false;
             string sbody = tbMessage.Text;
             string address = AddressDropDownList.SelectedValue;
             if (address != "Send To All Addresses")

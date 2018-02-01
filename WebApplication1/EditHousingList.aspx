@@ -74,6 +74,12 @@
     <br />
     <br />
     <form id="form1" runat="server">
+
+                <div class="row">
+            <h3 class="col-sm-offset-1">Edit Current Listing:</h3>
+        </div>
+        <br />
+
         <div class="row">
             <div class="form-group">
                 <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label col-sm-1 col-sm-offset-1"></asp:Label>
@@ -112,7 +118,7 @@
         <br />
 
         <div class="row">
-            <h5 class="col-sm-offset-1">Create new listing:</h5>
+            <h3 class="col-sm-offset-1">Create New Listing:</h3>
         </div>
         <div class="row">
             <asp:TextBox class="col-sm-offset-1 col-sm-2" ID="tbNumofRes" runat="server" TextMode="Number" Placeholder="Enter number of residents here:" AutoPostBack="true" OnTextChanged="tbNumofRes_TextChanged"></asp:TextBox>

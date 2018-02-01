@@ -25,7 +25,7 @@
 
     <style>
         
-        table, th, td{ border:none; padding:5px;
+        table, th, td{ border:none; padding:5px; text-align:center;
         }tr:hover {background-color: #f5f5f5;}
          table{position:center;}
     </style>

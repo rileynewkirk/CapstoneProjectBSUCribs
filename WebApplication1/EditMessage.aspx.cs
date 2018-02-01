@@ -21,11 +21,7 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            
-=======
             int i = 0;
->>>>>>> a902aa8775db4158cc7cb1b482b6c588111a4d95
             string address = Request.QueryString["Address"];
             Labelnum.Text = "Messages sent to " + address;
             const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
@@ -48,10 +44,10 @@ namespace WebApplication1
                 LiteralControl literalControlHeader = new LiteralControl();
                 literalControlHeader.Text += "<div class=\"panel panel-default\">" +
                     "<div class=\"panel-heading\">" + "<h4 class=\"panel-title\">" +
-                    "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse" + i + "\">" + 
-                    rdr["FirstName"].ToString() + " " + rdr["LastName"].ToString()+ " - " + rdr["Mobile"].ToString() + "</a>"+
+                    "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse" + i + "\">" +
+                    rdr["FirstName"].ToString() + " " + rdr["LastName"].ToString() + " - " + rdr["Mobile"].ToString() + "</a>" +
                     "</h4>" + "</div>" + "<div id=\"collapse" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">" +
-                    "<div style=\"max-width:100%; max-height:400px; overflow: auto; text-align:center\">";
+                    "<div style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
                 test.Controls.Add(literalControlHeader);
                 //add id to panel body and write gridview and all that to that id
 
@@ -81,7 +77,9 @@ namespace WebApplication1
                     convo.Rows.Add(text);
                 }
                 convo.DefaultView.Sort = "Time: ASC";
+                GridView1.Width = Unit.Percentage(100);
                 GridView1.DataSource = convo;
+                GridView1.Style["width"] = "100%";
                 GridView1.DataBind();
 
                 LiteralControl literalControlrespond = new LiteralControl();
@@ -101,6 +99,8 @@ namespace WebApplication1
                 test.Controls.Add(literalControlbtn);
 
                 Button btnsend = new Button();
+                btnsend.OnClientClick = "this.disabled = true; this.value = 'Sending...';";
+                btnsend.UseSubmitBehavior = false;
                 btnsend.Text = "Send";
                 btnsend.Click += new EventHandler(btnevent_Click);
                 btnsend.CommandArgument = rdr["Mobile"].ToString();
@@ -131,7 +131,7 @@ namespace WebApplication1
 
         private void btnevent_Click(object sender, EventArgs e)
         {
-            
+
             Button btn = (Button)sender;
             string id = btn.CommandArgument;
             TextBox txt = (TextBox)test.FindControl(id);
@@ -142,10 +142,10 @@ namespace WebApplication1
             TwilioClient.Init(accountSid, authToken);
             var to = new PhoneNumber(id);
 
-                var message = MessageResource.Create(
-                    to,
-                    from: new PhoneNumber("17653454144"),
-                    body: sms);
+            var message = MessageResource.Create(
+                to,
+                from: new PhoneNumber("17653454144"),
+                body: sms);
 
 
             Response.Redirect(Request.RawUrl);
@@ -153,6 +153,9 @@ namespace WebApplication1
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            btn.OnClientClick = "this.disabled = true; this.value = 'Uploading...';";
+
             string sbody = tbMessage.Text;
             string address = Request.QueryString["Address"];
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);

@@ -84,8 +84,8 @@
             <div class="row">
             <div class="col-lg-12">
                 <div class="main-box clearfix">
-                    <div class="table-responsive table-hover" id="userTable">
-                        <table class="table user-list">
+                    <div class="table-responsive " id="userTable">
+                        <table class="table user-list table-hover">
                             <thead>
                                 <tr>
                                     <th><span>Address</span></th>                          

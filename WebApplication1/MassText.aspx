@@ -56,7 +56,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
-                        <li class="scroll"><a href="Registration.aspx">Registration</a></li>
+                        <li class="scroll"><a href="Registration.aspx">Users</a></li>
                         <li class="scroll active"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
                 </div>
@@ -143,6 +143,7 @@
 
                 <asp:Label ID="Label2" CssClass="well well-sm"  runat="server"><a href="EditHousingList.aspx">Edit Properties</a></asp:Label>
                 </div>
+                                <br />
 
             </form>
         </div>

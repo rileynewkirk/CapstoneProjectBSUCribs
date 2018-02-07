@@ -8,16 +8,26 @@ using System.IO;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Configuration;
-
+using System.Collections;
 
 namespace WebApplication1
 {
     public partial class EditHousingList : System.Web.UI.Page
     {
-        int table1ct = 0;
-        int table2ct = 0;
+        public static int i;
+        public static int k;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+            else if (Convert.ToInt32(Session["usertype"]) != 2)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You are not allowed access to this page'); window.location='Login.aspx';</script>");
+            }
+
             //add addresses to drop down list
             if (!this.IsPostBack)
             {
@@ -37,10 +47,10 @@ namespace WebApplication1
                 dr.Close();
                 conn.Close();
                 AddressDropDownList.Items.Insert(0, new ListItem("--Select Address--", "0"));
-
             }
 
         }
+
         protected void Upload(object sender, EventArgs e)
         {
             MySqlConnection conn1 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
@@ -85,108 +95,74 @@ namespace WebApplication1
 
         protected void AddressDropDownList_TextChanged(object sender, EventArgs e)
         {
+            resetrows();
+            string address = AddressDropDownList.Text;
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            conn.Open();
+            string checkShowing = "select FirstName, LastName, Mobile from table4 where PropertyName = '" + address + "';";
+            MySqlCommand comd = new MySqlCommand(checkShowing, conn);
+            MySqlDataReader dr = comd.ExecuteReader();
+            i = 0;
 
-                string address = AddressDropDownList.Text;
-                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-                conn.Open();
-                string checkShowing = "select FirstName, LastName, Mobile from table4 where PropertyName = '" + address + "';";
-                MySqlCommand comd = new MySqlCommand(checkShowing, conn);
-                MySqlDataReader dr = comd.ExecuteReader();
-                int i = 0;
-                table1ct = 0;
-
-                while (dr.Read())
+            while (dr.Read())
+            {
+                if (i < 10)
                 {
                     i++;
-                    table1ct++;
-                    TableRow tr = new TableRow();
-                    Table1.Rows.Add(tr);
-                    TableCell tableCell = new TableCell();
-                    TextBox tbname = new TextBox();
-                    tbname.Attributes.Add("placeholder", dr["FirstName"].ToString());
-                    tbname.ID = "tbname" + i;
-                    tr.Controls.Add(tableCell);
-                    tableCell.Controls.Add(tbname);
-                    TableCell tableLast = new TableCell();
-                    TextBox tblname = new TextBox();
-                    tblname.Attributes.Add("placeholder", dr["LastName"].ToString());
-                    tblname.ID = "tblname" + i;
-                    tr.Controls.Add(tableLast);
-                    tableLast.Controls.Add(tblname);
-                    TableCell tablemobile = new TableCell();
-                    TextBox tbmobile = new TextBox();
-                    tbmobile.Attributes.Add("placeholder", dr["Mobile"].ToString());
-                    tbmobile.ID = "tbmobile" + i;
-                    tr.Controls.Add(tablemobile);
-                    tablemobile.Controls.Add(tbmobile);
-                    TableCell tabledel = new TableCell();
-                    Button btn = new Button();
-                    btn.Text = "Delete";
-                    btn.ID = "" + i;
-                    btn.OnClientClick = "return confirm('Are you sure you want to delete this person?')";
-                    btn.Click += new EventHandler(btnevent_Click);
-                    tr.Controls.Add(tabledel);
-                    tabledel.Controls.Add(btn);
-
-                }
-                dr.Close();
-                conn.Close();
-            
-            
+                }           
+                TableRow rw = (TableRow)FindControl("row" + i);
+                rw.Visible = true;
+                TextBox tbfn = (TextBox)FindControl("fn" + i);
+                tbfn.Attributes.Add("placeholder", dr["FirstName"].ToString());
+                TextBox tbln = (TextBox)FindControl("ln" + i);
+                tbln.Attributes.Add("placeholder", dr["LastName"].ToString());
+                TextBox tbm = (TextBox)FindControl("m" + i);
+                tbm.Attributes.Add("placeholder", dr["Mobile"].ToString());
+            }
+            dr.Close();
+            conn.Close();
         }
+
+        private void resetrows()
+        {
+            for (int j =1; j <= 10; j++)
+            {
+                TableRow rw = (TableRow)FindControl("row" + j);
+                rw.Visible = false;
+                Button del = (Button)FindControl("btn" + j);
+                del.Enabled = true;
+            }
+
+        }
+
+        private void resetrows2()
+        {
+            for (int j = 1; j <= 10; j++)
+            {
+                TableRow rw = (TableRow)FindControl("row1" + j);
+                rw.Visible = false;
+            }
+
+        }
+
         protected void btnevent_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            string deletebtn = button.ID;
-
-
-        }
-
-        protected void tbNumofRes_TextChanged(object sender, EventArgs e)
-        {
-            
-            int numOfRes = Int32.Parse(tbNumofRes.Text);
-            table2ct = numOfRes;
-            tbNewAddress.Visible = true;
-            if (numOfRes <= 0)
-            {
-                tbNewAddress.Visible = false;
-            }
-            for(int i =0; i<numOfRes; i++)
-            {
-
-                TableRow tr = new TableRow();
-                Table2.Rows.Add(tr);
-                TableCell tableCell = new TableCell();
-                TextBox tbname = new TextBox();
-                tbname.Attributes.Add("placeholder", "First Name:");
-                tbname.ID = "tbNewName" + i;
-                tr.Controls.Add(tableCell);
-                tableCell.Controls.Add(tbname);
-                TableCell tableLast = new TableCell();
-                TextBox tblname = new TextBox();
-                tblname.Attributes.Add("placeholder", "Last Name:");
-                tblname.ID = "tbNewLname" + i;
-                tr.Controls.Add(tableLast);
-                tableLast.Controls.Add(tblname);
-                TableCell tablemobile = new TableCell();
-                TextBox tbmobile = new TextBox();
-                tbmobile.Attributes.Add("placeholder", "Mobile:");
-                tbmobile.ID = "tbNewMobile" + i;
-                tr.Controls.Add(tablemobile);
-                tablemobile.Controls.Add(tbmobile);
-            }
-        }
-
-        protected void btnNewListing_Click(object sender, EventArgs e)
-        {
-            for (int j = 1; j == table2ct; j++)
-            {
-                TextBox txt = (TextBox)Table2.FindControl("tbNewName"+j);
-                Label1.Text = txt.Text;
-               
-            }
-
+            int deletebtn = Convert.ToInt32(button.CommandArgument);
+            // get mobile textbox where deletebtn equals mobile + i
+            TextBox tbm = (TextBox)FindControl("m" + deletebtn);
+            TextBox tbfn = (TextBox)FindControl("fn" + deletebtn);
+            TextBox tbln = (TextBox)FindControl("ln" + deletebtn);
+            string m = tbm.Attributes["placeholder"]; 
+            string fn = tbfn.Attributes["placeholder"];
+            string ln = tbln.Attributes["placeholder"];
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            conn.Open();
+            string deleteString = "delete from table4 where FirstName = '"+fn+"' and LastName = '"+ln+"' and Mobile = "+m;
+            MySqlCommand comd = new MySqlCommand(deleteString, conn);
+            comd.ExecuteNonQuery();
+            conn.Close();
+            Response.Redirect("EditHousingList.aspx");
         }
 
         protected void DeleteListing_Click(object sender, EventArgs e)
@@ -194,7 +170,7 @@ namespace WebApplication1
             string deladdress = AddressDropDownList.Text;
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn.Open();
-            string deleteString = "delete from table4 where PropertyName = '"+ deladdress +"'";
+            string deleteString = "delete from table4 where PropertyName = '" + deladdress + "'";
             MySqlCommand comd = new MySqlCommand(deleteString, conn);
             comd.ExecuteNonQuery();
             conn.Close();
@@ -203,7 +179,133 @@ namespace WebApplication1
 
         protected void UpdateListing_Click(object sender, EventArgs e)
         {
-            
+            string deladdress = AddressDropDownList.Text;
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            conn.Open();
+            string deleteString = "delete from table4 where PropertyName = '" + deladdress + "'";
+            MySqlCommand comd = new MySqlCommand(deleteString, conn);
+            comd.ExecuteNonQuery();
+            conn.Close();
+
+            for (int j = 1; j <= i; j++)
+            {
+                TextBox fn = (TextBox)FindControl("fn" + j);
+                TextBox ln = (TextBox)FindControl("ln" + j);
+                TextBox m = (TextBox)FindControl("m" + j);
+
+                string firstname;
+                string lastname;
+                string mobile;
+
+                if(fn.Text == "")
+                {
+                    firstname = fn.Attributes["placeholder"];
+                }
+                else
+                {
+                    firstname = fn.Text;
+                }
+                if (ln.Text == "")
+                {
+                    lastname = ln.Attributes["placeholder"];
+                }
+                else
+                {
+                    lastname = ln.Text;
+                }
+                if (m.Text == "")
+                {
+                    mobile = m.Attributes["placeholder"];
+                }
+                else
+                {
+                    mobile = m.Text;
+                }
+
+                MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                conni.Open();
+                string insertString = "INSERT INTO `table4`(`PropertyName`, `FirstName`, `LastName`, `Mobile`) VALUES ('"+deladdress+"', '"+firstname+"', '"+lastname+"', '"+mobile+"' );";
+                MySqlCommand comdi = new MySqlCommand(insertString, conni);
+                comdi.ExecuteNonQuery();
+                conni.Close();
+            }Response.Redirect("EditHousingList.aspx");
         }
+
+        protected void tbNumofRes_TextChanged(object sender, EventArgs e)
+        {
+            resetrows2();
+            k = 0;
+            int numOfRes = 0;
+
+            if (int.TryParse(tbNumofRes.Text, out numOfRes))
+            {
+                numOfRes = Int32.Parse(tbNumofRes.Text);
+            }
+
+            tbNewAddress.Visible = true;
+            if (numOfRes <= 0)
+            {
+                tbNewAddress.Visible = false;
+            }
+            for (int j = 0; j < numOfRes; j++)
+            {
+                if (k < 10)
+                {
+                    k++;
+                }
+                TableRow rw = (TableRow)FindControl("row1" + k);
+                rw.Visible = true;
+            }
+        }
+
+        protected void btnNewListing_Click(object sender, EventArgs e)
+        {
+            string address = tbNewAddress.Text;
+            for (int j = 1; j <= k; j++)
+            {
+                TextBox fn = (TextBox)FindControl("fn1" + j);
+                TextBox ln = (TextBox)FindControl("ln1" + j);
+                TextBox m = (TextBox)FindControl("m1" + j);
+
+                string firstname = fn.Text;
+                string lastname = ln.Text;
+                string mobile = m.Text;
+
+
+                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                conn.Open();
+                string insertstring = "INSERT INTO `table4`(`PropertyName`, `FirstName`, `LastName`, `Mobile`) VALUES ('" +address+ "','" + firstname + "','" + lastname + "'," + mobile + ");";
+                MySqlCommand comd = new MySqlCommand(insertstring, conn);
+                comd.ExecuteNonQuery();
+                conn.Close();
+                
+
+            }
+            Response.Redirect("EditHousingList.aspx");
+        }
+
+        protected void AddRow(object sender, EventArgs e)
+        {
+            if (i < 10)
+            {
+                i++;
+            }
+
+            TableRow rw = (TableRow)FindControl("row" + i);
+            rw.Visible = true;
+            TextBox tbfn = (TextBox)FindControl("fn" + i);
+            tbfn.Attributes.Add("placeholder", "First Name:");
+            TextBox tbln = (TextBox)FindControl("ln" + i);
+            tbln.Attributes.Add("placeholder","Last Name:");
+            TextBox tbm = (TextBox)FindControl("m" + i);
+            tbm.Attributes.Add("placeholder", "Mobile:");
+            Button del = (Button)FindControl("btn" + i);
+            del.Enabled = false;
+
+        }
+
     }
 }
+
+
+//INSERT INTO `table4`(`PropertyName`, `FirstName`, `LastName`, `Mobile`) VALUES ("test house (the real 515 W Riverside)","Anna","Shaffer",8126062413)

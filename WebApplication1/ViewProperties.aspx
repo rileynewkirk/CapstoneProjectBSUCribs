@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mass Text</title>
+    <title>View Properties</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/prettyPhoto.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -56,8 +56,8 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
-                        <li class="scroll"><a href="Registration.aspx">Register</a></li>
-                        <li class="scroll active"><a href="MassText.aspx">Mass Text</a></li>
+                        <li class="scroll"><a href="Registration.aspx">Users</a></li>
+                        <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
                 </div>
             </div>
@@ -74,9 +74,9 @@
     <br />
 
     <form id="form1" runat="server">
-        <div>
+        <div class="col-sm-8 col-sm-offset-2">
                  
-        <asp:GridView ID="GridView1" CssClass="col-sm-pull-2" runat="server" AlternatingRowStyle-BackColor="#ECEBED" RowStyle-BorderWidth="5px" HeaderStyle-BorderStyle="NotSet" GridLines="Horizontal" RowStyle-BackColor="White" HeaderStyle-BackColor="Silver" HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" ShowHeaderWhenEmpty="True" CellPadding="5" CellSpacing="5" AllowPaging="False" ShowHeader="True"></asp:GridView>
+        <asp:GridView ID="GridView1" CssClass="table table-hover table-responsive " runat="server" ShowHeader="True" AlternatingRowStyle-BackColor="#E6E6E6"></asp:GridView>
 
 
 

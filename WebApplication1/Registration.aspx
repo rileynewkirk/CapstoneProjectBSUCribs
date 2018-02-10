@@ -76,145 +76,156 @@
     <br />
     <div class="container" style="text-align: center">
         <form id="form1" runat="server" class="form-horizontal">
-            <h2>Register A User</h2>
-            <br />
-            <div class="form-group">
-                <asp:Label ID="LabelFName" runat="server" Text="First Name" CssClass="control-label  col-sm-4" for="tbFirstName"></asp:Label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="tbFirstName" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" validationgroup="PersonalInfoGroup" ControlToValidate="tbFirstName" ErrorMessage="First Name is required."></asp:RequiredFieldValidator>
-                    <br />
-                </div>
-            </div>
-            <!-- close FName-->
 
-            <div class="form-group">
-                <asp:Label ID="Label2" runat="server" Text="Last Name" CssClass="control-label col-sm-4" for="tbLastName"></asp:Label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="tbLastName" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbLastName" ErrorMessage="Last Name is Required"></asp:RequiredFieldValidator>
-                    <br />
-                </div>
-            </div>
-            <!-- close LName-->
-
-
-            <div class="form-group">
-                <asp:Label ID="Label3" runat="server" Text="User Name" CssClass="control-label col-sm-4" for="tbUsername"></asp:Label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbUsername" ErrorMessage="User Name is Required"></asp:RequiredFieldValidator>
-                    <br />
-                </div>
-            </div>
-            <!-- close UserName-->
-
-
-            <div class="form-group">
-                <asp:Label ID="Label4" runat="server" Text="Email" CssClass="control-label col-sm-4" for="tbEmail"></asp:Label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbEmail" ErrorMessage="Email is required"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbEmail" ErrorMessage="You must enter a vaild email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                    <br />
-                </div>
-            </div>
-            <!-- close Email-->
-
-
-            <div class="form-group">
-                <asp:Label ID="Label6" runat="server" Text="Password"  CssClass="control-label col-sm-4" for="tbPassword"></asp:Label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="tbPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is Required"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword" ErrorMessage="Use at least 6 characters without special characters" ValidationExpression="[a-zA-Z0-9]{6,}"></asp:RegularExpressionValidator>
-                    <br />
-                </div>
-            </div>
-            <!-- close Password-->
-
-
-            <div class="form-group">
-                <asp:Label ID="Label7" runat="server" Text="Confirm Password" CssClass="control-label col-sm-4" for="tbPassword2"></asp:Label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="tbPassword2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword2" ErrorMessage="Confirm Password is Required"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" validationgroup="PersonalInfoGroup" ControlToCompare="tbPassword" ControlToValidate="tbPassword2" ErrorMessage="The passwords must be the same"></asp:CompareValidator>
-                    <br />
-                </div>
-            </div>
-            <!-- close Confirm Password-->
-
-
-            <div class="form-group">
-                <asp:Label ID="Label8" runat="server" Text="Phone Number" CssClass="control-label col-sm-4" for="tbPhoneNumber"></asp:Label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
-                </div>
-                <div class="col-sm-4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" validationgroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPhoneNumber" ErrorMessage="A phone number is Required"></asp:RequiredFieldValidator>
-                    <br />
-                </div>
-            </div>
-            <!-- close phone number-->
-
-            <div class="form-group">
-                <div id="submitButtons" class="col-sm-3 col-sm-offset-3">
-                    <asp:Button class="btn btn-primary" ID="Button1" causesvalidation="true" validationgroup="PersonalInfoGroup" runat="server" Text="Submit" OnClick="addUser" />
-                </div>
-                <div class="col-sm-3">
-                    <asp:Button class="btn btn-warning" ID="Button2" runat="server" Text="Clear" OnClick="clear" />
-                    <br />
-                </div>
-            </div>
-            <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
-                     <br />
             <h4>All Users</h4>
-                     <br />
-                   
-             <div class="col-lg-12" style="background-color: white">
+            <br />
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="main-box clearfix">
-                    <div class="table-responsive" id="userTable">
-                        <table class="table user-list table-hover">
-                            <thead>
-                                <tr>
-                                    <th>&nbsp;</th>
-                                    <th class="text-center"><span>UserName</span></th>
-                                    <th style="text-indent: 60px;"><span>Name</span></th>
-                          
-                                    <th class="text-center"><span>User Type</span></th>
-                                    <th class="text-center"><span>Email</span></th>
-                                    <th class="text-center"><span>Phone Number</span></th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                            </thead>
-                            <tbody id="userList" runat="server">
-                                
-                            </tbody>
-                        </table>
+            <div class="col-lg-12" style="background-color: white">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-box clearfix">
+                            <div class="table-responsive" id="userTable">
+                                <table class="table user-list table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>&nbsp;</th>
+                                            <th class="text-center"><span>UserName</span></th>
+                                            <th style="text-indent: 60px;"><span>Name</span></th>
+
+                                            <th class="text-center"><span>User Type</span></th>
+                                            <th class="text-center"><span>Email</span></th>
+                                            <th class="text-center"><span>Phone Number</span></th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="userList" runat="server">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">Register A User</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <asp:Label ID="LabelFName" runat="server" Text="First Name" CssClass="control-label  col-sm-4" for="tbFirstName"></asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="tbFirstName" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="PersonalInfoGroup" ControlToValidate="tbFirstName" ErrorMessage="First Name is required."></asp:RequiredFieldValidator>
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- close FName-->
+
+                            <div class="form-group">
+                                <asp:Label ID="Label2" runat="server" Text="Last Name" CssClass="control-label col-sm-4" for="tbLastName"></asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="tbLastName" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbLastName" ErrorMessage="Last Name is Required"></asp:RequiredFieldValidator>
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- close LName-->
+
+
+                            <div class="form-group">
+                                <asp:Label ID="Label3" runat="server" Text="User Name" CssClass="control-label col-sm-4" for="tbUsername"></asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="tbUsername" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbUsername" ErrorMessage="User Name is Required"></asp:RequiredFieldValidator>
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- close UserName-->
+
+
+                            <div class="form-group">
+                                <asp:Label ID="Label4" runat="server" Text="Email" CssClass="control-label col-sm-4" for="tbEmail"></asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbEmail" ErrorMessage="Email is required"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbEmail" ErrorMessage="You must enter a vaild email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- close Email-->
+
+
+                            <div class="form-group">
+                                <asp:Label ID="Label6" runat="server" Text="Password" CssClass="control-label col-sm-4" for="tbPassword"></asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="tbPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword" ErrorMessage="Password is Required"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword" ErrorMessage="Use at least 6 characters without special characters" ValidationExpression="[a-zA-Z0-9]{6,}"></asp:RegularExpressionValidator>
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- close Password-->
+
+
+                            <div class="form-group">
+                                <asp:Label ID="Label7" runat="server" Text="Confirm Password" CssClass="control-label col-sm-4" for="tbPassword2"></asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="tbPassword2" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPassword2" ErrorMessage="Confirm Password is Required"></asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ValidationGroup="PersonalInfoGroup" ControlToCompare="tbPassword" ControlToValidate="tbPassword2" ErrorMessage="The passwords must be the same"></asp:CompareValidator>
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- close Confirm Password-->
+
+
+                            <div class="form-group">
+                                <asp:Label ID="Label8" runat="server" Text="Phone Number" CssClass="control-label col-sm-4" for="tbPhoneNumber"></asp:Label>
+                                <div class="col-sm-4">
+                                    <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="PersonalInfoGroup" runat="server" ControlToValidate="tbPhoneNumber" ErrorMessage="A phone number is Required"></asp:RequiredFieldValidator>
+                                    <br />
+                                </div>
+                            </div>
+                            <!-- close phone number-->
+
+                            <div class="form-group">
+                                <div id="submitButtons" class="col-sm-3 col-sm-offset-3">
+                                    <asp:Button class="btn btn-primary" ID="Button1" CausesValidation="true" ValidationGroup="PersonalInfoGroup" runat="server" Text="Submit" OnClick="addUser" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <asp:Button class="btn btn-warning" ID="Button2" runat="server" Text="Clear" OnClick="clear" />
+                                    <br />
+                                </div>
+                            </div>
+                            <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <br />
 
 
-
-    </div>
+            </div>
         </form>
     </div>
 

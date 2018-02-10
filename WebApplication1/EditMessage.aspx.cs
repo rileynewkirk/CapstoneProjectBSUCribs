@@ -21,6 +21,11 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+
             int i = 0;
             string address = Request.QueryString["Address"];
             Labelnum.Text = "Messages sent to " + address;

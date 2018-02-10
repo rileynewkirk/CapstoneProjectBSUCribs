@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body style="background: url('backgrounds/southRoad.jpeg')no-repeat center fixed;  background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -72,14 +72,14 @@
     <br />
     <br />
     <br />
-    <div class="container">
-        <div class="container" style="">
+    <div class="container well" style="border-radius: 15px;">
 
-            <h1 style="text-align:center; padding-right:15px;">Mass Text</h1>
+
+            <h1 style="text-align:center;">Mass Text</h1>
             <br />
 
 
-            <form id="contactForm" runat="server" class="form-horizontal">
+            <form id="contactForm" runat="server" class="form-horizontal" style="background-color: white; border-radius: 15px;">
 
             <div class="row">
             <div class="col-lg-12">
@@ -146,7 +146,6 @@
                                 <br />
 
             </form>
-        </div>
     </div>
 
 

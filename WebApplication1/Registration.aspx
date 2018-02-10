@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body style="background: url('backgrounds/computer.jpeg')no-repeat center fixed;  background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -74,13 +74,13 @@
     <br />
     <br />
     <br />
-    <div class="container" style="text-align: center">
+    <div class="container well" style="text-align: center; border-radius: 15px;">
         <form id="form1" runat="server" class="form-horizontal">
 
             <h4>All Users</h4>
             <br />
 
-            <div class="col-lg-12" style="background-color: white">
+            <div class="col-lg-12" style="background-color: white; border-radius: 15px;">
 
                 <div class="row">
                     <div class="col-lg-12">

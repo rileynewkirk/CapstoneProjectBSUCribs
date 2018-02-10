@@ -24,14 +24,23 @@
 
 
     <style>
-        
-        table, th, td{ border:none; padding:5px; text-align:center;
-        }tr:hover {background-color: #f5f5f5;}
-         table{position:center;}
+        table, th, td {
+            border: none;
+            padding: 5px;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        table {
+            position: center;
+        }
     </style>
 </head>
 
-<body>
+<body style="background: url('backgrounds/roadTrees.jpeg')no-repeat center fixed; background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -80,43 +89,49 @@
     <br />
     <br />
     <br />
-    <div style="margin-left: auto; margin-right: auto; text-align: center;">
-        <asp:Label ID="Labelnum" runat="server" Text="Label" Font-Size="Larger" Font-Bold="True"></asp:Label>
-    </div>
-    <br />
-    <br />
-    <form id="form1"  runat="server">
-        <div runat ="server" class="col-sm-offset-2 col-sm-8" id="test"></div>
+    <form id="form1" runat="server">
+        <div class="container" style="border-radius: 15px; background-color: #f9f9f9">
+            <br />
+            <div style="margin-left: auto; margin-right: auto; text-align: center;">
+                <asp:Label ID="Labelnum" runat="server" Text="Label" Font-Size="Larger" Font-Bold="True"></asp:Label>
+            </div>
+            <br />
+            <br />
 
-        <br />
-        <br />
+            <div runat="server" class="col-sm-offset-2 col-sm-8" id="test"></div>
 
-          <div class="row" style="padding-top:5px;">
-                    <asp:Label ID="Label6" runat="server" Text="Message" CssClass="control-label col-sm-1 col-sm-offset-3" for="tbMessage"></asp:Label>
-                    <div class="col-sm-4">
-                        <asp:TextBox ID="tbMessage" Placeholder="Send to all numbers listed above:" TextMode="MultiLine" runat="server" CssClass="form-control" Rows="10" Columns="10"></asp:TextBox>
-                    </div>
-              <br />
-                </div>
-                <!-- close Message-->
-        <br />
-                <div class="row">    
-                    <div id="submitButtons" class="col-sm-4 col-sm-offset-4">
-                        <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick = "return confirm('Are you sure you want to send this?');" Onclick="btnSend_Click"/>
-                        </div>
-                </div>
-        <br />
-        <br />
+            <br />
+            <br />
 
-                       <div class="row">    
-                    <div class="col-sm-4 col-sm-offset-4" style="padding-top:5px">
-                        <asp:Button class="btn btn-block btn-danger" ID="Buttondel" runat="server" Text="Delete Whole Thread" OnClientClick = "return confirm('Are you sure you want to delete this?')" Onclick="Buttondel_Click"/>
-                        </div>
+            <div class="row" style="padding-top: 5px;">
+                <asp:Label ID="Label6" runat="server" Text="Message" CssClass="control-label col-sm-1 col-sm-offset-3" for="tbMessage"></asp:Label>
+                <div class="col-sm-4">
+                    <asp:TextBox ID="tbMessage" Placeholder="Send to all numbers listed above:" TextMode="MultiLine" runat="server" CssClass="form-control" Rows="10" Columns="10"></asp:TextBox>
                 </div>
-        <br />
+                <br />
+            </div>
+            <!-- close Message-->
+            <br />
+            <div class="row">
+                <div id="submitButtons" class="col-sm-4 col-sm-offset-4">
+                    <asp:Button class="btn btn-block btn-success" ID="btnSend" runat="server" Text="Send" OnClientClick="return confirm('Are you sure you want to send this?');" OnClick="btnSend_Click" />
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4" style="padding-top: 5px">
+                    <asp:Button class="btn btn-block btn-danger" ID="Buttondel" runat="server" Text="Delete Whole Thread" OnClientClick="return confirm('Are you sure you want to delete this?')" OnClick="Buttondel_Click" />
+                </div>
+            </div>
+            <br />
+
+        </div>
+
     </form>
-        
-                  
+
+
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/smoothscroll.js"></script>

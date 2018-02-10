@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="images/ico/favicon.png" />
 
 </head>
-<body>
+<body style="background: url('backgrounds/stars.jpeg')no-repeat center fixed;  background-size: cover;">
     <header id="navigation">
         <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
             <div class="container">
@@ -53,7 +53,7 @@
     <br />
     <br />
 
-    <div class="container" style="text-align: center">
+    <div class="container well" style="text-align: center;border-radius: 15px;">
         <h2>Edit User</h2>
         <h4 runat="server" id="nameTitle">Name</h4>
         <img src="#" class="img-responsive profile-thumbnail-edit" runat="server" id="profilePic" />

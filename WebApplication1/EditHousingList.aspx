@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body style="background: url('backgrounds/ice.jpeg')no-repeat center fixed;  background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -73,7 +73,7 @@
     <br />
     <br />
     <form id="form1" runat="server">
-
+        <div  class="container well" style="border-radius: 15px;">
         <div class="row">
             <h3 class="col-sm-offset-1">Edit Current Listing:</h3>
         </div>
@@ -414,6 +414,7 @@
         </div>
                 <br />
                 <br />
+            </div>
     </form>
 
 

@@ -222,6 +222,19 @@ namespace WebApplication1
                     mobile = m.Text;
                 }
 
+                if(firstname == "First Name:")
+                {
+                    break;
+                }
+                if (lastname == "Last Name:")
+                {
+                    break;
+                }
+                if (mobile == "Mobile:")
+                {
+                    break;
+                }
+
                 MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
                 conni.Open();
                 string insertString = "INSERT INTO `table4`(`PropertyName`, `FirstName`, `LastName`, `Mobile`) VALUES ('"+deladdress+"', '"+firstname+"', '"+lastname+"', '"+mobile+"' );";

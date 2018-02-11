@@ -73,25 +73,25 @@
     <br />
     <br />
     <form id="form1" runat="server">
-        <div  class="container well" style="border-radius: 15px;">
+        <div  class="container well" style="border-radius: 15px; text-align:center;">
         <div class="row">
-            <h3 class="col-sm-offset-1">Edit Current Listing:</h3>
+            <h3>Edit Current Listing:</h3>
         </div>
         <br />
 
         <div class="row">
-            <div class="form-group">
-                <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label col-sm-1 col-sm-offset-1"></asp:Label>
-                <div class="col-sm-3">
-                    <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" runat="server" AutoPostBack="true" OnTextChanged="AddressDropDownList_TextChanged"></asp:DropDownList>
-                </div>
+            <div class="form-group" style="margin-left: auto; margin-right: auto; text-align: center;">
+               
+                <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label"></asp:Label>
+
+                    <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" style="margin-left: auto; margin-right: auto; text-align: center; width:25%;" runat="server" AutoPostBack="true" OnTextChanged="AddressDropDownList_TextChanged"></asp:DropDownList>
             </div>
         </div>
 
         <br />
 
         <div class="row">
-            <div class="main-box clearfix col-sm-offset-1 col-sm-7">
+            <div class="main-box clearfix" style="margin-left: auto; margin-right: auto; text-align: center; width:60%">
                 <div class="table-responsive table-hover" id="userTable">
                     <asp:Table ID="Table1" class="table user-list table-hover" runat="server">
                         <asp:TableHeaderRow>
@@ -247,35 +247,35 @@
             </div>
         </div>
         <div class="row">
-            <asp:Button ID="UpdateListing" class="col-sm-offset-1 col-sm-2 btn btn-success" runat="server" Text="Update" OnClientClick="return confirm('Are you sure you want to update ?')" OnClick="UpdateListing_Click" AutoPostback="false" />
+            <asp:Button ID="UpdateListing" style="margin-left: auto; margin-right: auto; text-align: center;" class="btn btn-success" runat="server" Text="Update" OnClientClick="return confirm('Are you sure you want to update ?')" OnClick="UpdateListing_Click" AutoPostback="false" />
         </div>
         <br />
         <div class="row">
-            <asp:Button ID="DeleteListing" CssClass="col-sm-offset-1 col-sm-2 btn btn-danger" runat="server" Text="Remove This Listing" OnClientClick="return confirm('Are you sure you want to delete this house from the list ?')" OnClick="DeleteListing_Click" />
+            <asp:Button ID="DeleteListing" style="margin-left: auto; margin-right: auto; text-align: center;" CssClass="btn btn-danger" runat="server" Text="Remove This Listing" OnClientClick="return confirm('Are you sure you want to delete this house from the list ?')" OnClick="DeleteListing_Click" />
         </div>
         <br />
         <hr />
         <br />
         <div class="row">
-            <h3 class="col-sm-offset-1">Add Listing:</h3>
+            <h3>Add Listing:</h3>
         </div>
         <br />
         <div class="row">
-            <div class="col-sm-offset-1 col-sm-2">
+            <div style="margin-left: auto; margin-right: auto; text-align: center; width:25%">
                 <asp:TextBox class=" form-control" ID="tbNumofRes" runat="server" TextMode="Number" Placeholder="Enter number of residents here:" AutoPostBack="true" OnTextChanged="tbNumofRes_TextChanged" ValidateRequestMode="Inherit"></asp:TextBox>
             </div>
         </div>
         <br />
 
         <div class="row">
-            <div class="col-sm-offset-1 col-sm-2">
+            <div style="margin-left: auto; margin-right: auto; text-align: center; width:25%">
                 <asp:TextBox class="form-control" ID="tbNewAddress" runat="server" Visible="false" Placeholder="Enter the new address here:"></asp:TextBox>
             </div>
         </div>
         <br />
 
         <div class="row">
-            <div class="main-box clearfix col-sm-offset-1 col-sm-7">
+            <div class="main-box clearfix" style="margin-left: auto; margin-right: auto; text-align: center; width:60%">
                 <div class="table-responsive table-hover" id="addlist">
                     <asp:Table ID="Table2" class="table user-list table-hover" runat="server">
                         <asp:TableRow Visible="false" ID="row11">
@@ -395,7 +395,7 @@
         </div>
         <br />
         <div class="row">
-            <asp:Button ID="btnNewListing" runat="server" class="col-sm-offset-1 col-sm-2 btn btn-success" Text="Add New Listing" OnClientClick="return confirm('Are you sure you want to add?')" OnClick="btnNewListing_Click" />
+            <asp:Button ID="btnNewListing" runat="server" class="btn btn-success"  style="margin-left: auto; margin-right: auto; text-align: center;" Text="Add New Listing" OnClientClick="return confirm('Are you sure you want to add?')" OnClick="btnNewListing_Click" />
         </div>
 
 
@@ -405,11 +405,11 @@
         <br />
 
         <div class="row">
-            <div class="col-sm-offset-1">
+            <div>
                 <h5 style="color: #FF3300; font-weight: bolder">This will replace all previous entries</h5>
-                <asp:FileUpload ID="FileUpload1" CssClass="btn btn-default" runat="server" />
+                <asp:FileUpload ID="FileUpload1" style="margin-left: auto; margin-right: auto; text-align: center;" CssClass="btn btn-default" runat="server" />
                 <br />
-                <asp:Button Text="Upload" CssClass="btn btn-warning" OnClick="Upload" runat="server" OnClientClick="return confirm('Are you sure you want to upload? This action will delete all of the previous listings!')" />
+                <asp:Button Text="Upload" style="margin-left: auto; margin-right: auto; text-align: center;" CssClass="btn btn-warning" OnClick="Upload" runat="server" OnClientClick="return confirm('Are you sure you want to upload? This action will delete all of the previous listings!')" />
             </div>
         </div>
                 <br />

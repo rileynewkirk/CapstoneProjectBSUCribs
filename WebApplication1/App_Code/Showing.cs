@@ -44,6 +44,28 @@ namespace WebApplication1.App_Code
 
         }
 
+        public void addShowing()
+        {
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            conn.Open();
+
+            string insertString = "insert into showings (Showing_ID, Agent, Showing_DateTime, Client, Address, Created_DateTime) " +
+               "values (@ID, @LeasingAgent, @ShowingDate, @Client, @Address, @DateCreated) ";
+
+            MySqlCommand comd = new MySqlCommand(insertString, conn);
+
+            comd.Parameters.AddWithValue("@ID", Showing_ID);
+            comd.Parameters.AddWithValue("@LeasingAgent", LeasingAgent);
+            comd.Parameters.AddWithValue("@ShowingDate", ShowingDate);
+            comd.Parameters.AddWithValue("@Client", Client);
+            comd.Parameters.AddWithValue("@Address", Address);
+            comd.Parameters.AddWithValue("@DateCreated", DateCreated);
+
+            comd.ExecuteNonQuery();
+            conn.Close();
+
+        }
+
         public void addShowings()
         {
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);

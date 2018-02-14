@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body style="background: url('backgrounds/southRoad.jpeg')no-repeat center fixed;  background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -56,7 +56,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
-                        <li class="scroll"><a href="Registration.aspx">Registration</a></li>
+                        <li class="scroll"><a href="Registration.aspx">Users</a></li>
                         <li class="scroll active"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
                 </div>
@@ -72,20 +72,20 @@
     <br />
     <br />
     <br />
-    <div class="container">
-        <div class="container" style="">
+    <div class="container well" style="border-radius: 15px;">
 
-            <h1 style="text-align:center; padding-right:15px;">Mass Text</h1>
+
+            <h1 style="text-align:center;">Mass Text</h1>
             <br />
 
 
-            <form id="contactForm" runat="server" class="form-horizontal">
+            <form id="contactForm" runat="server" class="form-horizontal" style="background-color: white; border-radius: 15px;">
 
             <div class="row">
             <div class="col-lg-12">
                 <div class="main-box clearfix">
-                    <div class="table-responsive table-hover" id="userTable">
-                        <table class="table user-list">
+                    <div class="table-responsive " id="userTable">
+                        <table class="table user-list table-hover">
                             <thead>
                                 <tr>
                                     <th><span>Address</span></th>                          
@@ -143,9 +143,9 @@
 
                 <asp:Label ID="Label2" CssClass="well well-sm"  runat="server"><a href="EditHousingList.aspx">Edit Properties</a></asp:Label>
                 </div>
+                                <br />
 
             </form>
-        </div>
     </div>
 
 

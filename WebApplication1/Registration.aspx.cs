@@ -123,7 +123,7 @@ namespace WebApplication1
             string start = "<tr id=\"" + users[i].getUsername() + "\">";
             string img = "<td style=\"text-align: left\"><img src=\"" + users[i].getProfileImage() + "\" class=\"img-responsive profile-thumbnail\" alt=\"\" /></td>";
             string username = "<td> " + users[i].getUsername() + "</td>";
-            string name = "<td><a href=\"EditUser.aspx" + users[i].getUsername() + "\" class=\"profile-text\">" + users[i].getFirstname() + " " + users[i].getLastname() + "</a></td>";
+            string name = "<td><a href=\"EditUser.aspx?username=" + users[i].getUsername() + "\" class=\"profile-text\">" + users[i].getFirstname() + " " + users[i].getLastname() + "</a></td>";
             string label = getLabel(users[i].getUsertype());
             string email = "<td> " + users[i].getEmail() + "</td>";
             string phonenumber = "<td>" + users[i].getphoneNumber() + "</td>";

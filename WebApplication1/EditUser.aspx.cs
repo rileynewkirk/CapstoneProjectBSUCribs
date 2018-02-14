@@ -15,6 +15,16 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["user"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+            else if (Convert.ToInt32(Session["usertype"]) != 2)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You are not allowed access to this page'); window.location='Login.aspx';</script>");
+            }
+
             string name = Request.QueryString["username"];
             getUserInfo(name);
 

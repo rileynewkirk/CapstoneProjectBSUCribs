@@ -21,6 +21,11 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+
             int i = 0;
             string address = Request.QueryString["Address"];
             Labelnum.Text = "Messages sent to " + address;
@@ -49,7 +54,6 @@ namespace WebApplication1
                     "</h4>" + "</div>" + "<div id=\"collapse" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">" +
                     "<div style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
                 test.Controls.Add(literalControlHeader);
-                //add id to panel body and write gridview and all that to that id
 
                 GridView GridView1 = new GridView();
                 test.Controls.Add(GridView1);
@@ -63,7 +67,15 @@ namespace WebApplication1
                     DataRow text = convo.NewRow();
                     text["From:"] = "You";
                     text["Message:"] = message.Body;
-                    text["Time:"] = message.DateSent;
+                    if(message.DateSent == null)
+                    {
+                        text["Time:"] = DateTime.Now;
+                    }
+                    else
+                    {
+                        text["Time:"] = message.DateSent;
+                    }
+
                     convo.Rows.Add(text);
 
                 }
@@ -73,7 +85,14 @@ namespace WebApplication1
                     DataRow text = convo.NewRow();
                     text["From:"] = rdr["FirstName"].ToString();
                     text["Message:"] = message.Body;
-                    text["Time:"] = message.DateSent;
+                    if (message.DateSent == null)
+                    {
+                        text["Time:"] = DateTime.Now;
+                    }
+                    else
+                    {
+                        text["Time:"] = message.DateSent;
+                    }
                     convo.Rows.Add(text);
                 }
                 convo.DefaultView.Sort = "Time: ASC";

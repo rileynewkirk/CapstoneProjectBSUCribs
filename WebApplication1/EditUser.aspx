@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="images/ico/favicon.png" />
 
 </head>
-<body style="background-color: darkslategrey; color: white;">
+<body style="background: url('backgrounds/stars.jpeg')no-repeat center fixed;  background-size: cover;">
     <header id="navigation">
         <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
             <div class="container">
@@ -35,8 +35,10 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a href="Registration.aspx">Registration</a></li>
+                        
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
+                        <li class="scroll active"><a href="Registration.aspx">Users</a></li>
+                        <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,7 +53,7 @@
     <br />
     <br />
 
-    <div class="container" style="text-align: center">
+    <div class="container well" style="text-align: center;border-radius: 15px;">
         <h2>Edit User</h2>
         <h4 runat="server" id="nameTitle">Name</h4>
         <img src="#" class="img-responsive profile-thumbnail-edit" runat="server" id="profilePic" />

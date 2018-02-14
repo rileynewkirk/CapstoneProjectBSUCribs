@@ -12,6 +12,11 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+
             if (!IsPostBack)
             {
                 string qry = "select * from (select * from messages order by `Address`, id desc, messageBody) x group by `Address`";
@@ -109,7 +114,6 @@ namespace WebApplication1
                 conn.Open();
                 string checkShowing = "select * from table4";
                 MySqlCommand comd = new MySqlCommand(checkShowing, conn);
-                comd.Parameters.AddWithValue("Address", address);
                 MySqlDataReader dr = comd.ExecuteReader();
 
                 while (dr.Read())

@@ -15,6 +15,7 @@ namespace WebApplication1
     public partial class WebForm1 : System.Web.UI.Page
     {
         static List<string> houses = new List<string>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //var userName = Session["user"].ToString();
@@ -41,7 +42,7 @@ namespace WebApplication1
             }
 
 
-        }
+        }        
 
         protected void AddToList(object sender, EventArgs e)
         {
@@ -50,7 +51,7 @@ namespace WebApplication1
             houses.Add(selectedHouse);
 
         }
-
+       
         protected void createShowings(object sender, EventArgs e)
         {
             foreach (string house in houses)

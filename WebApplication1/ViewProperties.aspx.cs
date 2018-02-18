@@ -14,6 +14,14 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Convert.ToInt32(Session["userType"]) == 2)
+            {
+                LiteralControl nav = new LiteralControl();
+                nav.Text = "<a href=\"Registration.aspx\">Users</a>";
+                navADD.Controls.Add(nav);
+            }
+
+
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM table4;", conn);
             conn.Open();

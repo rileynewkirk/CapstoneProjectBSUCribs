@@ -5,6 +5,7 @@ using Twilio.Types;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace WebApplication1
 {
@@ -16,10 +17,25 @@ namespace WebApplication1
             {
                 Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
             }
+            if (Convert.ToInt32(Session["userType"]) != 2)
+            {
+                Label2.Visible = false;
+            }
+            else
+            {
+                LiteralControl nav = new LiteralControl();
+                nav.Text = "<a href=\"Registration.aspx\">Users</a>";
+                navADD.Controls.Add(nav);
+            }
 
             if (!IsPostBack)
             {
-                string qry = "select * from (select * from messages order by `Address`, id desc, messageBody) x group by `Address`";
+
+                string qry = "select * from (select * from messages where phoneNumber = '" + Session["PhoneNumber"].ToString() + "' order by `Address`, id desc, messageBody) x group by `Address`";
+                if (Convert.ToInt32(Session["userType"]) == 2)
+                {
+                    qry = "select * from (select * from messages order by `Address`, id desc, messageBody) x group by `Address`";
+                }
                 MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
                 conn.Open();
 
@@ -36,7 +52,6 @@ namespace WebApplication1
                     string btn = "<td style=\"width:20%;\"><a href=\"EditMessage.aspx?Address=" + address + "\" class=\"btn btn-default\">View</a></td>";
                     string end = "</tr>";
                     messageList.InnerHtml += start + phnum + content + btn + end;
-
 
                 }
 
@@ -66,10 +81,13 @@ namespace WebApplication1
                 }
                 dr.Close();
                 conn.Close();
-                AddressDropDownList.Items.Insert(0, new ListItem("--Select Address--", "0"));
-                AddressDropDownList.Items.Insert(1, new ListItem("Send To All Addresses"));
-            }
 
+                AddressDropDownList.Items.Insert(0, new ListItem("--Select Address--", "0"));
+                if (Convert.ToInt32(Session["userType"]) == 2)
+                {
+                    AddressDropDownList.Items.Insert(1, new ListItem("Send To All Addresses", "1"));
+                }
+            }
 
             tbMessage.Attributes.Add("maxlength", "1500");
 
@@ -92,18 +110,22 @@ namespace WebApplication1
 
                 while (dr.Read())
                 {
-
                     const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
                     const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
                     TwilioClient.Init(accountSid, authToken);
-                    var to = new PhoneNumber(dr["Mobile"].ToString());
-                    var message = MessageResource.Create(
-                        to,
-                        from: new PhoneNumber("17653454144"),
-                        body: sbody);
-
-
-
+                    try
+                    {
+                        var to = new PhoneNumber(dr["Mobile"].ToString());
+                        var message = MessageResource.Create(
+                            to,
+                            from: new PhoneNumber(Session["PhoneNumber"].ToString()),
+                            body: sbody);
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write("<script language=javascript>agree=confirm('The phone number for this user is not a viable twilio phone number, AND THE MESSAGE DID NOT ACTUALLY SEND'); window.location='MassText.aspx';</script>");
+                        Label4.Visible = true;
+                    }
                 }
                 dr.Close();
                 conn.Close();
@@ -122,46 +144,49 @@ namespace WebApplication1
                     const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
                     const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
                     TwilioClient.Init(accountSid, authToken);
-                    var to = new PhoneNumber(dr["Mobile"].ToString());
-                    var message = MessageResource.Create(
-                        to,
-                        from: new PhoneNumber("17653454144"),
-                        body: sbody);
-
-
-
+                    try
+                    {
+                        var to = new PhoneNumber(dr["Mobile"].ToString());
+                        var message = MessageResource.Create(
+                            to,
+                            from: new PhoneNumber(Session["PhoneNumber"].ToString()),
+                            body: sbody);
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write("<script language=javascript>agree=confirm('The phone number for this user is not a viable twilio phone number, AND THE MESSAGE DID NOT ACTUALLY SEND'); window.location='MassText.aspx';</script>");
+                        Label4.Visible = true;
+                    }
                 }
                 dr.Close();
                 conn.Close();
 
             }
 
-
-
             MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             connd.Open();
 
-            string deleteString = "delete from messages where address = @address";
+            string deleteString = "delete from messages where address = @address and phoneNumber = @PhoneNumber";
             MySqlCommand comdd = new MySqlCommand(deleteString, connd);
 
             comdd.Parameters.AddWithValue("@address", address);
-
+            comdd.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
             comdd.ExecuteNonQuery();
             connd.Close();
 
             MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conni.Open();
-            string insertString = "insert into messages (Address, MessageBody) " +
-                "values (@Address, @MessageBody) ";
+            string insertString = "insert into messages (Address, MessageBody, phoneNumber) " +
+                "values (@Address, @MessageBody, @PhoneNumber) ";
             MySqlCommand comdi = new MySqlCommand(insertString, conni);
             comdi.Parameters.AddWithValue("@Address", address);
             comdi.Parameters.AddWithValue("@MessageBody", sbody);
+            comdi.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
             comdi.ExecuteNonQuery();
             conni.Close();
 
-
             lblResponse.Text = "Your message has been sent!";
-            Response.Redirect("MassText.aspx");
+
         }
 
 

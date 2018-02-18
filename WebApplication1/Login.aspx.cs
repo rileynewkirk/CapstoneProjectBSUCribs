@@ -18,7 +18,7 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Clear();
         }
         protected void ButtonLogin_click(object sender, EventArgs e)
         {
@@ -27,6 +27,26 @@ namespace WebApplication1
             customer.password = TextBoxPassword.Text;
             if (customer.checkPassword())
             {
+
+                string qry = "Select PhoneNumber from Users WHERE username='" + TextBoxUserName.Text + "'";
+                MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand(qry, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Session["PhoneNumber"] = rdr["PhoneNumber"].ToString();
+                }
+
+                //close Data Reader
+                rdr.Close();
+
+                //close Connection
+                conn.Close();
+
                 Session["user"] = TextBoxUserName.Text;
                 Session["usertype"] = getUserType(TextBoxUserName.Text);
                 Response.Redirect("Calendar.aspx");

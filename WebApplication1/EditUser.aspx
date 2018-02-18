@@ -39,6 +39,7 @@
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll active"><a href="Registration.aspx">Users</a></li>
                         <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
+                        <li class="scroll"><a href="Login.aspx">Log out</a></li>
                     </ul>
                 </div>
             </div>
@@ -117,6 +118,13 @@
                 </div>
         </form>
     </div>
-
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/jquery.parallax.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

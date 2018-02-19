@@ -32,6 +32,11 @@ namespace WebApplication1
                 nav.Text = "<a href=\"Registration.aspx\">Users</a>";
                 navADD.Controls.Add(nav);
             }
+            if (Session["PhoneNumber"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+
 
             int i = 0;
             string address = Request.QueryString["Address"];
@@ -59,8 +64,10 @@ namespace WebApplication1
                     "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse" + i + "\">" +
                     rdr["FirstName"].ToString() + " " + rdr["LastName"].ToString() + " - " + rdr["Mobile"].ToString() + "</a>" +
                     "</h4>" + "</div>" + "<div id=\"collapse" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">" +
-                    "<div style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
+                    "<div id=\"scrolld" + i + "\" style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
                 test.Controls.Add(literalControlHeader);
+                //Response.Write("<script language=javascript>$(\"#scrolld" + i + "\").scrollTop($(\"#scrolld" + i +"\")[0].scrollHeight); ");
+                //litscript.Text += "<script language=javascript>$(\"#scrolld" + i + "\").scrollTop($(\"#scrolld" + i + "\")[0].scrollHeight);</script>";
 
                 GridView GridView1 = new GridView();
                 test.Controls.Add(GridView1);
@@ -185,7 +192,7 @@ namespace WebApplication1
                 MySqlDataReader rdr2 = cmd2.ExecuteReader();
                 while (rdr2.Read())
                 {
-                    if (rdr2["Username"].ToString() == Session["user"].ToString())
+                    if (rdr2["PhoneNumber"].ToString() == Session["PhoneNumber"].ToString())
                     {
 
                     }
@@ -219,8 +226,11 @@ namespace WebApplication1
                                 "<a data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#collapseInner" + i + "\">" +
                                 rdr3["FirstName"].ToString() + " " + rdr3["LastName"].ToString() + " - " + rdr3["Mobile"].ToString() + "</a>" +
                                 "</h4>" + "</div>" + "<div id=\"collapseInner" + i + "\" class=\"panel-collapse collapse\">" + "<div class=\"panel-body\">" +
-                                "<div style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
+                                "<div id=\"scrollb"+i+ "\" style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
                             Div1.Controls.Add(literalControlHeaderInner);
+
+                            //Response.Write("<script language=javascript>$(\"#scrollb"+i+ "\").scrollTop($(\"#scrollb" + i +"\")[0].scrollHeight); ");
+                            //litscript.Text += "<script language=javascript>$(\"#scrollb" + i + "\").scrollTop($(\"#scrollb" + i + "\")[0].scrollHeight);</script>";
 
                             GridView GridView1 = new GridView();
                             Div1.Controls.Add(GridView1);
@@ -321,7 +331,31 @@ namespace WebApplication1
                 body: sms);
 
 
+            MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            connd.Open();
+            string address = Request.QueryString["Address"];
+            string deleteString = "delete from messages where address = @address and phoneNumber = @PhoneNumber";
+            MySqlCommand comdd = new MySqlCommand(deleteString, connd);
+
+            comdd.Parameters.AddWithValue("@address", address);
+            comdd.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
+            comdd.ExecuteNonQuery();
+            connd.Close();
+
+            MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            conni.Open();
+            string insertString = "insert into messages (Address, MessageBody, phoneNumber) " +
+                "values (@Address, @MessageBody, @PhoneNumber) ";
+            MySqlCommand comdi = new MySqlCommand(insertString, conni);
+            comdi.Parameters.AddWithValue("@Address", address);
+            comdi.Parameters.AddWithValue("@MessageBody", sms);
+            comdi.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
+            comdi.ExecuteNonQuery();
+            conni.Close();
+
             Response.Redirect(Request.RawUrl);
+
+
         }
 
         protected void btnSend_Click(object sender, EventArgs e)

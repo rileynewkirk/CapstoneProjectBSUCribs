@@ -9,7 +9,7 @@
     <title>Mass Text</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/prettyPhoto.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/background.css" rel="stylesheet" />
@@ -21,11 +21,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png" />
-
+   
 </head>
 
 <body style="background: url('backgrounds/southRoad.jpeg')no-repeat center fixed; background-size: cover;">
-
     <div class="preloader">
         <div class="preloder-wrap">
             <div class="preloder-inner">
@@ -40,7 +39,6 @@
         </div>
     </div>
     <!--/.preloader-->
-
     <header id="navigation">
         <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
             <div class="container">

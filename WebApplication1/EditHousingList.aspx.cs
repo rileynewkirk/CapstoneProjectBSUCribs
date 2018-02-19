@@ -27,6 +27,11 @@ namespace WebApplication1
             {
                 Response.Write("<script language=javascript> var agree; agree=confirm('You are not allowed access to this page'); window.location='Login.aspx';</script>");
             }
+            if (Session["PhoneNumber"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+
 
             //add addresses to drop down list
             if (!this.IsPostBack)

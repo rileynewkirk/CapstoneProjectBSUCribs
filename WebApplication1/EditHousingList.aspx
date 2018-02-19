@@ -41,7 +41,7 @@
     </div>
     <!--/.preloader-->
 
-    <header id="navigation">
+    <header runat="server" id="navigation">
         <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
             <div class="container">
                 <div class="navbar-header">
@@ -58,6 +58,7 @@
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll"><a href="Registration.aspx">Users</a></li>
                         <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
+                        <li class="scroll"><a href="Login.aspx">Log out</a></li>
                     </ul>
                 </div>
             </div>

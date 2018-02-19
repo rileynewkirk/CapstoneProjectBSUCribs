@@ -24,7 +24,7 @@
     
 </head>
 
-<body>
+<body style="background: url('backgrounds/road.jpeg')no-repeat center fixed; background-size: cover;">
        
         <div class="preloader">
 		<div class="preloder-wrap">
@@ -41,7 +41,7 @@
 	</div><!--/.preloader-->
 
         <header id="navigation"> 
-		<div class="navbar navbar-inverse navbar-fixed-top navopaq" role="banner"> 
+		<div class="navbar navbar-inverse navbar-fixed-top" role="banner"> 
 			<div class="container"> 
 				<div class="navbar-header"> 
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
@@ -65,7 +65,7 @@
     <br />
     <br />
 
-    <div class="container" style="text-align:center">
+    <div class="container well" style="text-align:center; border-radius: 15px;">
     <form id="formLogin" runat="server" class ="col-sm-4 col-sm-offset-4" >
         <h2>Login</h2>
         <br />

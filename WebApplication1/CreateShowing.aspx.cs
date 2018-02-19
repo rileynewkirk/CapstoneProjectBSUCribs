@@ -61,7 +61,8 @@ namespace WebApplication1
 
                 Showing newShowing = new Showing();
                 newShowing.LeasingAgent = Session["user"].ToString();
-                newShowing.ShowingDate = dateTime.ToString("yyyy-MM-dd hh:mm");
+                newShowing.ShowingDate = dateTime.ToString("yyyy-MM-dd hh:mm" +
+                    "");
                 newShowing.Client = clientTB.Text;
                 newShowing.Address = house;
                 newShowing.DateCreated = DateTime.Now.ToString("yy-MM-dd");

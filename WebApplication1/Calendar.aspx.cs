@@ -21,7 +21,7 @@ namespace WebApplication1
             if (!IsPostBack)
             {
                 Calendar1.SelectedDate = selectedDate;
-                getShowingsFromDate(Calendar1.SelectedDate);
+                getShowingsFromDate(selectedDate);
             }
         }
 
@@ -33,8 +33,6 @@ namespace WebApplication1
         private void getShowingsFromDate(DateTime date)
         {
             List<Showing> showings = new List<Showing>();
-
-            //string qry = "SELECT Showing_ID, Address, Client, Agent, date_format(Showing_DateTime, '%Y-%m-%d %h:%i') FROM showings WHERE Showing_DateTime like '" + date.ToString("yyyy-MM-dd") + "%'";
             string qry = @"SELECT Showing_ID, date_format(Showing_DateTime, '%Y-%m-%d %h:%i'), Agent_ID, Client_Name, Address FROM calendar WHERE Showing_DateTime like '" + date.ToString("yyyy-MM-dd") + "%'";
 
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
@@ -49,10 +47,7 @@ namespace WebApplication1
                     var client = rdr["Client_Name"].ToString();
                     var address = rdr["Address"].ToString();
                     var showingDate = rdr["date_format(Showing_DateTime, '%Y-%m-%d %h:%i')"].ToString();
-
-                    //var showingDate = date.ToString(); //.ToString("yyyy-MM-dd");
-
-
+                    
                     Showing showing = new Showing(showingID, leasingAgent, client, address, showingDate);
 
                     showings.Add(showing);
@@ -120,7 +115,7 @@ namespace WebApplication1
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
             selectedDate = Calendar1.SelectedDate;
-            displayDateLabel.Text = Calendar1.SelectedDate.ToString("yyyy-MM-dd");
+            //displayDateLabel.Text = Calendar1.SelectedDate.ToString("yyyy-MM-dd");
             getShowingsFromDate(Calendar1.SelectedDate.Date);
         }
 
@@ -216,7 +211,6 @@ namespace WebApplication1
             GridView1.EditIndex = -1;
             BindGrid();
         }
-
         
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -224,7 +218,6 @@ namespace WebApplication1
             string showingID = GridView1.Rows[e.NewEditIndex].Cells[0].Text;
             string url = "EditShowing.aspx?ShowingID=" + lblShowingID.Text;
             Response.Redirect(url);
-
             getShowingsFromDate(Calendar1.SelectedDate);
             GridView1.EditIndex = e.NewEditIndex;
             BindGrid();

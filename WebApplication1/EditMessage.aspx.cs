@@ -67,7 +67,7 @@ namespace WebApplication1
                     "<div id=\"scrolld" + i + "\" style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
                 test.Controls.Add(literalControlHeader);
                 //Response.Write("<script language=javascript>$(\"#scrolld" + i + "\").scrollTop($(\"#scrolld" + i +"\")[0].scrollHeight); ");
-                //litscript.Text += "<script language=javascript>$(\"#scrolld" + i + "\").scrollTop($(\"#scrolld" + i + "\")[0].scrollHeight);</script>";
+                //litscript.Text += "";
 
                 GridView GridView1 = new GridView();
                 test.Controls.Add(GridView1);
@@ -114,7 +114,7 @@ namespace WebApplication1
                 GridView1.DataSource = convo;
                 GridView1.Style["width"] = "100%";
                 GridView1.DataBind();
-
+                
                 LiteralControl literalControlrespond = new LiteralControl();
                 literalControlrespond.Text += "</div><br/><div style=\"text-align: center;\">";
                 test.Controls.Add(literalControlrespond);

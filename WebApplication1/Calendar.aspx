@@ -80,7 +80,7 @@
         <div class="row">
         <div class="col-sm-offset-0">
             
-        <asp:Calendar ID="Calendar1" runat="server" Width="1400px" SelectionMode="DayWeekMonth" Height="500px" FirstDayOfWeek="Sunday" DayStyle-BorderWidth="1px" DayStyle-BorderColor="MediumSeaGreen" BackColor="white" BorderColor="mediumseagreen" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="mediumseagreen" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged">
+        <asp:Calendar ID="Calendar1" runat="server" Width="2000px" Height="650px" FirstDayOfWeek="Sunday" DayStyle-BorderWidth="1px" DayStyle-BorderColor="MediumSeaGreen" BackColor="white" BorderColor="mediumseagreen" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="mediumseagreen" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged">
             <DayHeaderStyle HorizontalAlign="Right" />
             <DayStyle HorizontalAlign="Center" />            
             <NextPrevStyle Font-Size="12pt" ForeColor="#CCCCFF" />
@@ -106,7 +106,7 @@
             </tr>         
             <tr>
             <td colspan="2">
-            <asp:GridView ID="GridView1" runat="server" Width="1400px" 
+            <asp:GridView ID="GridView1" runat="server" Width="1100px" 
                     AutoGenerateColumns="false" ShowFooter="false"
                     OnRowDataBound = "OnRowDataBound"                  
                     onrowdeleting="OnRowDeleting"

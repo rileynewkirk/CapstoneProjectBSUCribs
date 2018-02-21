@@ -224,11 +224,49 @@ namespace WebApplication1
             //DataBind();
         }
 
+        public int checkMonthForShowings(DateTime date)
+        {
+            string qry = "SELECT Agent_ID FROM calendar WHERE Showing_DateTime  like '%" + date.ToString("yyyy-MM-dd") + "%'";
+            int showingCount = 0;
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            MySqlCommand cmd = new MySqlCommand(qry, conn);
+            conn.Open();
+            using (MySqlDataReader rdr = cmd.ExecuteReader())
+            {
+                while (rdr.Read())
+                {
+                    showingCount++;
+                }
+                rdr.Close();
+                conn.Close();
+            }
+
+            return showingCount;
+        }
+
+
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
         {
+            DateTime currentRenderDate = e.Day.Date;
+            int numberOfShowings = checkMonthForShowings(currentRenderDate);
+
             e.Cell.HorizontalAlign = HorizontalAlign.Left;
-            e.Cell.VerticalAlign= VerticalAlign.Top;
-            e.Cell.Font.Size = FontUnit.Point(12);
+            e.Cell.VerticalAlign = VerticalAlign.Top;
+            e.Cell.BorderWidth = 1;
+            e.Cell.Controls.Add(new LiteralControl("<br /><center>"));
+            e.Cell.Attributes.Add("OnClick", e.SelectUrl);
+
+            Label aLabel = new Label();
+            aLabel.Text = numberOfShowings.ToString();
+            aLabel.Font.Size = 20;
+            aLabel.ForeColor = System.Drawing.Color.DarkGray;
+            e.Cell.Controls.Add(aLabel);
+
+            if (numberOfShowings < 1)
+            {
+                aLabel.ForeColor = System.Drawing.Color.White;
+            }
+
         }
     }
 }

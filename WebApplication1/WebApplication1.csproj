@@ -329,6 +329,7 @@
     <Content Include="obj\Release\WebApplication1.csproj.CoreCompileInputs.cache" />
     <Content Include="CreateShowing.aspx" />
     <Content Include="DeleteShowing.aspx" />
+    <None Include="Properties\PublishProfiles\CMmessanger.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\html5shiv.js" />

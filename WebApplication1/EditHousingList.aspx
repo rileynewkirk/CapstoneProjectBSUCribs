@@ -24,7 +24,7 @@
 
 </head>
 
-<body style="background: url('backgrounds/ice.jpeg')no-repeat center fixed;  background-size: cover;">
+<body style="background: url('backgrounds/southRoad.jpeg')no-repeat center fixed;  background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">

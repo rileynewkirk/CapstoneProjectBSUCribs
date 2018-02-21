@@ -20,7 +20,7 @@
     <link rel="shortcut icon" href="images/ico/favicon.png" />
 
 </head>
-<body style="background: url('backgrounds/stars.jpeg')no-repeat center fixed;  background-size: cover;">
+<body style="background: url('backgrounds/road.jpeg')no-repeat center fixed;  background-size: cover;">
     <header id="navigation">
         <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
             <div class="container">

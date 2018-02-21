@@ -13,7 +13,20 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Convert.ToInt32(Session["userType"]) == 2)
+            {
+                LiteralControl nav = new LiteralControl();
+                nav.Text = "<a href=\"Registration.aspx\">Users</a>";
+                navADD.Controls.Add(nav);
+            }
+            if (Session["user"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+            if (Session["PhoneNumber"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)

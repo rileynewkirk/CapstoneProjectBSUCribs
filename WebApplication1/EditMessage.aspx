@@ -22,11 +22,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png" />
 
-        <script type="text/javascript">
-            function scrollToBottom(id){
-                $(#id).scrollTop($(#id)[0].scrollHeight);}
-</script>
-
     <style>
         table, th, td {
             border: none;
@@ -44,7 +39,7 @@
     </style>
 </head>
 
-<body style="background: url('backgrounds/roadTrees.jpeg')no-repeat center fixed; background-size: cover;">
+<body style="background: url('backgrounds/southRoad.jpeg')no-repeat center fixed; background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -139,6 +134,9 @@
 
     </form>
 
+    
+
+
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -148,5 +146,6 @@
     <script type="text/javascript" src="js/jquery.parallax.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
+</script>
 </body>
 </html>

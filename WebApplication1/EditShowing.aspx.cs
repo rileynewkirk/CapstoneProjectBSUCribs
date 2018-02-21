@@ -9,6 +9,9 @@ using System.Web.UI.WebControls;
 using WebApplication1.App_Code;
 using System.Data.OleDb;
 using System.Data;
+using Twilio;
+using Twilio.Types;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace WebApplication1
 {
@@ -35,7 +38,22 @@ namespace WebApplication1
                 dr.Close();
                 conn.Close();
                 AddressDropDownList.Items.Insert(0, new ListItem("--Select Address--", "0"));
-            }                      
+            }
+
+            if (Convert.ToInt32(Session["userType"]) == 2)
+            {
+                LiteralControl nav = new LiteralControl();
+                nav.Text = "<a href=\"Registration.aspx\">Users</a>";
+                navADD.Controls.Add(nav);
+            }
+            if (Session["user"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
+            if (Session["PhoneNumber"] == null)
+            {
+                Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
+            }
         }
 
         //public void updateShowingInfo(string ID)
@@ -152,7 +170,21 @@ namespace WebApplication1
 
         protected void editShowingBtn_Click(object sender, EventArgs e)
         {
-            string ID = Request.QueryString["ShowingID"];
+            //string ID = Request.QueryString["ShowingID"];
+            //DateTime ogtime = new DateTime();
+
+            //MySqlConnection conn3 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            //conn3.Open();
+            //string getShowing = "select * from calendar where Showing_ID = " + ID;
+            //MySqlCommand comd3 = new MySqlCommand(getShowing, conn3);
+            //MySqlDataReader dr3 = comd3.ExecuteReader();
+
+            //while (dr3.Read())
+            //{
+            //    ogtime = (DateTime)dr3["Showing_Time"];
+            //}
+            //dr3.Close();
+            //conn3.Close();
 
             string showingTime = TimePicker.Text;
             string showingDate = DatePicker.Text;
@@ -172,6 +204,62 @@ namespace WebApplication1
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+
+
+            //string t = showingDateTime.ToString("g");
+            //string showOGTime = ogtime.ToString("g");
+            //string sbody = "A showing that was scheduled on " + showOGTime + " has now been moved to " + t;
+
+            //MySqlConnection conn2 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            //conn2.Open();
+            //string checkShowing = "select * from table4 where PropertyName = @Address";
+            //MySqlCommand comd = new MySqlCommand(checkShowing, conn2);
+            //comd.Parameters.AddWithValue("Address", address);
+            //MySqlDataReader dr = comd.ExecuteReader();
+
+            //while (dr.Read())
+            //{
+            //    const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
+            //    const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
+            //    TwilioClient.Init(accountSid, authToken);
+            //    try
+            //    {
+            //        var to = new PhoneNumber(dr["Mobile"].ToString());
+            //        var message = MessageResource.Create(
+            //            to,
+            //            from: new PhoneNumber(Session["PhoneNumber"].ToString()),
+            //            body: sbody);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Response.Write("<script language=javascript>agree=confirm('The phone number for this user is not a viable twilio phone number, AND THE MESSAGE DID NOT ACTUALLY SEND'); window.location='MassText.aspx';</script>");
+            //    }
+            //}
+            //dr.Close();
+            //conn2.Close();
+
+            //MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            //connd.Open();
+
+            //string deleteString = "delete from messages where address = @address and phoneNumber = @PhoneNumber";
+            //MySqlCommand comdd = new MySqlCommand(deleteString, connd);
+
+            //comdd.Parameters.AddWithValue("@address", address);
+            //comdd.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
+            //comdd.ExecuteNonQuery();
+            //connd.Close();
+
+            //MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            //conni.Open();
+            //string insertString = "insert into messages (Address, MessageBody, phoneNumber) " +
+            //    "values (@Address, @MessageBody, @PhoneNumber) ";
+            //MySqlCommand comdi = new MySqlCommand(insertString, conni);
+            //comdi.Parameters.AddWithValue("@Address", address);
+            //comdi.Parameters.AddWithValue("@MessageBody", sbody);
+            //comdi.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
+            //comdi.ExecuteNonQuery();
+            //conni.Close();
+
 
             Response.Redirect("Calendar.aspx");
         }

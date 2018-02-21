@@ -67,7 +67,7 @@ namespace WebApplication1
                     "<div id=\"scrolld" + i + "\" style=\"width:100%; max-height:400px; overflow: auto; text-align:center\">";
                 test.Controls.Add(literalControlHeader);
                 //Response.Write("<script language=javascript>$(\"#scrolld" + i + "\").scrollTop($(\"#scrolld" + i +"\")[0].scrollHeight); ");
-                //litscript.Text += "<script language=javascript>$(\"#scrolld" + i + "\").scrollTop($(\"#scrolld" + i + "\")[0].scrollHeight);</script>";
+                //litscript.Text += "";
 
                 GridView GridView1 = new GridView();
                 test.Controls.Add(GridView1);
@@ -114,7 +114,7 @@ namespace WebApplication1
                 GridView1.DataSource = convo;
                 GridView1.Style["width"] = "100%";
                 GridView1.DataBind();
-
+                
                 LiteralControl literalControlrespond = new LiteralControl();
                 literalControlrespond.Text += "</div><br/><div style=\"text-align: center;\">";
                 test.Controls.Add(literalControlrespond);
@@ -314,8 +314,8 @@ namespace WebApplication1
 
         private void btnevent_Click(object sender, EventArgs e)
         {
-
             Button btn = (Button)sender;
+            btn.OnClientClick = "this.disabled = true; this.value = 'Sending...';";
             string id = btn.CommandArgument;
             TextBox txt = (TextBox)test.FindControl(id);
             string sms = txt.Text;
@@ -324,12 +324,17 @@ namespace WebApplication1
             const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
             TwilioClient.Init(accountSid, authToken);
             var to = new PhoneNumber(id);
-
+            try
+            {
             var message = MessageResource.Create(
                 to,
                 from: new PhoneNumber(Session["PhoneNumber"].ToString()),
                 body: sms);
-
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script language=javascript>agree=confirm('The phone number for this user is not a viable twilio phone number, AND THE MESSAGE DID NOT ACTUALLY SEND'); window.location='MassText.aspx';</script>");
+            }
 
             MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             connd.Open();
@@ -361,7 +366,7 @@ namespace WebApplication1
         protected void btnSend_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            btn.OnClientClick = "this.disabled = true; this.value = 'Uploading...';";
+            btn.OnClientClick = "this.disabled = true; this.value = 'Sending...';";
 
             string sbody = tbMessage.Text;
             string address = Request.QueryString["Address"];
@@ -374,16 +379,21 @@ namespace WebApplication1
 
             while (dr.Read())
             {
-
-                const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
-                const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
-                TwilioClient.Init(accountSid, authToken);
-                var to = new PhoneNumber(dr["Mobile"].ToString());
-                var message = MessageResource.Create(
-                    to,
-                    from: new PhoneNumber(Session["PhoneNumber"].ToString()),
-                    body: sbody);
-
+                try
+                {
+                    const string accountSid = "AC81311ed7d5aa3a5b8debc7306abbb0ee";
+                    const string authToken = "17d80aa7c2ad0c26a45b8607fba63dda";
+                    TwilioClient.Init(accountSid, authToken);
+                    var to = new PhoneNumber(dr["Mobile"].ToString());
+                    var message = MessageResource.Create(
+                        to,
+                        from: new PhoneNumber(Session["PhoneNumber"].ToString()),
+                        body: sbody);
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script language=javascript>agree=confirm('The phone number for this user is not a viable twilio phone number, AND THE MESSAGE DID NOT ACTUALLY SEND'); window.location='MassText.aspx';</script>");
+                }
 
 
             }

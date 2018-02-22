@@ -26,7 +26,7 @@
 
 </head>
 
-<body style="background-color: whitesmoke;" >
+<body style="background: url('backgrounds/computer.jpeg')no-repeat center fixed; background-size: cover;" >
         <div class="preloader">
             <div class="preloder-wrap">
                 <div class="preloder-inner">
@@ -43,7 +43,7 @@
         <!--/.preloader-->
 
         <header id="navigation">
-            <div class="navbar navbar-inverse navbar-fixed-top navopaq" style="height: auto" role="banner">
+            <div class="navbar navbar-inverse navbar-fixed-top" style="height: auto" role="banner">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -57,8 +57,9 @@
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right" runat="server" id="navbar">
                         <li class="scroll active"><a href="Calendar.aspx">Calendar</a></li>
-                        <li class="scroll"><a href="Registration.aspx">Register</a></li>
+                        <li class="scroll" id="navADD" runat="server"></li>
                         <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
+                        <li class="scroll"><a href="Login.aspx">Log out</a></li>
 
                         </ul>
                     </div>
@@ -75,7 +76,7 @@
         <br />
         <br />
 
-    <div class="container" style="text-align: center">
+    <div class="container well" style="text-align:center; border-radius: 15px;">
     <form id="form1" runat="server">
         <div class="row">
         <div class="col-sm-offset-0">
@@ -94,25 +95,26 @@
 
         </div>
          <br /><br />
-        <h4 class="text-left">Showings</h4>
+        <h4 class="text-center">Showings</h4>
         <asp:Label  ID="displayDateLabel" runat="server"  Font-Size="Large"></asp:Label>
 
         <br />
               
-                               
-        <table width="800px" align="center">
+        <div class="row">
+            <div class="col-sm-12" style="text-align:center;">
+        <table style="width:100%; border:none;" >
             <tr>
-                <td colspan="2" align="center"><b></b></td>
+                <td colspan="2"></td>
             </tr>         
             <tr>
             <td colspan="2">
-            <asp:GridView ID="GridView1" runat="server" Width="1400px" 
+            <asp:GridView ID="GridView1" style="width:100%; border:none;" CssClass="table table-responsive" runat="server" 
                     AutoGenerateColumns="false" ShowFooter="false"
                     OnRowDataBound = "OnRowDataBound"                  
                     onrowdeleting="OnRowDeleting"
                     onrowupdating="GridView1_RowUpdating"
                     onrowcancelingedit="GridView1_RowCancelingEdit"
-                    onrowediting="GridView1_RowEditing" AlternatingRowStyle-BackColor="mediumSeaGreen" AlternatingRowStyle-BorderColor="Black" AlternatingRowStyle-ForeColor="White" AlternatingRowStyle-BorderStyle="NotSet" AlternatingRowStyle-BorderWidth="1px">
+                    onrowediting="GridView1_RowEditing" AlternatingRowStyle-BackColor="#189EA5"  AlternatingRowStyle-ForeColor="White" AlternatingRowStyle-BorderStyle="NotSet" GridLines="None">
                 <Columns>           
                     <asp:TemplateField HeaderText="ID">
                         <ItemTemplate>
@@ -183,7 +185,9 @@
             </td>
             </tr>
         </table>
+        </div> 
 
+        </div>
         <!--<div class="col-sm-12" style="background-color: white">
         <div class="row">
                 <div class="main-box clearfix">

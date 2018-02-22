@@ -28,7 +28,7 @@
 
 </head>
 
-<body>
+<body style="background: url('backgrounds/computer.jpeg')no-repeat center fixed; background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -59,8 +59,11 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
-                        <li class="scroll"><a href="Registration.aspx">Register</a></li>
+                        <li class="scroll active"><a href="Calendar.aspx">Calendar</a></li>
+                        <li class="scroll" id="navADD" runat="server"></li>
+                        <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
+                        <li class="scroll"><a href="Login.aspx">Log out</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -75,7 +78,7 @@
     <br />
     <br />
     <br />
-    <div class="container" style="text-align: center">
+    <div class="container well" style="text-align:center; border-radius: 15px;">
         <form id="form1" runat="server" class="form-horizontal">
             <h2>Create Showing</h2>
             <br />
@@ -142,7 +145,7 @@
             <!-- close Housing List -->
 
            <div>
-              <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="createShowing" OnClick="createShowings" />
+              <asp:Button class="btn btn-primary" ID="Button1" runat="server" Text="Create Showing" OnClick="createShowings" />
 
            </div>
             <br />

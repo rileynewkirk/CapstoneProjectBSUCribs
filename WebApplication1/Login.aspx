@@ -9,7 +9,7 @@
 	<title>Login</title> 
 	<link href="css/bootstrap.min.css" rel="stylesheet"/>
 	<link href="css/prettyPhoto.css" rel="stylesheet"/> 
-	<link href="css/font-awesome.min.css" rel="stylesheet"/> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="css/animate.css" rel="stylesheet"/> 
 	<link href="css/main.css" rel="stylesheet"/>
 	<link href="css/background.css" rel="stylesheet"/>
@@ -78,7 +78,7 @@
 
         <div class="form-group">
             <div class="input-group">
-                <span class ="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                <span class ="input-group-addon"><span class="glyphicon glyphicon-log-in"></span></span>
                 <asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password" class="form-control"></asp:TextBox>
             </div>
         </div>

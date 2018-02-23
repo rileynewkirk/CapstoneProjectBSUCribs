@@ -86,7 +86,7 @@
                 <div class="col-lg-12">
                     <div class="main-box clearfix">
                         <div class="table-responsive " id="userTable">
-                            <table class="table user-list table-hover" style="max-height:500px; overflow-y:scroll;">
+                            <table class="table user-list table-hover" style="max-height:500px; overflow-y:scroll; overflow-x:hidden;">
                                 <thead>
                                     <tr>
                                         <th><span>Address</span></th>

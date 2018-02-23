@@ -193,7 +193,10 @@
     <Compile Include="App_Code\EncryptPassword.cs" />
     <Compile Include="App_Code\Showing.cs" />
     <Compile Include="App_Code\UserUtil.cs" />
+    <Content Include="backgrounds\ab.jpg" />
+    <Content Include="backgrounds\ab2.jpg" />
     <Content Include="backgrounds\AltClouds.jpg" />
+    <Content Include="backgrounds\bg.jpg" />
     <Content Include="backgrounds\bike.jpeg" />
     <Content Include="backgrounds\canal.jpeg" />
     <Content Include="backgrounds\cloudcover.jpeg" />

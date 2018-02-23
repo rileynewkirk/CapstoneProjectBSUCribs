@@ -134,6 +134,7 @@ namespace WebApplication1
             getShowingsFromDate(Calendar1.SelectedDate.Date);
         }
 
+
         protected void BindGrid()
         {
             GridView1.DataSource = ViewState["dt"] as DataTable;
@@ -282,6 +283,13 @@ namespace WebApplication1
                 aLabel.ForeColor = System.Drawing.Color.White;
             }
 
+        }
+
+        protected void tbmobileDate_TextChanged(object sender, EventArgs e)
+        {
+            CreateShowingBtn.Text = "WTF";
+            selectedDate = Convert.ToDateTime(tbmobileDate.Text);
+            getShowingsFromDate(Convert.ToDateTime(tbmobileDate.Text).Date);
         }
     }
 }

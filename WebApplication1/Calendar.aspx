@@ -26,169 +26,183 @@
 
 </head>
 
-<body style="background: url('backgrounds/computer.jpeg')no-repeat center fixed; background-size: cover;" >
-        <div class="preloader">
-            <div class="preloder-wrap">
-                <div class="preloder-inner">
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                    <div class="ball"></div>
-                </div>
+<body style="background: url('backgrounds/computer.jpeg')no-repeat center fixed; background-size: cover;">
+    <div class="preloader">
+        <div class="preloder-wrap">
+            <div class="preloder-inner">
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
+                <div class="ball"></div>
             </div>
         </div>
-        <!--/.preloader-->
+    </div>
+    <!--/.preloader-->
 
-        <header id="navigation">
-            <div class="navbar navbar-inverse navbar-fixed-top" style="height: auto" role="banner">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="index.html">
-                            <h1>
-                                <img src="images/logo.png" alt="logo" /></h1>
-                        </a>
-                    </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right" runat="server" id="navbar">
+    <header id="navigation">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="height: auto" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <h1>
+                            <img src="images/logo.png" alt="logo" /></h1>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right" runat="server" id="navbar">
                         <li class="scroll active"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll" id="navADD" runat="server"></li>
                         <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
                         <li class="scroll"><a href="Login.aspx">Log out</a></li>
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
             </div>
-            <!--/navbar-->
-        </header>
-        <!--/#navigation-->
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-    <div class="container well" style="text-align:center; border-radius: 15px;">
-    <form id="form1" runat="server">
-        <div class="row">
-        <div class="col-sm-offset-0">
-            
-        <asp:Calendar ID="Calendar1" runat="server" Width="1400px" SelectionMode="DayWeekMonth" Height="500px" FirstDayOfWeek="Sunday" DayStyle-BorderWidth="1px" DayStyle-BorderColor="MediumSeaGreen" BackColor="white" BorderColor="mediumseagreen" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="mediumseagreen" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged">
-            <DayHeaderStyle HorizontalAlign="Right" />
-            <DayStyle HorizontalAlign="Center" />            
-            <NextPrevStyle Font-Size="12pt" ForeColor="#CCCCFF" />
-            <OtherMonthDayStyle ForeColor="silver" />
-            <SelectedDayStyle BackColor="#99CCFF" />
-            <SelectorStyle BackColor="#99CCFF" />            
-            <TitleStyle Font-Bold="True" HorizontalAlign="Center" BackColor="mediumSeaGreen" ForeColor="white" />
-            <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
-        </asp:Calendar>
-    </div>
-
         </div>
-         <br /><br />
-        <h4 class="text-center">Showings</h4>
-        <asp:Label  ID="displayDateLabel" runat="server"  Font-Size="Large"></asp:Label>
+        <!--/navbar-->
+    </header>
+    <!--/#navigation-->
 
-        <br />
-              
-        <div class="row">
-            <div class="col-sm-12" style="text-align:center;">
-        <table style="width:100%; border:none;" >
-            <tr>
-                <td colspan="2"></td>
-            </tr>         
-            <tr>
-            <td colspan="2">
-            <asp:GridView ID="GridView1" style="width:100%; border:none;" CssClass="table table-responsive" runat="server" 
-                    AutoGenerateColumns="false" ShowFooter="false"
-                    OnRowDataBound = "OnRowDataBound"                  
-                    onrowdeleting="OnRowDeleting"
-                    onrowupdating="GridView1_RowUpdating"
-                    onrowcancelingedit="GridView1_RowCancelingEdit"
-                    onrowediting="GridView1_RowEditing" AlternatingRowStyle-BackColor="#189EA5"  AlternatingRowStyle-ForeColor="White" AlternatingRowStyle-BorderStyle="NotSet" GridLines="None">
-                <Columns>           
-                    <asp:TemplateField HeaderText="ID">
-                        <ItemTemplate>
-                            <asp:Label ID="lblShowingID" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Showing_ID") %>'></asp:Label>
-                        </ItemTemplate>               
-                    </asp:TemplateField>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
-                    <asp:TemplateField HeaderText="Client">
-                        <ItemTemplate>
-                            <asp:Label ID="lblClient" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Client") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>           
-                            <asp:TextBox ID="txtEditClient" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Client") %>'></asp:TextBox>           
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtAddClient" runat="server" ></asp:TextBox>
-                        </FooterTemplate>
-                    </asp:TemplateField>
+    <div class="container well" style="text-align: center; border-radius: 15px;">
+        <form id="form1" runat="server">
+            <div class="row">
+                <div class="col-sm-12 hidden-xs">
+                    <asp:Calendar ID="Calendar1" Style="width:100%; overflow:hidden" runat="server" SelectionMode="Day" Height="500px" FirstDayOfWeek="Sunday" DayStyle-BorderWidth="1px" DayStyle-BorderColor="#189EA5" BackColor="White" BorderColor="#189EA5" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="#189EA5" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" SelectorStyle-Wrap="True">
+                        <DayHeaderStyle HorizontalAlign="Right" />
+                        <DayStyle HorizontalAlign="Center" />
+                        <NextPrevStyle Font-Size="12pt" ForeColor="#CCCCFF" />
+                        <OtherMonthDayStyle ForeColor="silver" />
+                        <SelectedDayStyle BackColor="#99CCFF" />
+                        <TitleStyle Font-Bold="True" HorizontalAlign="Center" BackColor="#189EA5" ForeColor="white" />
+                        <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
+                    </asp:Calendar>
+                </div>
+            </div>
 
-                    <asp:TemplateField HeaderText="Address">
-                        <ItemTemplate>
-                            <asp:Label ID="lblAddress" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>           
-                            <asp:TextBox ID="txtEditAddress" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Address") %>'></asp:TextBox>           
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtAddAddress" runat="server" ></asp:TextBox>
-                        </FooterTemplate>
-                    </asp:TemplateField>
+               <div class="row">
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+                    <asp:Label ID="Label1" runat="server" Text="Choose a date to view showings"></asp:Label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg ">
+                    <asp:TextBox ID="tbmobileDate" CssClass="form-control col-xs-6" runat="server" TextMode="Date" OnTextChanged="tbmobileDate_TextChanged" AutoPostBack="True"></asp:TextBox>
 
-                    <asp:TemplateField HeaderText="Leasing Agent">
-                        <ItemTemplate>
-                            <asp:Label ID="lblLeasingAgent" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Leasing_Agent") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>           
-                            <asp:TextBox ID="txtEditLeasingAgent" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Leasing_Agent") %>'></asp:TextBox>           
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtAddLeasingAgent" runat="server" ></asp:TextBox>
-                        </FooterTemplate>
-                    </asp:TemplateField>
- 
-                    <asp:TemplateField HeaderText="Showing Date">
-                        <ItemTemplate>
-                            <asp:Label ID="lblShowingDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "ShowingDate") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>           
-                            <asp:TextBox ID="txtEditShowingDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "showingDate") %>'></asp:TextBox>           
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtAddShowingDate" runat="server" ></asp:TextBox>
-                        </FooterTemplate>
-                    </asp:TemplateField>
+                </div>
+            </div>
 
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                           <asp:Button ID="imgbtnEdit" runat="server" CommandName="Edit" text="Edit" CssClass="btn btn-default" />
-                           <asp:Button ID="imgbtnDelete" runat="server" CommandName="Delete" text="Delete" CssClass="btn btn-danger" />
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                           <asp:Button ID="imgbtnUpdate" runat="server" CommandName="Update" text="Update"/>
-                           <asp:Button ID="imgbtnCancel" runat="server" CommandName="Cancel" text="Cancel"/>
-                        </EditItemTemplate>                        
-                    </asp:TemplateField>                    
-                </Columns>           
-            </asp:GridView> 
-            </td>
-            </tr>
-        </table>
-        </div> 
 
-        </div>
-        <!--<div class="col-sm-12" style="background-color: white">
+
+
+            <br />
+            <br />
+            <h4 class="text-center">Showings</h4>
+            <asp:Label ID="displayDateLabel" runat="server" Font-Size="Large"></asp:Label>
+
+            <br />
+
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center;">
+                    <table style="width: 100%; border: none;">
+                        <tr>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <asp:GridView ID="GridView1" Style="width: 100%; border: none;" CssClass="table table-responsive" runat="server"
+                                    AutoGenerateColumns="false" ShowFooter="false"
+                                    OnRowDataBound="OnRowDataBound"
+                                    OnRowDeleting="OnRowDeleting"
+                                    OnRowUpdating="GridView1_RowUpdating"
+                                    OnRowCancelingEdit="GridView1_RowCancelingEdit"
+                                    OnRowEditing="GridView1_RowEditing" AlternatingRowStyle-BackColor="#189EA5" AlternatingRowStyle-ForeColor="White" AlternatingRowStyle-BorderStyle="NotSet" GridLines="None">
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="ID">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblShowingID" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Showing_ID") %>'></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="Client">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblClient" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Client") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="txtEditClient" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Client") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:TextBox ID="txtAddClient" runat="server"></asp:TextBox>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="Address">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblAddress" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="txtEditAddress" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Address") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:TextBox ID="txtAddAddress" runat="server"></asp:TextBox>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="Leasing Agent">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblLeasingAgent" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Leasing_Agent") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="txtEditLeasingAgent" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Leasing_Agent") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:TextBox ID="txtAddLeasingAgent" runat="server"></asp:TextBox>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField HeaderText="Showing Date">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblShowingDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "ShowingDate") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="txtEditShowingDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "showingDate") %>'></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <FooterTemplate>
+                                                <asp:TextBox ID="txtAddShowingDate" runat="server"></asp:TextBox>
+                                            </FooterTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:Button ID="imgbtnEdit" runat="server" CommandName="Edit" Text="Edit" CssClass="btn btn-default" />
+                                                <asp:Button ID="imgbtnDelete" runat="server" CommandName="Delete" Text="Delete" CssClass="btn btn-danger" />
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:Button ID="imgbtnUpdate" runat="server" CommandName="Update" Text="Update" />
+                                                <asp:Button ID="imgbtnCancel" runat="server" CommandName="Cancel" Text="Cancel" />
+                                            </EditItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <!--<div class="col-sm-12" style="background-color: white">
         <div class="row">
                 <div class="main-box clearfix">
                     <div class="table-responsive table-hover" id="showingTable">
@@ -218,21 +232,23 @@
         </div>
         </div>-->
 
-        <br />
-        <br />
+            <br />
+            <br />
 
 
-       
 
-        <br /><br />
-         <br /><br />
 
-        <div>
-         <asp:Button class="btn btn-primary" ID="CreateShowingBtn" runat="server" Text="Create Showing"  OnClick="goToCreateShowing"/>
-        </div>
-        <br />
-       
-    </form>
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div>
+                <asp:Button class="btn btn-primary" ID="CreateShowingBtn" runat="server" Text="Create Showing" OnClick="goToCreateShowing" />
+            </div>
+            <br />
+
+        </form>
     </div>
 
 

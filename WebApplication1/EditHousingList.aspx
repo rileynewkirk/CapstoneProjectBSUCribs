@@ -85,14 +85,14 @@
                
                 <asp:Label ID="Label3" runat="server" Text="Address" CssClass="control-label"></asp:Label>
 
-                    <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" style="margin-left: auto; margin-right: auto; text-align: center; width:25%;" runat="server" AutoPostBack="true" OnTextChanged="AddressDropDownList_TextChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="AddressDropDownList" CssClass="form-control" style="margin-left: auto; margin-right: auto; text-align: center; max-width:40%" runat="server" AutoPostBack="true" OnTextChanged="AddressDropDownList_TextChanged"></asp:DropDownList>
             </div>
         </div>
 
         <br />
 
         <div class="row">
-            <div class="main-box clearfix" style="margin-left: auto; margin-right: auto; text-align: center; width:60%">
+            <div class="main-box clearfix" style="margin-left: auto; margin-right: auto; text-align: center; width:90%">
                 <div class="table-responsive table-hover" id="userTable">
                     <asp:Table ID="Table1" class="table user-list table-hover" runat="server">
                         <asp:TableHeaderRow>
@@ -100,7 +100,7 @@
                             <asp:TableHeaderCell Text="Last Name:"></asp:TableHeaderCell>
                             <asp:TableHeaderCell Text="Mobile:"></asp:TableHeaderCell>
                             <asp:TableHeaderCell>
-                                <asp:LinkButton ID="LinkButton1" OnClick="AddRow" runat="server" ToolTip="Add another tenant to this address"><span class="glyphicon glyphicon-plus" style="font-size:larger; padding-left:23px"></span></asp:LinkButton></></asp:TableHeaderCell>
+                                <asp:LinkButton ID="LinkButton1" OnClick="AddRow" runat="server" ToolTip="Add another tenant to this address"><span class="glyphicon glyphicon-plus" style="font-size:larger; padding-left: 45px"></span></asp:LinkButton></></asp:TableHeaderCell>
                         </asp:TableHeaderRow>
                         <asp:TableRow Visible="false" ID="row1">
                             <asp:TableCell>
@@ -262,21 +262,21 @@
         </div>
         <br />
         <div class="row">
-            <div style="margin-left: auto; margin-right: auto; text-align: center; width:25%">
+            <div style="margin-left: auto; margin-right: auto; text-align: center; width:40%">
                 <asp:TextBox class=" form-control" ID="tbNumofRes" runat="server" TextMode="Number" Placeholder="Enter number of residents here:" AutoPostBack="true" OnTextChanged="tbNumofRes_TextChanged" ValidateRequestMode="Inherit"></asp:TextBox>
             </div>
         </div>
         <br />
 
         <div class="row">
-            <div style="margin-left: auto; margin-right: auto; text-align: center; width:25%">
+            <div style="margin-left: auto; margin-right: auto; text-align: center; width:40%">
                 <asp:TextBox class="form-control" ID="tbNewAddress" runat="server" Visible="false" Placeholder="Enter the new address here:"></asp:TextBox>
             </div>
         </div>
         <br />
 
         <div class="row">
-            <div class="main-box clearfix" style="margin-left: auto; margin-right: auto; text-align: center; width:60%">
+            <div class="main-box clearfix" style="margin-left: auto; margin-right: auto; text-align: center; width:90%">
                 <div class="table-responsive table-hover" id="addlist">
                     <asp:Table ID="Table2" class="table user-list table-hover" runat="server">
                         <asp:TableRow Visible="false" ID="row11">

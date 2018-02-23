@@ -24,7 +24,7 @@
 
 </head>
 
-<body>
+<body style="background: url('backgrounds/southRoad.jpeg')no-repeat center fixed; background-size: cover;">
 
     <div class="preloader">
         <div class="preloder-wrap">
@@ -75,11 +75,14 @@
     <br />
 
     <form id="form1" runat="server">
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="container" style="background-color:white; border-radius:20px;">
+        <div class="col-sm-8 col-sm-offset-2" style="height:1000px; overflow-y:scroll; overflow-x:hidden;">
                  
-        <asp:GridView ID="GridView1" CssClass="table table-hover table-responsive " runat="server" ShowHeader="True" AlternatingRowStyle-BackColor="#E6E6E6"></asp:GridView>
+        <asp:GridView ID="GridView1" CssClass="table table-hover table-responsive " runat="server" ShowHeader="True" AlternatingRowStyle-BackColor="#E6E6E6" GridLines="None" style="width:100%; margin-left:15px" ></asp:GridView>
 
 
+
+        </div>
 
         </div>
             <br />

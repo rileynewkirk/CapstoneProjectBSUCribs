@@ -123,6 +123,7 @@ namespace WebApplication1
                 tb.Rows = 5;
                 tb.Columns = 60;
                 tb.Attributes.Add("maxlength", "1500");
+                tb.CssClass = "form-control";
                 tb.TextMode = TextBoxMode.MultiLine;
                 tb.ID = rdr["Mobile"].ToString();
                 test.Controls.Add(tb);

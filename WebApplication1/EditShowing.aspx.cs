@@ -12,6 +12,7 @@ using System.Data;
 using Twilio;
 using Twilio.Types;
 using Twilio.Rest.Api.V2010.Account;
+using System.Text.RegularExpressions;
 
 namespace WebApplication1
 {
@@ -68,16 +69,16 @@ namespace WebApplication1
             string ID = Request.QueryString["ShowingID"];
             DateTime ogtime = new DateTime();
             string oghouse = "";
+
             MySqlConnection conn3 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            string getShowing = "select date_format(Showing_DateTime, '%Y-%m-%d %h:%i'), Address from calendar where Showing_ID = @id";
             conn3.Open();
-            string getShowing = "select * from calendar where Showing_ID = @id";
             MySqlCommand comd3 = new MySqlCommand(getShowing, conn3);
             comd3.Parameters.AddWithValue("id", ID);
             MySqlDataReader dr3 = comd3.ExecuteReader();
-
             while (dr3.Read())
             {
-                ogtime = (DateTime)dr3["Showing_Time"];
+                ogtime = Convert.ToDateTime(dr3["date_format(Showing_DateTime, '%Y-%m-%d %h:%i')"]);
                 oghouse = dr3["Address"].ToString();
             }
             dr3.Close();
@@ -102,12 +103,20 @@ namespace WebApplication1
             cmd.ExecuteNonQuery();
             conn.Close();
 
+            string pat = address + ".*";
+
+            // Instantiate the regular expression object.
+            Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+
+            // Match the regular expression pattern against a text string.
+            Match m = r.Match(oghouse);
+
             string t = showingDateTime.ToString("g");
             string showOGTime = ogtime.ToString("g");
             string sbody = "A showing that was scheduled on " + showOGTime + " has now been moved to " + t;
             string cancelmsg = "A showing that was scheduled on " + showOGTime + "has been cancelled.";
 
-            if (address != oghouse)
+            if (m.Success)
             {
                 //text sent to new house informing them of showing
                 sbody = "A house showing has been scheduled for your residence on " + t;
@@ -168,7 +177,7 @@ namespace WebApplication1
                 string delShowing = "select * from table4 where PropertyName = @Address";
                 MySqlCommand comd5 = new MySqlCommand(delShowing, conn5);
                 comd5.Parameters.AddWithValue("Address", oghouse);
-                MySqlDataReader dr5 = comd.ExecuteReader();
+                MySqlDataReader dr5 = comd5.ExecuteReader();
 
                 while (dr5.Read())
                 {

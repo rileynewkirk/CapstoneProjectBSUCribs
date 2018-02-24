@@ -103,42 +103,6 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.DropDownList AddressDropDownList;
         
         /// <summary>
-        /// addButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addButton;
-        
-        /// <summary>
-        /// LabelHouses control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelHouses;
-        
-        /// <summary>
-        /// ListOfHouses control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListOfHouses;
-        
-        /// <summary>
-        /// AddressValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator AddressValidator;
-        
-        /// <summary>
         /// editShowingBtn control.
         /// </summary>
         /// <remarks>

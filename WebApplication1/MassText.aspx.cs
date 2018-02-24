@@ -162,50 +162,55 @@ namespace WebApplication1
 
             convo.DefaultView.Sort = "Time: ASC";
             convo = convo.DefaultView.ToTable();
-
-            DataRow lastRow = convo.Rows[convo.Rows.Count - 1];
-            string lastmessage = lastRow["Message:"].ToString();
-
-            string qry2 = "select * from messages where phoneNumber = '" + Session["PhoneNumber"].ToString() + "' and Address = '" + address + "'";
-
-            MySqlConnection conn2 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            conn2.Open();
-
-            MySqlCommand cmd2 = new MySqlCommand(qry2, conn2);
-            MySqlDataReader rdr2 = cmd2.ExecuteReader();
-
-            while (rdr2.Read())
+            try
             {
-                if (rdr2["messageBody"].ToString() != lastmessage)
+                DataRow lastRow = convo.Rows[convo.Rows.Count - 1];
+                string lastmessage = lastRow["Message:"].ToString();
+
+                string qry2 = "select * from messages where phoneNumber = '" + Session["PhoneNumber"].ToString() + "' and Address = '" + address + "'";
+
+                MySqlConnection conn2 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                conn2.Open();
+
+                MySqlCommand cmd2 = new MySqlCommand(qry2, conn2);
+                MySqlDataReader rdr2 = cmd2.ExecuteReader();
+
+                while (rdr2.Read())
                 {
-                    MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-                    connd.Open();
+                    if (rdr2["messageBody"].ToString() != lastmessage)
+                    {
+                        MySqlConnection connd = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                        connd.Open();
 
-                    string deleteString = "delete from messages where address = @address and phoneNumber = @PhoneNumber";
-                    MySqlCommand comdd = new MySqlCommand(deleteString, connd);
+                        string deleteString = "delete from messages where address = @address and phoneNumber = @PhoneNumber";
+                        MySqlCommand comdd = new MySqlCommand(deleteString, connd);
 
-                    comdd.Parameters.AddWithValue("@address", address);
-                    comdd.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
-                    comdd.ExecuteNonQuery();
-                    connd.Close();
+                        comdd.Parameters.AddWithValue("@address", address);
+                        comdd.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
+                        comdd.ExecuteNonQuery();
+                        connd.Close();
 
-                    MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-                    conni.Open();
-                    string insertString = "insert into messages (Address, MessageBody, phoneNumber) " +
-                        "values (@Address, @MessageBody, @PhoneNumber) ";
-                    MySqlCommand comdi = new MySqlCommand(insertString, conni);
-                    comdi.Parameters.AddWithValue("@Address", address);
-                    comdi.Parameters.AddWithValue("@MessageBody", lastmessage);
-                    comdi.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
-                    comdi.ExecuteNonQuery();
-                    conni.Close();
+                        MySqlConnection conni = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+                        conni.Open();
+                        string insertString = "insert into messages (Address, MessageBody, phoneNumber) " +
+                            "values (@Address, @MessageBody, @PhoneNumber) ";
+                        MySqlCommand comdi = new MySqlCommand(insertString, conni);
+                        comdi.Parameters.AddWithValue("@Address", address);
+                        comdi.Parameters.AddWithValue("@MessageBody", lastmessage);
+                        comdi.Parameters.AddWithValue("@PhoneNumber", Session["PhoneNumber"].ToString());
+                        comdi.ExecuteNonQuery();
+                        conni.Close();
 
-                    return true;
+                        return true;
+                    }
                 }
+                rdr2.Close();
+                conn2.Close();
             }
-            rdr2.Close();
-            conn2.Close();
-
+            catch (Exception ex)
+            {
+                return false;
+            }
             return false;
         }
 

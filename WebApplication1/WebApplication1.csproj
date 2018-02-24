@@ -327,6 +327,7 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Icons\logo.jpg" />
     <Content Include="obj\Release\WebApplication1.csproj.CoreCompileInputs.cache" />
     <Content Include="CreateShowing.aspx" />
     <Content Include="DeleteShowing.aspx" />

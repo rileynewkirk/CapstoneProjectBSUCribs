@@ -52,9 +52,9 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand">
                         <h1>
-                            <img src="images/logo.png" alt="logo" /></h1>
+                            <img src="Icons/logo.jpg" alt="logo" /></h1>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -120,23 +120,9 @@
                     <div class="col-sm-4">
                      <asp:DropDownList ID="AddressDropDownList" runat="server" cssClass="form-control"></asp:DropDownList>
                          </div>
-                     <div class="col-sm-1">
-                     <asp:Button class="btn btn-warning" ID="addButton" runat="server" Text="Add" OnClick="addButton_Click"  />
-                          <br />
-                        </div>
                  </div>
             </div>
             <!-- close Select Address-->
-
-             <div class="form-group">
-                <asp:Label ID="LabelHouses" runat="server" Text="List of Address" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
-                <div class="col-sm-4">
-                     <asp:ListBox ID="ListOfHouses" runat="server" cssClass="form-control"></asp:ListBox>
-                     <br />
-                </div>
-                    <asp:RequiredFieldValidator ID="AddressValidator" runat="server" validationgroup="ShowingInformationGroup" ControlToValidate="ListOfHouses" ErrorMessage="Must select at least 1 house"></asp:RequiredFieldValidator>
-            </div>
-            <!-- close Housing List -->
             
            <div class="form-group">
            <div > 

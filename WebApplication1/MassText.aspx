@@ -48,7 +48,7 @@
                     </button>
                     <a class="navbar-brand">
                         <h1>
-                            <img src="images/logo.png" alt="logo" /></h1>
+                            <img src="Icons/logo.jpg" alt="logo" /></h1>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">

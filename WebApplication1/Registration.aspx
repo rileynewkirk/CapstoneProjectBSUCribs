@@ -50,9 +50,9 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Default.aspx">
+                    <a class="navbar-brand">
                         <h1>
-                            <img src="images/logo.png" alt="logo" /></h1>
+                            <img src="Icons/logo.jpg" alt="logo" /></h1>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">

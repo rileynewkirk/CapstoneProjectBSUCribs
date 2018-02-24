@@ -130,13 +130,13 @@
                                     OnRowCancelingEdit="GridView1_RowCancelingEdit"
                                     OnRowEditing="GridView1_RowEditing" AlternatingRowStyle-BackColor="#189EA5" AlternatingRowStyle-ForeColor="White" AlternatingRowStyle-BorderStyle="NotSet" GridLines="None">
                                     <Columns>
-                                        <asp:TemplateField HeaderText="ID">
+                                        <asp:TemplateField HeaderText="ID" HeaderStyle-CssClass="text-center">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblShowingID" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Showing_ID") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Client">
+                                        <asp:TemplateField HeaderText="Client" HeaderStyle-CssClass="text-center">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblClient" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Client") %>'></asp:Label>
                                             </ItemTemplate>
@@ -148,7 +148,7 @@
                                             </FooterTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Address">
+                                        <asp:TemplateField HeaderText="Address" HeaderStyle-CssClass="text-center">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblAddress" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Address") %>'></asp:Label>
                                             </ItemTemplate>
@@ -160,7 +160,7 @@
                                             </FooterTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Leasing Agent">
+                                        <asp:TemplateField HeaderText="Leasing Agent"  HeaderStyle-CssClass="text-center">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblLeasingAgent" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "Leasing_Agent") %>'></asp:Label>
                                             </ItemTemplate>
@@ -172,7 +172,7 @@
                                             </FooterTemplate>
                                         </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="Showing Date">
+                                        <asp:TemplateField HeaderText="Showing Date"  HeaderStyle-Wrap="False" HeaderStyle-CssClass="text-center">
                                             <ItemTemplate>
                                                 <asp:Label ID="lblShowingDate" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "ShowingDate") %>'></asp:Label>
                                             </ItemTemplate>

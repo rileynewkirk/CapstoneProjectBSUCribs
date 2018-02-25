@@ -99,7 +99,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 hidden-sm hidden-md hidden-lg ">
-                    <asp:TextBox ID="tbmobileDate" CssClass="form-control col-xs-6" runat="server" TextMode="Date" OnTextChanged="tbmobileDate_TextChanged" AutoPostBack="True"></asp:TextBox>
+                    <asp:TextBox ID="tbmobileDate" CssClass="form-control" style="margin-left: auto; margin-right: auto; width:80%" runat="server" TextMode="Date" OnTextChanged="tbmobileDate_TextChanged" AutoPostBack="True"></asp:TextBox>
 
                 </div>
             </div>
@@ -115,13 +115,7 @@
             <br />
 
             <div class="row">
-                <div class="col-sm-12" style="text-align: center;">
-                    <table style="width: 100%; border: none;">
-                        <tr>
-                            <td colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
+                <div class="col-sm-12" style="text-align: center; overflow-x:auto; width:100%">
                                 <asp:GridView ID="GridView1" Style="width: 100%; border: none;" CssClass="table table-responsive" runat="server"
                                     AutoGenerateColumns="false" ShowFooter="false"
                                     OnRowDataBound="OnRowDataBound"
@@ -196,9 +190,7 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
-                            </td>
-                        </tr>
-                    </table>
+
                 </div>
 
             </div>

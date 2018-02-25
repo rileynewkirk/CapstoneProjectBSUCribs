@@ -351,7 +351,6 @@ namespace WebApplication1
 
         protected void tbmobileDate_TextChanged(object sender, EventArgs e)
         {
-            CreateShowingBtn.Text = "WTF";
             selectedDate = Convert.ToDateTime(tbmobileDate.Text);
             getShowingsFromDate(Convert.ToDateTime(tbmobileDate.Text).Date);
         }

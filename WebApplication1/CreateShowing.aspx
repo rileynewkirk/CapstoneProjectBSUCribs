@@ -95,7 +95,7 @@
             <div class="form-group">
                 <asp:Label ID="LabelDate" runat="server" Text="Date" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="DatePicker" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox ID="DatePicker" runat="server" style="margin-left: auto; margin-right: auto; width:100%" CssClass="form-control" TextMode="Date"></asp:TextBox>
                      <br />
                 </div>
             </div>
@@ -114,7 +114,7 @@
             <div class="form-group">
                 <asp:Label ID="LabelTime" runat="server" Text="Time" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium"></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="TimePicker" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                    <asp:TextBox ID="TimePicker" runat="server" CssClass="form-control" style="margin-left: auto; margin-right: auto; width:100%" TextMode="Time"></asp:TextBox>
                      <br />
                 </div>
             </div>

@@ -9,7 +9,7 @@
     <meta name="description" content="Edit Showing Page" />
     <meta name="keywords" content="Edit, Showing" /> 
     <meta name="author" content="Jacob Little, Nathan Barr, Riley Newkirk, Nicole Porten" />
-    <title>Registration</title>
+    <title>Edit Showing</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="css/prettyPhoto.css" rel="stylesheet" />
@@ -89,7 +89,7 @@
             <div class="form-group">
                 <asp:Label ID="LabelDate" runat="server" Text="Date" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium" ></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="DatePicker" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox ID="DatePicker" runat="server" CssClass="form-control" TextMode="Date"  style="margin-left: auto; margin-right: auto; width:100%"></asp:TextBox>
                      <br />
                 </div>
                 <div class="col-sm-4">
@@ -103,7 +103,7 @@
             <div class="form-group">
                 <asp:Label ID="LabelTime" runat="server" Text="Time" CssClass="control-label col-sm-4" text-Bold="true" Font-Size="Medium" ></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="TimePicker" runat="server" CssClass="form-control" TextMode="Time"></asp:TextBox>
+                    <asp:TextBox ID="TimePicker" runat="server" CssClass="form-control" TextMode="Time"  style="margin-left: auto; margin-right: auto; width:100%"></asp:TextBox>
                      <br />
                 </div>
                 <div class="col-sm-4">

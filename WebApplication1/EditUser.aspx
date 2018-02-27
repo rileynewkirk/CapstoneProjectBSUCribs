@@ -79,7 +79,7 @@
             <div class="form-group">
                 <asp:Label ID="Label8" runat="server" Text="Phone Number" CssClass="control-label col-sm-4" for="tbPhoneNumber"></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control" TextMode="Phone"></asp:TextBox>
+                    <asp:TextBox ID="tbPhoneNumber" runat="server" CssClass="form-control" TextMode="Phone" AutoCompleteType="Disabled"></asp:TextBox>
                 </div>
                 <br />
             </div>
@@ -87,7 +87,7 @@
             <div class="form-group">
                 <asp:Label ID="Label6" runat="server" Text="Password" CssClass="control-label col-sm-4" for="tbPassword"></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="tbPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="tbPassword" runat="server" CssClass="form-control" TextMode="Password" AutoCompleteType="Disabled"></asp:TextBox>
                 </div>
                 <div class="col-sm-4">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ValidationGroup="passwordupdate" runat="server" ControlToValidate="tbPassword" ErrorMessage="Use at least 6 characters without special characters" ValidationExpression="[a-zA-Z0-9]{6,}"></asp:RegularExpressionValidator>
@@ -98,14 +98,14 @@
             <div class="form-group">
                 <asp:Label ID="Label4" runat="server" Text="Email" CssClass="control-label col-sm-4" for="tbEmail"></asp:Label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
+                    <asp:TextBox ID="tbEmail" runat="server"  CssClass="form-control" TextMode="Email" AutoCompleteType="Disabled"></asp:TextBox>
                 </div>
                 <br />
             </div>
 
              <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-4">
-                    <asp:Button ID="Email" CssClass="btn btn-primary" BackColor="Green" runat="server" Text="Update" OnClick="updateInfo" />
+                    <asp:Button ID="Email" CssClass="btn btn-primary"  BackColor="Green" runat="server" Text="Update" OnClick="updateInfo" />
                 </div>
             </div>
             <br />

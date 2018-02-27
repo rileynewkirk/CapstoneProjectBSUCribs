@@ -9,7 +9,7 @@
     <meta name="description" content="Create Showing Page" />
     <meta name="keywords" content="Create, Showing" /> 
     <meta name="author" content="Jacob Little, Nathan Barr, Riley Newkirk, Nicole Porten" />
-    <title>Registration</title>
+    <title>Create Showing</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="css/prettyPhoto.css" rel="stylesheet" />

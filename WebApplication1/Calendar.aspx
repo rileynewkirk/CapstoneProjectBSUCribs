@@ -80,13 +80,13 @@
         <form id="form1" runat="server">
             <div class="row">
                 <div class="col-sm-12 hidden-xs">
-                    <asp:Calendar ID="Calendar1" Style="width:100%; overflow:hidden" runat="server" SelectionMode="Day" Height="500px" FirstDayOfWeek="Sunday" DayStyle-BorderWidth="1px" DayStyle-BorderColor="#189EA5" BackColor="White" BorderColor="#189EA5" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="#189EA5" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" SelectorStyle-Wrap="True">
+                    <asp:Calendar ID="Calendar1" Style="width:100%; overflow:hidden" runat="server" SelectionMode="Day" Height="500px" FirstDayOfWeek="Sunday" DayStyle-BorderWidth="1px" DayStyle-BorderColor="#019143" BackColor="White" BorderColor="#019143" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="#019143" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" SelectorStyle-Wrap="True">
                         <DayHeaderStyle HorizontalAlign="Right" />
                         <DayStyle HorizontalAlign="Center" />
                         <NextPrevStyle Font-Size="12pt" ForeColor="#CCCCFF" />
                         <OtherMonthDayStyle ForeColor="silver" />
                         <SelectedDayStyle BackColor="#99CCFF" />
-                        <TitleStyle Font-Bold="True" HorizontalAlign="Center" BackColor="#189EA5" ForeColor="white" />
+                        <TitleStyle Font-Bold="True" HorizontalAlign="Center" BackColor="#019143" ForeColor="white" />
                         <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                     </asp:Calendar>
                 </div>
@@ -113,7 +113,7 @@
             <asp:Label ID="displayDateLabel" runat="server" Font-Size="Large"></asp:Label>
 
             <br />
-
+            <!-- #189EA5 -->
             <div class="row">
                 <div class="col-sm-12" style="text-align: center; overflow-x:auto; width:100%">
                                 <asp:GridView ID="GridView1" Style="width: 100%; border: none;" CssClass="table table-responsive" runat="server"
@@ -122,7 +122,7 @@
                                     OnRowDeleting="OnRowDeleting"
                                     OnRowUpdating="GridView1_RowUpdating"
                                     OnRowCancelingEdit="GridView1_RowCancelingEdit"
-                                    OnRowEditing="GridView1_RowEditing" AlternatingRowStyle-BackColor="#189EA5" AlternatingRowStyle-ForeColor="White" AlternatingRowStyle-BorderStyle="NotSet" GridLines="None">
+                                    OnRowEditing="GridView1_RowEditing" AlternatingRowStyle-BackColor="#019143" AlternatingRowStyle-ForeColor="White" AlternatingRowStyle-BorderStyle="NotSet" GridLines="None">
                                     <Columns>
                                         <asp:TemplateField HeaderText="ID" HeaderStyle-CssClass="text-center">
                                             <ItemTemplate>

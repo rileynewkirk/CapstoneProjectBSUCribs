@@ -19,6 +19,37 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Clear();
+            addView();
+        }
+        private void addView()
+        {
+            string qry = "Select * From Odometer WHERE name=1";
+            int count = 0;
+
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(qry, conn);
+
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                count = Convert.ToInt32(rdr["count"].ToString());
+            }
+
+            conn.Close();
+            rdr.Close();
+
+            count++;
+
+            qry = "UPDATE odometer SET count=" + count + " WHERE name=1";
+            conn.Open();
+
+            cmd = new MySqlCommand(qry, conn);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
         protected void ButtonLogin_click(object sender, EventArgs e)
         {

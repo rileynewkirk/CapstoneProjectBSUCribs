@@ -113,13 +113,13 @@ namespace WebApplication1
 
             string t = showingDateTime.ToString("g");
             string showOGTime = ogtime.ToString("g");
-            string sbody = "A showing that was scheduled on " + showOGTime + " has now been moved to " + t;
-            string cancelmsg = "A showing that was scheduled on " + showOGTime + "has been cancelled.";
+            string sbody = "C&M Property Management: A showing that was scheduled on " + showOGTime + " has now been moved to " + t;
+            string cancelmsg = "C&M Property Management: A showing that was scheduled on " + showOGTime + "has been cancelled.";
 
             if (m.Success)
             {
                 //text sent to new house informing them of showing
-                sbody = "A house showing has been scheduled for your residence on " + t;
+                sbody = "C&M Property Management: A house showing has been scheduled for your residence on " + t;
                 MySqlConnection conn2 = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
                 conn2.Open();
                 string checkShowing = "select * from table4 where PropertyName = @Address";

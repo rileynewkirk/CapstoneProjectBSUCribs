@@ -65,6 +65,9 @@ namespace WebApplication1
                     var client = rdr["Client_Name"].ToString();
                     var address = rdr["Address"].ToString();
                     var showingDate = rdr["date_format(Showing_DateTime, '%Y-%m-%d %h:%i')"].ToString();
+                    DateTime shdate = Convert.ToDateTime(showingDate);
+                    string dt = shdate.ToString("g");
+                    showingDate = dt;
                     
                     Showing showing = new Showing(showingID, leasingAgent, client, address, showingDate);
 
@@ -181,7 +184,7 @@ namespace WebApplication1
             house = address.Text;
             house += "%";
 
-            string sbody = "A house showing that was scheduled for your residence on " + t.ToString("g") + " has now been cancelled.";
+            string sbody = "C&M Property Management: A house showing that was scheduled for your residence on " + t.ToString("g") + " has now been cancelled.";
 
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             conn.Open();

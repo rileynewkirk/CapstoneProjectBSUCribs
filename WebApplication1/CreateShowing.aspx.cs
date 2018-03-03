@@ -21,9 +21,6 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //var userName = Session["user"].ToString();
-            //userNameLabel.Text = userName;
-            //add addresses to drop down list
             if (!this.IsPostBack)
             {
                 MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
@@ -91,7 +88,7 @@ namespace WebApplication1
 
                 string t = dateTime.ToString("g");
 
-                string sbody = "A showing has been scheduled for your residence on " + t;
+                string sbody = "C&M Property Management: A showing has been scheduled for your residence on " + t;
 
                 MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
                 conn.Open();
@@ -143,12 +140,15 @@ namespace WebApplication1
                 comdi.ExecuteNonQuery();
                 conni.Close();
             }
-
+            houses.Clear();
             Response.Redirect("Calendar.aspx");
+            
+            
         }
 
         protected void cancelBtn_Click(object sender, EventArgs e)
         {
+            houses.Clear();
             Response.Redirect("Calendar.aspx");
         }
     }

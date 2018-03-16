@@ -96,9 +96,46 @@ namespace WebApplication1
                     string str = ex.Message;
                 }
             }
+
+            ArrayList listofhouses = new ArrayList();
+            ArrayList listofmessages = new ArrayList();
+
+            conn.Open();
+            string gethouses = "select distinct PropertyName from table4";
+            MySqlCommand comdget = new MySqlCommand(gethouses, conn);
+            MySqlDataReader dr = comdget.ExecuteReader();
+            while (dr.Read())
+            {
+                listofhouses.Add(dr["PropertyName"].ToString());
+            }
+            dr.Close();
+            conn.Close();
+
+            string getmessages = "select Address from messages";
+            MySqlCommand comdmes = new MySqlCommand(getmessages, conn);
+            MySqlDataReader dr2 = comdmes.ExecuteReader();
+            while (dr2.Read())
+            {
+                listofmessages.Add(dr2["Address"].ToString());
+            }
+            dr2.Close();
+            conn.Close();
+
+            for(int i = 0; i < listofmessages.Count; i++)
+            {
+                if (!listofhouses.Contains(listofmessages[i]))
+                {
+                    string deleteString2 = "DELETE FROM messages where Address = '"+ listofmessages[i] + "';";
+                    MySqlCommand comd3 = new MySqlCommand(deleteString2, conn);
+                    comd3.ExecuteNonQuery();
+                    conn.Close();
+
+                }
+            }
+
         }
 
-        protected void AddressDropDownList_TextChanged(object sender, EventArgs e)
+            protected void AddressDropDownList_TextChanged(object sender, EventArgs e)
         {
             resetrows();
             string address = AddressDropDownList.Text;
@@ -178,8 +215,15 @@ namespace WebApplication1
             string deleteString = "delete from table4 where PropertyName = '" + deladdress + "'";
             MySqlCommand comd = new MySqlCommand(deleteString, conn);
             comd.ExecuteNonQuery();
+
+            string deletefrommessages = "delete from messages where Address ='" + deladdress + "'";
+            MySqlCommand comdDel = new MySqlCommand(deletefrommessages, conn);
+            comdDel.ExecuteNonQuery();
+
             conn.Close();
             Response.Redirect("EditHousingList.aspx");
+
+
         }
 
         protected void UpdateListing_Click(object sender, EventArgs e)
@@ -289,17 +333,21 @@ namespace WebApplication1
                 string lastname = ln.Text;
                 string mobile = m.Text;
 
-
+                try { 
                 MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
                 conn.Open();
                 string insertstring = "INSERT INTO `table4`(`PropertyName`, `FirstName`, `LastName`, `Mobile`) VALUES ('" +address+ "','" + firstname + "','" + lastname + "'," + mobile + ");";
                 MySqlCommand comd = new MySqlCommand(insertstring, conn);
                 comd.ExecuteNonQuery();
                 conn.Close();
-                
+                Response.Redirect("EditHousingList.aspx");
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script language=javascript> var agree; agree=confirm('You must fill out all of the forms before hitting submit');</script>");
+                }
 
             }
-            Response.Redirect("EditHousingList.aspx");
         }
 
         protected void AddRow(object sender, EventArgs e)

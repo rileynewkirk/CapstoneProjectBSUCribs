@@ -59,6 +59,14 @@
                         <li class="scroll active"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll" id="navADD" runat="server"></li>
                         <li class="scroll"><a href="MassText.aspx">Mass Text</a></li>
+                        <li class="scroll dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Properties
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ViewProperties.aspx">View All Properties</a></li>
+                                <li id="editADD" runat="server"></li>
+                            </ul>
+                        </li>
                         <li class="scroll"><a href="Login.aspx">Log out</a></li>
 
                     </ul>

@@ -31,6 +31,9 @@ namespace WebApplication1
                 LiteralControl nav = new LiteralControl();
                 nav.Text = "<a href=\"Registration.aspx\">Users</a>";
                 navADD.Controls.Add(nav);
+                LiteralControl navedit = new LiteralControl();
+                navedit.Text = "<a href=\"EditHousingList.aspx\">Edit Housing List</a>";
+                editADD.Controls.Add(navedit);
             }
             if (Session["PhoneNumber"] == null)
             {

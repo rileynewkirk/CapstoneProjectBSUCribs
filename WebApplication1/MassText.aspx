@@ -9,7 +9,7 @@
     <title>Mass Text</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/prettyPhoto.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/background.css" rel="stylesheet" />
@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png" />
-   
+
 </head>
 
 <body style="background: url('backgrounds/southRoad.jpeg')no-repeat center fixed; background-size: cover;">
@@ -57,6 +57,14 @@
                         <li class="scroll"><a href="Calendar.aspx">Calendar</a></li>
                         <li class="scroll" id="navADD" runat="server"></li>
                         <li class="scroll active"><a href="MassText.aspx">Mass Text</a></li>
+                        <li class="scroll dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Properties
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ViewProperties.aspx">View All Properties</a></li>
+                                <li id="editADD" runat="server"></li>
+                            </ul>
+                        </li>
                         <li class="scroll"><a href="Login.aspx">Log out</a></li>
 
                     </ul>
@@ -86,7 +94,7 @@
                 <div class="col-lg-12">
                     <div class="main-box clearfix">
                         <div class="table-responsive " id="userTable">
-                            <table class="table user-list table-hover" style="max-height:500px; overflow-y:scroll; overflow-x:auto;">
+                            <table class="table user-list table-hover" style="max-height: 500px; overflow-y: scroll; overflow-x: auto;">
                                 <thead>
                                     <tr>
                                         <th><span>Address</span></th>
@@ -133,18 +141,7 @@
             </div>
             <asp:Label for="submitButtons" CssClass="control-label col-sm-4" ID="lblResponse" runat="server" Text=""></asp:Label>
             <br />
-            <div class="row" style="margin-left: auto; margin-right: auto; text-align: center;">
-                <asp:Label ID="Label1" CssClass="well well-sm" runat="server"><a href="ViewProperties.aspx">View All Properties</a></asp:Label>
-            </div>
             <br />
-            <br />
-
-            <div class="row" style="margin-left: auto; margin-right: auto; text-align: center;">
-
-                <asp:Label ID="Label2" CssClass="well well-sm" runat="server"><a href="EditHousingList.aspx">Edit Properties</a></asp:Label>
-            </div>
-            <br />
-                        <br />
 
             <div class="row" style="margin-left: auto; margin-right: auto; text-align: center;">
                 <asp:Label ID="Label4" CssClass="well well-sm" Visible="false" runat="server">">The message did not actually send, the phone number for this account is not a valid twilio phone number</asp:Label>

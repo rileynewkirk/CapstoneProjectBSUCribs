@@ -99,7 +99,7 @@
                     </asp:Calendar>
                 </div>
             </div>
-
+            <!-- datepicker for mobile-->
                <div class="row">
                 <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
                     <asp:Label ID="Label1" runat="server" Text="Choose a date to view showings"></asp:Label>

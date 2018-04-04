@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="WebApplication1.Registration" %>
-
+<%@ OutputCache CacheProfile="CacheWeek"%>
 
 <!DOCTYPE html>
 

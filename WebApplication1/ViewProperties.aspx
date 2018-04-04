@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewProperties.aspx.cs" Inherits="WebApplication1.ViewProperties" %>
-
+<%@ OutputCache CacheProfile="CacheWeek"%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

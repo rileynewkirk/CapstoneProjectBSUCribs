@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MassText.aspx.cs" Inherits="WebApplication1.MassText" %>
-
+<%@ OutputCache CacheProfile="CacheWeek"%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

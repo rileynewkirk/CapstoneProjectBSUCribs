@@ -50,6 +50,34 @@ namespace WebApplication1
             cmd.ExecuteNonQuery();
 
             conn.Close();
+
+            string qry1 = "Select * From Odometer WHERE name= 'candm'";
+            int count1 = 0;
+
+            conn.Open();
+
+            MySqlCommand cmd1 = new MySqlCommand(qry1, conn);
+
+            MySqlDataReader rdr1 = cmd.ExecuteReader();
+
+            while (rdr1.Read())
+            {
+                count1 = Convert.ToInt32(rdr["count"].ToString());
+            }
+
+            conn.Close();
+            rdr.Close();
+
+            count1++;
+
+            qry1 = "UPDATE odometer SET count=" + count1 + " WHERE name='candm'";
+            conn.Open();
+
+            cmd1 = new MySqlCommand(qry1, conn);
+            cmd1.ExecuteNonQuery();
+
+            conn.Close();
+
         }
         protected void ButtonLogin_click(object sender, EventArgs e)
         {

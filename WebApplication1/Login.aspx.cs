@@ -58,15 +58,15 @@ namespace WebApplication1
 
             MySqlCommand cmd1 = new MySqlCommand(qry1, conn);
 
-            MySqlDataReader rdr1 = cmd.ExecuteReader();
+            MySqlDataReader rdr1 = cmd1.ExecuteReader();
 
             while (rdr1.Read())
             {
-                count1 = Convert.ToInt32(rdr["count"].ToString());
+                count1 = Convert.ToInt32(rdr1["count"].ToString());
             }
 
             conn.Close();
-            rdr.Close();
+            rdr1.Close();
 
             count1++;
 

@@ -21,7 +21,9 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["user"] = "ds";
+            Session["userType"] = 2;
+            Session["PhoneNumber"] = "3179975301";
             if (!IsPostBack)
             {
                 Calendar1.SelectedDate = selectedDate;

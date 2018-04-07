@@ -236,6 +236,11 @@
     <Compile Include="App_Code\EncryptPassword.cs" />
     <Compile Include="App_Code\Showing.cs" />
     <Compile Include="App_Code\UserUtil.cs" />
+    <Content Include="0.9\css\responsive-calendar.css" />
+    <Content Include="0.9\example\index.html" />
+    <Content Include="0.9\js\jquery.js" />
+    <Content Include="0.9\js\responsive-calendar.js" />
+    <Content Include="0.9\js\responsive-calendar.min.js" />
     <Content Include="backgrounds\computer.jpeg" />
     <Content Include="backgrounds\road.jpeg" />
     <Content Include="backgrounds\southRoad.jpeg" />
@@ -361,6 +366,8 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="0.9\css\less\responsive-calendar.less" />
+    <Content Include="0.9\js\coffee\responsive-calendar.coffee" />
     <None Include="Properties\PublishProfiles\CMmessanger.com - Web Deploy.pubxml" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />

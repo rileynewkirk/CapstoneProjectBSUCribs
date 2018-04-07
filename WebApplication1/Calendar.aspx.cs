@@ -80,9 +80,44 @@ namespace WebApplication1
                 }
                 rdr.Close();
                 conn.Close();
+                postIntoList(showings);
             }
         }
 
+        private void postIntoList(List<Showing> showings)
+        {
+            #region TEST
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[5] { new DataColumn("Showing_ID"), new DataColumn("Leasing_Agent"), new DataColumn("Client"), new DataColumn("Address"), new DataColumn("ShowingDate") });
+            foreach (Showing s in showings)
+            {
+                dt.Rows.Add(s.Showing_ID, s.LeasingAgent, s.Client, s.Address, s.ShowingDate);
+            }
+            ViewState["dt"] = dt;
+            BindGrid();
+
+
+            #endregion
+
+
+            /*showingList.InnerHtml = "";
+            for (int i = 0; i <= showings.Count - 1; i++)
+            {
+                string start = "<tr id=\"" + showings[i].getID() + "\">";
+                string leasingAgent = "<td> " + showings[i].getLeasingAgent() + "</td>";
+                // string showingID = "<td> " + showings[i].getID() + "</td>";
+                string client = "<td> " + showings[i].getClient() + "</td>";
+                string address = "<td>" + showings[i].getAddress() + "</td>";
+                string showingDate = "<td>" + showings[i].getShowingDate() + "</td>";
+                string btnEdit = "<td style=\"width:5%;\"><a href=\"EditShowing.aspx?showingID=" + showings[i].getID() + "\" class=\"btn btn-default\">Edit</a></td>";
+                string btnDelete = "<td style=\"width:5%;\"><a href=\"DeleteShowing.aspx?showingID=" + showings[i].getID() + "\" class=\"btn btn-danger\">Delete</a></td>";
+                string end = "</tr>";
+
+                string showing = start + leasingAgent + client + address + showingDate + btnEdit + btnDelete + end;
+
+                showingList.InnerHtml = showingList.InnerHtml + showing;
+            }*/
+        }
 
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)

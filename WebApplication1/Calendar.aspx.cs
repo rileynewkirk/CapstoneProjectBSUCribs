@@ -21,6 +21,9 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["user"] = "ds";
+            Session["userType"] = 2;
+            Session["PhoneNumber"] = "3179975301";
 
             if (!IsPostBack)
             {
@@ -44,7 +47,39 @@ namespace WebApplication1
             {
                 Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
             }
+            getShowingsForMobile();
+        }
 
+        private void getShowingsForMobile()
+        {
+            //litScript.Text = " < script type = \"text/javascript\"> var d = new Date(); var output = d.getFullYear() + '-' + d.getMonth() $(document).ready(function() {" +
+            //"$(\".responsive-calendar\").responsiveCalendar({time: output, events:{ \"2018 - 04 - 010\": { \"number\": 2 }}, onDayClick: function(events) { alert('Day was clicked') },});});</script>";
+            
+            //            string qry = "SELECT DATE_FORMAT(Showing_DateTime,'%Y-%m-%d') FROM calendar";
+            //int showingCount = 0;
+            //MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            //MySqlCommand cmd = new MySqlCommand(qry, conn);
+            //conn.Open();
+            //string previousday = "";
+            //using (MySqlDataReader rdr = cmd.ExecuteReader())
+            //{
+            //    while (rdr.Read())
+            //    {
+            //        previousday = rdr["DATE_FORMAT(Showing_DateTime,'%Y-%m-%d')"].ToString();
+            //        if(previousday == rdr["DATE_FORMAT(Showing_DateTime,'%Y-%m-%d')"].ToString())
+            //        {
+            //            showingCount++;
+            //        }
+            //        else
+            //        {
+            //            showingCount = 1;
+
+            //        }
+            //    }
+            //    rdr.Close();
+            //    conn.Close();
+            //}
+            
         }
 
         protected void goToCreateShowing(object sender, EventArgs e)

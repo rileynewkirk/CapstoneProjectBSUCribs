@@ -31,10 +31,10 @@
 .responsive-calendar .day.header {
   border-bottom: 1px gray solid;
 }
-.responsive-calendar .day.active a {
-  background-color: #1d86c8;
-  color: #ffffff;
-}
+    .responsive-calendar .day.active a {
+        background-color: #019143;
+        color: #ffffff;
+    }
 .responsive-calendar .day.active a:hover {
   background-color: #36a0e2;
 }

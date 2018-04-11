@@ -24,6 +24,7 @@
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" />
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'/>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
     <script src="0.9/js/responsive-calendar.js"></script>
     <link href="0.9/css/responsive-calendar.css" rel="stylesheet" media="screen" />
@@ -119,9 +120,9 @@
             <!-- Responsive calendar - START -->
             <div class="responsive-calendar">
         <div class="controls">
-            <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+            <a class="pull-left" data-go="prev"><div class="btn btn-primary" style="background-color:#019143">Prev</div></a>
             <h4><span data-head-year></span> <span data-head-month></span></h4>
-            <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+            <a class="pull-right" data-go="next"><div class="btn btn-primary" style="background-color:#019143">Next</div></a>
         </div><hr/>
                 <div class="day-headers">
                     <div class="day header">Mon</div>
@@ -272,7 +273,7 @@
                 <asp:Button class="btn btn-primary" ID="CreateShowingBtn" runat="server" Text="Create Showing" OnClick="goToCreateShowing" />
             </div>
             <br />
-
+                
         </form>
     </div>
 
@@ -287,7 +288,7 @@
     <script type="text/javascript" src="js/main.js"></script>
 
     <script src="0.9/js/responsive-calendar.js"></script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         var d = new Date();
         var output = d.getFullYear() + '-' + d.getMonth()
         $(document).ready(function () {
@@ -302,11 +303,11 @@
                 onDayClick: function (events) { alert('Day was clicked') },
             });
         });
-    </script>
+    </script>-->
 
-    <script type="text/javascript">
-        <asp:Literal id="litScript" runat="server" />
-</script>
+    <script type="text/javascript" runat="server">
+          
+    </script>
 </body>
 </html>
 

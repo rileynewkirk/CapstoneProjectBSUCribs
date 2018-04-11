@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -48,38 +49,55 @@ namespace WebApplication1
                 Response.Write("<script language=javascript> var agree; agree=confirm('You have to log in first'); window.location='Login.aspx';</script>");
             }
             getShowingsForMobile();
+         
         }
-
+          
         private void getShowingsForMobile()
         {
-            //litScript.Text = " < script type = \"text/javascript\"> var d = new Date(); var output = d.getFullYear() + '-' + d.getMonth() $(document).ready(function() {" +
-            //"$(\".responsive-calendar\").responsiveCalendar({time: output, events:{ \"2018 - 04 - 010\": { \"number\": 2 }}, onDayClick: function(events) { alert('Day was clicked') },});});</script>";
-            
-            //            string qry = "SELECT DATE_FORMAT(Showing_DateTime,'%Y-%m-%d') FROM calendar";
-            //int showingCount = 0;
-            //MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
-            //MySqlCommand cmd = new MySqlCommand(qry, conn);
-            //conn.Open();
-            //string previousday = "";
-            //using (MySqlDataReader rdr = cmd.ExecuteReader())
-            //{
-            //    while (rdr.Read())
-            //    {
-            //        previousday = rdr["DATE_FORMAT(Showing_DateTime,'%Y-%m-%d')"].ToString();
-            //        if(previousday == rdr["DATE_FORMAT(Showing_DateTime,'%Y-%m-%d')"].ToString())
-            //        {
-            //            showingCount++;
-            //        }
-            //        else
-            //        {
-            //            showingCount = 1;
 
-            //        }
-            //    }
-            //    rdr.Close();
-            //    conn.Close();
-            //}
-            
+            String csname1 = "PopupScript";
+            String csname2 = "ButtonClickScript";
+            Type cstype = this.GetType();
+            ClientScriptManager cs = Page.ClientScript;
+            String csstart = "var d = new Date();var output = d.getFullYear() + '-' + (d.getMonth()+1);$(document).ready(function() {$(\".responsive-calendar\").responsiveCalendar({ time: output,events:{ ";
+            //\"2018-04-30\": { \"number\": 5 },\"2018-04-26\": { \"number\": 1 },\"2018-05-03\": { \"number\": 1 },\"2018-06-12\": { }
+            string qry = "SELECT DATE_FORMAT(Showing_DateTime,'%Y-%m-%d') FROM calendar";
+            int showingCount = 0;
+            MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
+            MySqlCommand cmd = new MySqlCommand(qry, conn);
+            ArrayList dates = new ArrayList();
+            conn.Open();
+            string csevents = "";
+            using (MySqlDataReader rdr = cmd.ExecuteReader())
+            {
+                while (rdr.Read())
+                {
+                    dates.Add(rdr["DATE_FORMAT(Showing_DateTime,'%Y-%m-%d')"].ToString());
+                }
+                rdr.Close();
+                conn.Close();
+            }
+
+            Dictionary<string, int> distinctItems = new Dictionary<string, int>();
+
+            foreach (string item in dates)
+            {
+                if (!distinctItems.ContainsKey(item))
+                {
+                    distinctItems.Add(item, 0);
+                }
+                distinctItems[item] += 1;
+            }
+            foreach (KeyValuePair<string, int> distinctItem in distinctItems)
+            {
+                //System.Diagnostics.Debug.WriteLine("\"{0}\" occurs {1} time(s).", distinctItem.Key, distinctItem.Value);
+                csevents += "\"" + distinctItem.Key + "\":{\"number\":" + distinctItem.Value + "},";
+            }
+
+            String csend = "}, onDayClick: function(events) { alert('Day was clicked') },});});";
+            String csall = csstart + csevents + csend;
+            cs.RegisterStartupScript(cstype, csname1, csall, true);
+
         }
 
         protected void goToCreateShowing(object sender, EventArgs e)

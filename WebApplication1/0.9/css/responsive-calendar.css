@@ -35,16 +35,16 @@
         background-color: #019143;
         color: #ffffff;
     }
-.responsive-calendar .day.active a:hover {
-  background-color: #36a0e2;
-}
-.responsive-calendar .day.active .not-current {
-  background-color: #8fcaef;
-  color: #ffffff;
-}
-.responsive-calendar .day.active .not-current:hover {
-  background-color: #bcdff5;
-}
+        .responsive-calendar .day.active a:hover {
+            background-color: #0fe270;
+        }
+    .responsive-calendar .day.active .not-current {
+        background-color: #9ced90;
+        color: #ffffff;
+    }
+        .responsive-calendar .day.active .not-current:hover {
+            background-color: #c1f5bc;
+        }
 .responsive-calendar .day.not-current a {
   color: #ddd;
 }

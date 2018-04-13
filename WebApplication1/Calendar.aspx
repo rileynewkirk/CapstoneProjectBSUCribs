@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="WebApplication1.Calendar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="WebApplication1.Calendar" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -24,10 +24,12 @@
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" />
     <link rel="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css'/>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
 
     <script src="0.9/js/responsive-calendar.js"></script>
     <link href="0.9/css/responsive-calendar.css" rel="stylesheet" media="screen" />
+
 </head>
 
 <body style="background: url('backgrounds/computer.jpeg')no-repeat center fixed; background-size: cover;">
@@ -91,7 +93,7 @@
     <div class="container well" style="text-align: center; border-radius: 15px;">
         <form id="form1" runat="server">
             <div class="row">
-                <div class="col-sm-12 hidden-xs">
+                <div class="hidden">
                     <asp:Calendar ID="Calendar1" Style="width: 100%; overflow: hidden" runat="server" SelectionMode="Day" Height="500px" FirstDayOfWeek="Sunday" DayStyle-BorderWidth="1px" DayStyle-BorderColor="#019143" BackColor="White" BorderColor="#019143" BorderWidth="2px" CellPadding="1" DayNameFormat="Full" Font-Names="Verdana" Font-Size="16pt" ForeColor="#019143" OnDayRender="Calendar1_DayRender" OnSelectionChanged="Calendar1_SelectionChanged" SelectorStyle-Wrap="True">
                         <DayHeaderStyle HorizontalAlign="Right" />
                         <DayStyle HorizontalAlign="Center" />
@@ -101,18 +103,6 @@
                         <TitleStyle Font-Bold="True" HorizontalAlign="Center" BackColor="#019143" ForeColor="white" />
                         <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                     </asp:Calendar>
-                </div>
-            </div>
-            <!-- datepicker for mobile-->
-            <div class="row">
-                <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-                    <asp:Label ID="Label1" runat="server" Text="Choose a date to view showings"></asp:Label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 hidden-sm hidden-md hidden-lg ">
-                    <asp:TextBox ID="tbmobileDate" CssClass="form-control" Style="margin-left: auto; margin-right: auto; width: 80%" runat="server" TextMode="Date" OnTextChanged="tbmobileDate_TextChanged" AutoPostBack="True"></asp:TextBox>
-
                 </div>
             </div>
 
@@ -134,11 +124,8 @@
                     <div class="day header">Sun</div>
                 </div>
                 <div class="days" data-group="days">
-                    <!-- the place where days will be generated -->
                 </div>
             </div>
-
-
             <!-- Responsive calendar - END -->
 
             <br />
@@ -273,7 +260,7 @@
                 <asp:Button class="btn btn-primary" ID="CreateShowingBtn" runat="server" Text="Create Showing" OnClick="goToCreateShowing" />
             </div>
             <br />
-                
+            <asp:Button ID="btndayclick" runat="server" Text="Button" OnClick="btndayclick_Click" style="visibility:hidden"/>
         </form>
     </div>
 
@@ -281,36 +268,44 @@
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/smoothscroll.js"></script>
     <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
     <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="js/jquery.parallax.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
     <script src="0.9/js/responsive-calendar.js"></script>
-    <!--<script type="text/javascript">
-        var d = new Date();
-        var output = d.getFullYear() + '-' + d.getMonth()
-        $(document).ready(function () {
-            $(".responsive-calendar").responsiveCalendar({
-                time: output,
-                events: {
-                    "2018-04-30": { "number": 5 },
-                    "2018-04-26": { "number": 1 },
-                    "2018-05-03": { "number": 1 },
-                    "2018-06-12": {}
-                },
-                onDayClick: function (events) { alert('Day was clicked') },
-            });
-        });
-    </script>-->
 
-    <script type="text/javascript" runat="server">
-          
+    <script type="text/javascript">
+        function setbtnval(date) {
+            $("#<%=btndayclick.ClientID%>").attr("value", date);
+            $("#<%=btndayclick.ClientID%>").click();
+        }
     </script>
+
 </body>
 </html>
 
 
 
 
+
+<!--
+        var d = new Date();
+        var output = d.getFullYear() + '-' + (d.getMonth() + 1);
+        $(document).ready(function () {
+            $(".responsive-calendar").responsiveCalendar({
+                time: output,
+                events: {
+                    "2018-04-30": { "number": 5 },
+                    "2018-04-26": { "number": 1 },
+                    "2018-04-03": { "number": 17 },
+                    "2018-06-12": {}
+                },
+                onDayClick: function (events) {
+                    var thisDayEvent, key;
+                    key = $(this).data('year') + '-' + $(this).data('month') + '-' + $(this).data('day');
+                    setbtnval(key);
+                },
+            });
+        });
+-->

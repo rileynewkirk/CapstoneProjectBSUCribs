@@ -22,9 +22,6 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["user"] = "ds";
-            Session["userType"] = 2;
-            Session["PhoneNumber"] = "3179975301";
 
             if (!IsPostBack)
             {
@@ -56,13 +53,10 @@ namespace WebApplication1
         {
 
             String csname1 = "PopupScript";
-            String csname2 = "ButtonClickScript";
             Type cstype = this.GetType();
             ClientScriptManager cs = Page.ClientScript;
             String csstart = "var d = new Date();var output = d.getFullYear() + '-' + (d.getMonth()+1);$(document).ready(function() {$(\".responsive-calendar\").responsiveCalendar({ time: output,events:{ ";
-            //\"2018-04-30\": { \"number\": 5 },\"2018-04-26\": { \"number\": 1 },\"2018-05-03\": { \"number\": 1 },\"2018-06-12\": { }
             string qry = "SELECT DATE_FORMAT(Showing_DateTime,'%Y-%m-%d') FROM calendar";
-            int showingCount = 0;
             MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["TestCapstone"].ConnectionString);
             MySqlCommand cmd = new MySqlCommand(qry, conn);
             ArrayList dates = new ArrayList();
@@ -90,11 +84,10 @@ namespace WebApplication1
             }
             foreach (KeyValuePair<string, int> distinctItem in distinctItems)
             {
-                //System.Diagnostics.Debug.WriteLine("\"{0}\" occurs {1} time(s).", distinctItem.Key, distinctItem.Value);
                 csevents += "\"" + distinctItem.Key + "\":{\"number\":" + distinctItem.Value + "},";
             }
 
-            String csend = "}, onDayClick: function(events) { alert('Day was clicked') },});});";
+            String csend = "}, onDayClick: function(events) { var thisDayEvent, key;key = $(this).data('year') + '-' + $(this).data('month') + '-' + $(this).data('day');setbtnval(key); },});});";
             String csall = csstart + csevents + csend;
             cs.RegisterStartupScript(cstype, csname1, csall, true);
 
@@ -105,7 +98,8 @@ namespace WebApplication1
             Response.Redirect("CreateShowing.aspx");
         }
 
-        private void getShowingsFromDate(DateTime date)
+  
+        public void getShowingsFromDate(DateTime date)
         {
             List<Showing> showings = new List<Showing>();
             string qry = @"SELECT Showing_ID, date_format(Showing_DateTime, '%Y-%m-%d %h:%i'), Agent_ID, Client_Name, Address FROM calendar WHERE Showing_DateTime like '" + date.ToString("yyyy-MM-dd") + "%'";
@@ -381,17 +375,12 @@ namespace WebApplication1
 
         }
 
-        protected void tbmobileDate_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                selectedDate = Convert.ToDateTime(tbmobileDate.Text);
-                getShowingsFromDate(Convert.ToDateTime(tbmobileDate.Text).Date);
-            }
-            catch
-            {
 
-            }
+        protected void btndayclick_Click(object sender, EventArgs e)
+        {
+            string date = Request.Form["btndayclick"];
+            getShowingsFromDate(Convert.ToDateTime(date).Date);
         }
+
     }
 }
